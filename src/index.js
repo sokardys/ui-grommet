@@ -4,6 +4,7 @@ export const sections = AllSections
 
 export * from './analytics/Analytics'
 export * from './burger/Burger'
+export * from './card/Card'
 export * from './carousel/Carousel'
 export * from './cta/Cta'
 export * from './description/Description'
@@ -19,3 +20,4 @@ export * from './page/Page'
 export * from './section/Section'
 export * from './textblock/TextBlock'
 export * from './title/Title'
+export * from './viewer/Viewer'
