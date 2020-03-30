@@ -1,0 +1,58 @@
+{
+  "name": "ui-grommet",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "start-storybook -p 9001",
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix | snazzy"
+  },
+  "dependencies": {
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-knobs": "^5.3.17",
+    "@storybook/addon-storysource": "^5.3.17",
+    "@storybook/react": "^5.3.17",
+    "@storybook/source-loader": "^5.3.17",
+    "clipboard": "^2.0.6",
+    "grommet": "^2.11.3",
+    "grommet-icons": "^4.4.0",
+    "next": "^9.3.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^2.7.0",
+    "react-hook-form": "^5.2.0",
+    "react-is": "^16.13.1",
+    "reaptcha": "^1.7.2",
+    "regenerator-runtime": "^0.13.5",
+    "styled-components": "^5.0.1",
+    "use-debounce": "^3.4.0",
+    "yup": "^0.28.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "husky": "^4.2.3",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.3",
+    "webpack": "^4.42.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run \"lint\""
+    }
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      ".cache",
+      "dist"
+    ],
+    "globals": [
+      "test",
+      "expect",
+      "import"
+    ]
+  }
+}
