@@ -70,3 +70,25 @@ export const WithDescription = () =>
       </Box>
     </Section>
   </Page>
+
+export const WithParallax = () =>
+  <Page>
+    <Section
+      align='center'
+      title='Titulo de la Sección'
+      parallax='//i.pinimg.com/originals/9c/69/84/9c69843107ad62dde66d3f81993d4eb7.jpg'
+    >
+      <Box background='brand' pad='medium'>
+        <Text>Section Header</Text>
+      </Box>
+    </Section>
+    <Section
+      align='center'
+      title='Must another Section'
+      background='dark-1'
+    >
+      <Box pad='medium'>
+        <Text>Other Section</Text>
+      </Box>
+    </Section>
+  </Page>

@@ -1,25 +1,51 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { Box } from 'grommet'
+import styled from 'styled-components'
+import 'jarallax/dist/jarallax.css';
 
+import { Box } from 'grommet'
 import { Cta } from '../cta/Cta'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 
-export const Section = ({
+export const Section = styled(({
+  className,
   children,
   width = 'xlarge',
   title,
   titleConfig = {},
   description,
   descriptionConfig = {},
+  parallax,
+  parallaxConfig = {},
   cta,
   ...props
 }) => {
+  const parallaxRef = useRef()
+  useEffect(() => {
+    
+    if (parallaxRef.current){
+      const { jarallax } = require('jarallax')
+      jarallax( parallaxRef.current, parallaxConfig )
+    }
+    return () => {
+      if (parallaxRef.current){
+        jarallax( parallaxRef.current, 'destroy' );
+      }
+    }
+  }, [parallaxRef])
+
   const marginNone = { top: 'none', bottom: 'none', right: 'none', left: 'none' }
   return (
-    <Box align='center' pad='large' {...props}>
-      <Box width={width} flex='grow'>
+    <Box className={className} align='center' pad='large' {...props}>
+      {parallax && 
+        <Box
+          className='jarallax'
+          ref={parallaxRef}
+        >
+          <img className="jarallax-img" src={parallax} />
+        </Box>}
+      <Box className='content' width={width} flex='grow'>
         <>
           {title &&
             <Title
@@ -41,7 +67,22 @@ export const Section = ({
       </Box>
     </Box>
   )
-}
+})`
+  position: relative;
+  overflow: hidden;
+  transform: translateX(0);
+  & .jarallax {
+    position: absolute;
+    top:0 ;
+    left: 0;
+    width: 100%;
+    min-height: 50vh;
+    z-index: 0;
+  }
+  & .content {
+    z-index: 1;
+  }
+`
 
 Section.propTypes = {
   children: PropTypes.node.isRequired,
