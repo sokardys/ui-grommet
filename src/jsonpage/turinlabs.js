@@ -56,7 +56,7 @@ export default [{
     title: 'lAPPs for a new world',
     titleConfig: {
       level: '1',
-      size:'small',
+      size: 'small',
       margin: { vertical: 'medium', horizontal: 'none' },
       alignSelf: 'start'
     },
@@ -75,7 +75,7 @@ export default [{
     }
   }],
   background: 'dark-1',
-  pad: { vertical: 'xlarge', horizontal: 'large'}
+  pad: { vertical: 'xlarge', horizontal: 'large' }
 },
 {
   section: 'hero',

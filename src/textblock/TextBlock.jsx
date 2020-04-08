@@ -20,7 +20,7 @@ export const TextBlock = ({
   return (
     <Box {...props}>
       {title && <Title level='2' margin={{ ...marginNone, bottom: 'medium' }} title={title} {...titleConfig} />}
-      {description && <Description {...descriptionConfig} dangerouslySetInnerHTML={{__html: description}} />}
+      {description && <Description {...descriptionConfig} dangerouslySetInnerHTML={{ __html: description }} />}
       {cta && <Cta margin={{ ...marginNone, top: 'medium' }} {...cta} />}
     </Box>
   )
