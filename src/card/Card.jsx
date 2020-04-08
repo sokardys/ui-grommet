@@ -7,58 +7,91 @@ import {
 
 import {
   Cta,
-  Description,
   Image,
   Title
 } from '..'
 
-export const Card = ({
+export const Card = styled(({
+  className,
   children,
   image,
   imageConfig = {},
   title,
   titleConfig = {},
-  description,
-  descriptionConfig = {},
+  footer,
   cta,
+  stack,
   ...props
 }) => {
   const marginNone = { top: 'none', bottom: 'none', right: 'none', left: 'none' }
-  return(
+
+  return (
     <Box
-      pad='small'
+      className={className}
       elevation='small'
-      width='medium'
+      width='auto'
       background='light-1'
-      round='small'
+      border
       {...props}
+      round='xsmall'
     >
-      <Image
-        boxConfig={{
-          round: 'small',
-          ...imageConfig
-        }}
-        src={image}
-        fit='cover'
-      />
-      <Box>
+      {stack &&
+        <Box
+          className='stack'
+          round={{ corner: 'top-right', size: 'xsmall' }}
+          overflow='hidden'
+        >
+          {stack}
+        </Box>}
+      <Box pad='small' gap='small'>
+        {image &&
+          <Image
+            boxConfig={{
+              round: 'xsmall',
+              ...imageConfig
+            }}
+            src={image}
+            fit='cover'
+          />}
         {title &&
           <Title
-            level='2'
-            margin={{ ...marginNone, top: 'medium', bottom: 'medium' }}
+            level='3'
             title={title}
+            margin='none'
+            responsive={false}
             {...titleConfig}
           />}
-        {description &&
-          <Description
-            margin={{ ...marginNone }}
-            {...descriptionConfig}
-          >
-            {description}
-          </Description>}
         {children}
         {cta && <Cta margin={{ ...marginNone, top: 'large' }} {...cta} />}
       </Box>
+      {footer &&
+        <Box
+          border='top'
+          justify='between'
+          align='center'
+          direction='row'
+          pad={{ vertical: 'xsmall', horizontal: 'small' }}
+        >
+          {footer}
+        </Box>}
     </Box>
   )
-}
+})`
+  position: relative;
+  transition: all .2s ease;
+
+  ${({ theme, hover = false, hoverColor = 'brand' }) =>
+    hover
+      ? `&:hover {
+          transform: translate3d(-4px,-4px,0) rotateZ(-1deg);
+          box-shadow: 0.5rem 0.5rem 0 ${theme.global.colors[hoverColor]};
+        }`
+      : ''
+  }
+
+  & .stack {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+`
