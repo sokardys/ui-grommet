@@ -109,7 +109,7 @@ export const Image = ({
 
   if (boxConfig) {
     return (
-      <Box {...boxConfig}>
+      <Box overflow='hidden' {...boxConfig}>
         {composeImage()}
       </Box>
     )
