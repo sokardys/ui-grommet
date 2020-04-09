@@ -42,8 +42,8 @@ const renderMenuOptions = ({
   config = {}
 }) => {
   const { color, ...props } = config
-  return options.map(({ type, label, ...option }, index) => {
-    const labelTag = <Text as='div' textAlign='center'>{label}</Text>
+  return options.map(({ type, label, labelConfig = {}, ...option }, index) => {
+    const labelTag = <Text as='div' textAlign='center' {...labelConfig}>{label}</Text>
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
         {type === 'button'
