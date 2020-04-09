@@ -9,7 +9,12 @@ export const HeroSection = ({
   gridConfig = {},
   ...props
 }) =>
-  <Section pad='large' gap='medium' {...props}>
+  <Section
+    pad='large'
+    gap='medium'
+    margin={{ top: '-1px' }}
+    {...props}
+  >
     <Grid
       rows={['auto']}
       {...gridConfig}
