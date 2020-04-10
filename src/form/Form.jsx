@@ -59,7 +59,7 @@ const composeValidation = fields => {
     const field = fields[name]
     if (field.validation) {
       const fieldConfig = Object.keys(field.validation).reduce((acu, key) => {
-        console.log('key', key)
+        console.log('key', key, field)
         switch (key) {
           case 'required':
             return acu.required(field.validation[key])
@@ -76,20 +76,25 @@ const composeValidation = fields => {
   return yup.object().shape(config)
 }
 
-export const Form = ({ id = '', fields = {}, button = { label: 'Enviar' }, success, error }) => {
+export const Form = ({
+  id = '',
+  fields = {},
+  button = { label: 'Enviar' },
+  success = 'Enviado!',
+  error = 'Upps! Ocurrió un problema',
+  onSend
+}) => {
   const [status, setStatus] = useState({})
   const [valuesToSend, setValuesToSend] = useState()
   const [toSend, setToSend] = useState(false)
   const [load, setLoad] = useState(false)
-  const schema = composeValidation(fields)
-  console.log('validationSchema', schema)
   const { register, handleSubmit, errors, reset } = useForm({
-    validationSchema: schema
+    validationSchema: composeValidation(fields)
   })
   const captchaRef = useRef()
 
   useEffect(() => {
-    (async () => {
+    const sendForm = async () => {
       if (toSend) {
         if (valuesToSend) {
           await sendingForm(valuesToSend)
@@ -97,12 +102,14 @@ export const Form = ({ id = '', fields = {}, button = { label: 'Enviar' }, succe
           reset()
           setTimeout(() => {
             setStatus({})
-          }, 5000)
+            onSend && onSend()
+          }, 3000)
         }
         setValuesToSend(undefined)
         setToSend(false)
       }
-    })()
+    }
+    sendForm()
   }, [valuesToSend, toSend])
 
   if (!fields.captcha) {
@@ -147,6 +154,7 @@ export const Form = ({ id = '', fields = {}, button = { label: 'Enviar' }, succe
             name={name}
             ref={register}
             resize='vertical'
+            rows='3'
             placeholder={placeholder}
             onFocus={onFocus}
           />
@@ -172,7 +180,7 @@ export const Form = ({ id = '', fields = {}, button = { label: 'Enviar' }, succe
         label={label}
         key={key}
         htmlFor={`${name}_id`}
-        error={errors[name] && <Text>{errors[name].message}</Text>}
+        error={errors[name] && <Text color='status-critical'>{errors[name].message}</Text>}
       >
         {getInput({
           id: `${name}_id`,
@@ -184,7 +192,7 @@ export const Form = ({ id = '', fields = {}, button = { label: 'Enviar' }, succe
   }
 
   return (
-    <Box id={id} align='center' pad='large'>
+    <Box align='center'>
       <GrommetForm onSubmit={handleSubmit(onSubmit)}>
         {Object.keys(fields).map((name, index) => {
           const field = fields[name]
@@ -207,14 +215,15 @@ export const Form = ({ id = '', fields = {}, button = { label: 'Enviar' }, succe
             })
           }
         })}
+        {status.send && <StatusBox background='status-ok'>{success}</StatusBox>}
+        {status.error && <StatusBox background='status-error'>{error}</StatusBox>}
         <Button
           primary
           type='submit'
           disabled={!!valuesToSend || !load}
+          margin={{ top: 'medium' }}
           {...button}
         />
-        {status.send && <StatusBox background='status-ok'>{success}</StatusBox>}
-        {status.error && <StatusBox background='status-error'>{error}</StatusBox>}
       </GrommetForm>
     </Box>
   )

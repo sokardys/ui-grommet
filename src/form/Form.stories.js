@@ -39,7 +39,7 @@ const form = {
     }
   },
   success: 'Formulario enviado!',
-  error: 'Ups! Error! Intentalo más tarde'
+  error: 'Ups! Error, intentalo más tarde!'
 }
 
 export const Default = () =>

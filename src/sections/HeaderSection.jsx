@@ -9,6 +9,7 @@ import {
 } from 'grommet'
 import {
   Burger,
+  Modal,
   Section
 } from '..'
 
@@ -47,7 +48,7 @@ const renderMenuOptions = ({
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
         {type === 'button'
-          ? <Button focusIndicator={false} {...option} label={labelTag} />
+          ? <Modal.Button Component={Button} focusIndicator={false} {...option} label={labelTag} />
           : <Anchor focusIndicator={false} color={color} {...option} label={labelTag} />}
       </Box>
     )

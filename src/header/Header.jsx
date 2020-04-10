@@ -9,6 +9,7 @@ import {
 
 import { Section } from '../section/Section'
 import { Image } from '../image/Image'
+import { Modal } from '../modal/Modal'
 
 export const Header = ({
   logo = {},
@@ -35,7 +36,8 @@ export const Header = ({
       </Text>
     )
     return (
-      <Button
+      <Modal.Button
+        Component={Button}
         focusIndicator={false}
         alignSelf='center'
         {...buttonConfig}

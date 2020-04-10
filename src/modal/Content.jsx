@@ -1,7 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
 import { Layer } from 'grommet'
 import { useModalContext } from './Modal'
+
+const MyLayer = styled(Layer)`
+  background: transparent;
+`
 
 const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
   const { state: { on, key }, actions, dispatch } = useModalContext()
@@ -18,7 +24,7 @@ const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
 
   if (isOn) {
     return (
-      <Layer
+      <MyLayer
         onEsc={myToggleWrapper(onEsc)}
         onClickOutside={myToggleWrapper(onClickOutside)}
         {...props}
@@ -28,7 +34,7 @@ const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
             ? children({ on, toggle: myToggle })
             : children
         }
-      </Layer>
+      </MyLayer>
     )
   }
   return null
