@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FooterSection } from './FooterSection'
 import { Page } from '../page/Page'
 
-export default { title: 'Footer Header Section' }
+export default { title: 'Footer Section' }
 
 const Body = styled.div`
   font-family: 'Nunito Sans';
