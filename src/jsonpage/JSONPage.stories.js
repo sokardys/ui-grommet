@@ -40,7 +40,7 @@ const turinLabTheme = {
   global: {
     colors: {
       brand: '#2b4696',
-      'dark-2': '#EE4266',
+      'dark-5': '#EE4266',
       'accent-1': '#EE4266'
     },
     font: {

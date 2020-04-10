@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import Link from 'next/link'
 
 import {
   Box,
@@ -8,7 +9,7 @@ import {
 } from 'grommet'
 
 import { Section } from '../section/Section'
-import { Image } from '../image/Image'
+import { Logo } from '../logo/Logo'
 import { Modal } from '../modal/Modal'
 
 export const Header = ({
@@ -49,7 +50,7 @@ export const Header = ({
   const onlyLogo = !text && !button
 
   return (
-    <Section {...props}>
+    <Section pad='none' {...props}>
       <Box
         pad='none'
         gap='medium'
@@ -59,9 +60,9 @@ export const Header = ({
         alignSelf='center'
         direction='row'
       >
-        <a href='/'>
-          <Image {...logo} lazy={false} />
-        </a>
+        <Link href='/'>
+          <a><Logo {...logo} /></a>
+        </Link>
         {text && isTextVisible && <Text alignSelf='center' textAlign='center' {...textConfig}>{text}</Text>}
         {button && composeButton()}
       </Box>

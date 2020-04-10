@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
+import Link from 'next/link'
 import {
   Anchor,
   Box,
   Button,
-  Image,
   ResponsiveContext,
   Text
 } from 'grommet'
 import {
   Burger,
+  Logo,
   Modal,
   Section
 } from '..'
@@ -55,14 +56,6 @@ const renderMenuOptions = ({
   })
 }
 
-const Logo = ({ width, src }) =>
-  <Box
-    width={width}
-    pad='small'
-  >
-    <Image fill fit='contain' src={src} />
-  </Box>
-
 export const HeaderSection = ({
   logo = {},
   burgerSizes = ['small'],
@@ -97,9 +90,9 @@ export const HeaderSection = ({
           direction='row'
           fill
         >
-          <a href='/'>
-            <Logo {...logo} />
-          </a>
+          <Link href='/'>
+            <a><Logo {...logo} /></a>
+          </Link>
           {!isMobile && <SubMenu menuOptions={menuOptions} config={menuConfig} />}
           {isMobile && <Box pad={{ vertical: 'small', horizontal: 'medium' }}><Burger cross={open} color={burgerColor} onClick={toggleOpen} /></Box>}
         </Box>
