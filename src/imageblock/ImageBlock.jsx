@@ -43,9 +43,9 @@ export const ImageBlock = ({
     </Description>
 
   const composeBox = () =>
-    <Box {...props}>
+    <Box align='center' {...props}>
       {top && title && composeHeading()}
-      <Image {...imageConfig} src={src} fit='contains' />
+      <Image {...imageConfig} src={src} fit='contain' />
       {!top && title && composeHeading()}
       {description && composeDescription()}
       {cta && <Cta {...cta} />}
