@@ -6,6 +6,7 @@ import {
 } from 'grommet'
 
 import { Cta } from '../cta/Cta'
+import { ContactInfo } from '../contactinfo/ContactInfo'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 import { Image } from '../image/Image'
@@ -24,6 +25,7 @@ export const Cell = ({
   cta,
   icons,
   iconsConfig = {},
+  contact,
   ...props
 }) => {
   const composeHeading = () =>
@@ -58,6 +60,7 @@ export const Cell = ({
       {description && composeDescription()}
       {cta && <Cta {...cta} />}
       {icons && composeIcons()}
+      {contact && <ContactInfo {...contact} />}
     </Box>
 
   if (href) {
