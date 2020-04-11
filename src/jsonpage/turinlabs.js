@@ -211,8 +211,9 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bitcoin.svg',
       imageConfig: {
         boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'xsmall' }
+          height: '4em',
+          fill: 'horizontal',
+          margin: { bottom: 'medium' }
         }
       },
       description: 'Services demanding strength & security'
@@ -220,8 +221,9 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ln.svg',
       imageConfig: {
         boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'xsmall' }
+          height: '4em',
+          fill: 'horizontal',
+          margin: { bottom: 'medium' }
         }
       },
       description: 'Instant, zero-cost & private micropayments'
@@ -229,8 +231,9 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/liquid.svg',
       imageConfig: {
         boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'xsmall' }
+          height: '4em',
+          fill: 'horizontal',
+          margin: { bottom: 'medium' }
         }
       },
       description: 'Tokenization & sidechains transactions'
@@ -238,8 +241,9 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ipfs.svg',
       imageConfig: {
         boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'xsmall' }
+          height: '4em',
+          fill: 'horizontal',
+          margin: { bottom: 'medium' }
         }
       },
       description: 'Decentralized custody'
@@ -247,8 +251,9 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/eth.svg',
       imageConfig: {
         boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'xsmall' }
+          height: '4em',
+          fill: 'horizontal',
+          margin: { bottom: 'medium' }
         }
       },
       description: 'DeFi protocols to build financial assets'
@@ -256,8 +261,9 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/symbol.svg',
       imageConfig: {
         boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'small' }
+          height: '4em',
+          fill: 'horizontal',
+          margin: { bottom: 'medium' }
         }
       },
       description: 'Multilevel multisignature transactions'
@@ -472,21 +478,69 @@ export default [
       }
     },
     cells: [{
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/blockstream.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/blockstream.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '3em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/coinbase.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/coinbase.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/compound.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/compound.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/dy_dx.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/dy_dx.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/aave-2.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/aave-2.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/nuo.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/nuo.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/kyber.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/kyber.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bancor.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bancor.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      }
     }],
     waves: {
       top: '<svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg"><path fill="#2b4696" fill-opacity="1" d="M0,64L1440,160L1440,0L0,0Z"/></svg>'
