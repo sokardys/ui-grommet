@@ -26,18 +26,32 @@ export const Floating = styled(({ className, children, gap = 200, debug = false,
   )
 })`
   position: fixed;
+  transition: all 0.5s;
   left: 0;
-  top: -300px;
-  width: 100%;
-  z-index: 30;
-  transition: top 0.5s;
-  &.show {
-    top: 0;
-  }
+  z-index: 10;
+  ${({ position = 'top' }) => {
+    if (position === 'top') {
+      return `
+        top: -300px;
+        width: 100%;
+        &.show {
+          top: 0;
+        }
+      `
+    }
+    return `
+        bottom: -300px;
+        width: auto;
+        &.show {
+          bottom: 0;
+        }
+      `
+  }}
 `
 
 Floating.displayName = 'Floating'
 Floating.propTypes = {
   className: PropTypes.string,
-  gap: PropTypes.number
+  gap: PropTypes.number,
+  position: PropTypes.string
 }
