@@ -5,10 +5,10 @@ import {
   Box
 } from 'grommet'
 
-import { ImageBlock } from './ImageBlock'
+import { Cell } from './Cell'
 import { Page } from '../page/Page'
 
-export default { title: 'Image Block' }
+export default { title: 'Cell' }
 
 const imageConfig = {
   background: 'light-3',
@@ -49,7 +49,7 @@ export const Default = () =>
   <Page theme={theme}>
     <Body>
       <Box width='medium'>
-        <ImageBlock {...imageConfig} />
+        <Cell {...imageConfig} />
       </Box>
     </Body>
   </Page>
@@ -58,7 +58,7 @@ export const TitleOnTop = () =>
   <Page theme={theme}>
     <Body>
       <Box width='medium'>
-        <ImageBlock {...imageConfig} top />
+        <Cell {...imageConfig} top />
       </Box>
     </Body>
   </Page>
@@ -75,7 +75,7 @@ export const WithCTA = () =>
   <Page theme={theme}>
     <Body>
       <Box width='medium'>
-        <ImageBlock {...withCTA} />
+        <Cell {...withCTA} />
       </Box>
     </Body>
   </Page>
@@ -110,7 +110,7 @@ export const WithIcons = () =>
   <Page theme={theme}>
     <Body>
       <Box width='medium'>
-        <ImageBlock {...withIcons} />
+        <Cell {...withIcons} />
       </Box>
     </Body>
   </Page>

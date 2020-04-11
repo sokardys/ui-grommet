@@ -4,7 +4,7 @@ import {
   ResponsiveContext
 } from 'grommet'
 
-import { ImageBlock } from '../imageblock/ImageBlock'
+import { Cell } from '../cell/Cell'
 
 export const Grid = ({
   columns,
@@ -27,7 +27,7 @@ export const Grid = ({
 
   const composeCells = () =>
     cells.map(({ type, ...cell }, index) =>
-      <ImageBlock key={`cell-${index}`} {...cell} />
+      <Cell key={`cell-${index}`} {...cell} />
     )
 
   return (

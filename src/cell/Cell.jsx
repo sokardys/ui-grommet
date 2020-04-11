@@ -11,7 +11,7 @@ import { Description } from '../description/Description'
 import { Image } from '../image/Image'
 import { Icons } from '../icons/Icons'
 
-export const ImageBlock = ({
+export const Cell = ({
   top = false,
   href,
   anchorConfig = {},
