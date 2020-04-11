@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import {
+  Box
+} from 'grommet'
+
 import { ImageBlock } from './ImageBlock'
 import { Page } from '../page/Page'
-import { Grid } from '../grid/Grid'
 
 export default { title: 'Image Block' }
 
@@ -11,7 +14,14 @@ const imageConfig = {
   background: 'light-3',
   title: 'Amplia tu margen',
   src: 'https://picsum.photos/seed/picsum/200/300',
-  description: 'La única solución en la que tú decides si repercutes el precio del servicio en tu cliente'
+  description: 'La única solución en la que tú decides si repercutes el precio del servicio en tu cliente',
+  imageConfig: {
+    fit: 'cover',
+    boxConfig: {
+      fill: 'horizontal',
+      height: 'small'
+    }
+  }
 }
 
 const Body = styled.div`
@@ -38,18 +48,18 @@ const theme = {
 export const Default = () =>
   <Page theme={theme}>
     <Body>
-      <Grid margin='medium'>
+      <Box width='medium'>
         <ImageBlock {...imageConfig} />
-      </Grid>
+      </Box>
     </Body>
   </Page>
 
 export const TitleOnTop = () =>
   <Page theme={theme}>
     <Body>
-      <Grid margin='medium'>
+      <Box width='medium'>
         <ImageBlock {...imageConfig} top />
-      </Grid>
+      </Box>
     </Body>
   </Page>
 
@@ -64,8 +74,43 @@ const withCTA = {
 export const WithCTA = () =>
   <Page theme={theme}>
     <Body>
-      <Grid margin='medium'>
+      <Box width='medium'>
         <ImageBlock {...withCTA} />
-      </Grid>
+      </Box>
+    </Body>
+  </Page>
+
+const withIcons = {
+  ...imageConfig,
+  icons: [{
+    icon: 'Github',
+    href: 'https://www.github.com/',
+    iconConfig: {
+      size: 'large'
+    }
+  }, {
+    icon: 'Twitter',
+    href: 'https://www.twitter.com/',
+    iconConfig: {
+      size: 'large'
+    }
+  }, {
+    icon: 'Linkedin',
+    href: 'https://www.linkedin.com/',
+    iconConfig: {
+      size: 'large'
+    }
+  }],
+  iconsConfig: {
+    gap: 'medium'
+  }
+}
+
+export const WithIcons = () =>
+  <Page theme={theme}>
+    <Body>
+      <Box width='medium'>
+        <ImageBlock {...withIcons} />
+      </Box>
     </Body>
   </Page>

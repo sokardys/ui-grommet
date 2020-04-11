@@ -362,58 +362,96 @@ export default [
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/miguel.png',
       imageConfig: {
         boxConfig: {
-          width: 'small',
-          height: 'small',
+          width: '8em',
+          height: '8em',
           round: '50%',
-          background: 'light-2'
+          background: 'light-2',
+          margin: { bottom: 'small' }
         }
       },
       title: 'Miguel Caballero',
       titleConfig: {
         level: '4'
-      }
+      },
+      icons: [{
+        icon: 'InternetExplorer',
+        href: 'https://www.miguelcaballero.eu'
+      }, {
+        icon: 'Twitter',
+        href: 'https://www.twitter.com/mcaballero'
+      }, {
+        icon: 'Linkedin',
+        href: 'https://www.linkedin.com/in/micaballero/'
+      }]
     }, {
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/borlado.png',
       imageConfig: {
         boxConfig: {
-          width: 'small',
-          height: 'small',
+          width: '8em',
+          height: '8em',
           round: '50%',
-          background: 'light-2'
+          background: 'light-2',
+          margin: { bottom: 'small' }
         }
       },
       title: 'Carlos Borlado',
       titleConfig: {
         level: '4'
-      }
+      },
+      icons: [{
+        icon: 'Linkedin',
+        href: 'https://www.linkedin.com/in/carlos-borlado-5b833011/'
+      }]
     }, {
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/sokar.png',
       imageConfig: {
         boxConfig: {
-          width: 'small',
-          height: 'small',
+          width: '8em',
+          height: '8em',
           round: '50%',
-          background: 'light-2'
+          background: 'light-2',
+          margin: { bottom: 'small' }
         }
       },
       title: 'Javier Ortiz',
       titleConfig: {
         level: '4'
-      }
+      },
+      icons: [{
+        icon: 'Github',
+        href: 'https://www.github.com/sokardys'
+      }, {
+        icon: 'Twitter',
+        href: 'https://www.twitter.com/sokardys'
+      }, {
+        icon: 'Linkedin',
+        href: 'https://www.linkedin.com/in/sokardys/'
+      }]
     }, {
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ker.png',
       imageConfig: {
         boxConfig: {
-          width: 'small',
-          height: 'small',
+          width: '8em',
+          height: '8em',
           round: '50%',
-          background: 'light-2'
+          background: 'light-2',
+          margin: { bottom: 'small' }
         }
       },
       title: 'Carlos Roldán',
       titleConfig: {
         level: '4'
-      }
+      },
+      icons: [{
+        icon: 'Github',
+        href: 'https://www.github.com/whiteyhat'
+      }, {
+        icon: 'Twitter',
+        href: 'https://www.twitter.com/whiteyhat'
+      }, {
+        icon: 'Linkedin',
+        href: 'https://www.linkedin.com/in/whiteyhat/'
+      }]
     }],
     pad: { vertical: 'xlarge', horizontal: 'large' },
     background: 'brand'

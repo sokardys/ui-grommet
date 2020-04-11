@@ -9,6 +9,7 @@ import { Cta } from '../cta/Cta'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 import { Image } from '../image/Image'
+import { Icons } from '../icons/Icons'
 
 export const ImageBlock = ({
   top = false,
@@ -21,6 +22,8 @@ export const ImageBlock = ({
   description,
   descriptionConfig = {},
   cta,
+  icons,
+  iconsConfig = {},
   ...props
 }) => {
   const composeHeading = () =>
@@ -38,17 +41,23 @@ export const ImageBlock = ({
         bottom: 'small'
       }}
       {...descriptionConfig}
-    >
-      {description}
-    </Description>
+      dangerouslySetInnerHTML={{ __html: description }}
+    />
+
+  const composeIcons = () =>
+    <Icons
+      icons={icons}
+      {...iconsConfig}
+    />
 
   const composeBox = () =>
     <Box align='center' {...props}>
       {top && title && composeHeading()}
-      <Image {...imageConfig} src={src} fit='contain' />
+      {src && <Image fit='contain' {...imageConfig} src={src} />}
       {!top && title && composeHeading()}
       {description && composeDescription()}
       {cta && <Cta {...cta} />}
+      {icons && composeIcons()}
     </Box>
 
   if (href) {
