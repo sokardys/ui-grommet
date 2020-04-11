@@ -50,7 +50,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'imageBlock',
     src: 'https://criptanpay.s3-eu-west-1.amazonaws.com/images/hero.svg',
     imageConfig: {
       boxConfig: {
@@ -58,7 +57,6 @@ export default [{
       }
     }
   }, {
-    type: 'imageBlock',
     src: 'https://criptanpay.s3-eu-west-1.amazonaws.com/images/hero.svg',
     imageConfig: {
       boxConfig: {
@@ -86,7 +84,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'imageBlock',
     top: true,
     title: 'Free-risk forever',
     titleConfig: { size: 'small' },
@@ -98,7 +95,6 @@ export default [{
     },
     description: 'Blockfier uses IPFS to distribute your file all over the world'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'Decentralized custody',
     titleConfig: { size: 'small' },
@@ -110,7 +106,6 @@ export default [{
     },
     description: 'Nobody owns your file, and everyone owns it. No risky points'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'Public verification',
     titleConfig: { size: 'small' },
@@ -122,7 +117,6 @@ export default [{
     },
     description: 'Anyone can verify the ownership in the Liquid blockchain'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'Simple & easy-to-use',
     titleConfig: { size: 'small' },
@@ -148,7 +142,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'imageBlock',
     top: true,
     title: 'Sign up',
     titleConfig: { size: 'small' },
@@ -160,7 +153,6 @@ export default [{
     },
     description: 'Create your account in Blockfier and complete your profile'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'Issue',
     titleConfig: { size: 'small' },
@@ -172,7 +164,6 @@ export default [{
     },
     description: 'Generate your digital asset and upload it to IPFS network'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'Claim',
     titleConfig: { size: 'small' },
@@ -198,7 +189,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'imageBlock',
     src: 'https://picsum.photos/seed/picsum/200/112',
     imageConfig: {
       boxConfig: {
@@ -206,7 +196,6 @@ export default [{
       }
     }
   }, {
-    type: 'imageBlock',
     title: 'Strength',
     titleConfig: { size: 'small' },
     src: 'https://picsum.photos/seed/picsum/200/112',
@@ -216,7 +205,6 @@ export default [{
       }
     }
   }, {
-    type: 'imageBlock',
     title: 'Versatility',
     titleConfig: { size: 'small' },
     src: 'https://picsum.photos/seed/picsum/200/112',
@@ -226,7 +214,6 @@ export default [{
       }
     }
   }, {
-    type: 'imageBlock',
     title: 'Security',
     titleConfig: { size: 'small' },
     src: 'https://picsum.photos/seed/picsum/200/112',
@@ -249,7 +236,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'textBlock',
     title: 'Es gratis, para siempre',
     titleConfig: {
       level: '3',
@@ -267,7 +253,6 @@ export default [{
       margin: { vertical: 'medium', horizontal: 'none' }
     }
   }, {
-    type: 'imageBlock',
     src: 'https://picsum.photos/seed/picsum/200/300',
     imageConfig: {
       fill: true

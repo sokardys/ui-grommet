@@ -48,7 +48,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'textBlock',
     title: 'Accept Bitcoin in your ecommerce and get Euros in your bank. Simple, fast and free.',
     titleConfig: {
       level: 1,
@@ -67,7 +66,6 @@ export default [{
       alignSelf: 'start'
     }
   }, {
-    type: 'imageBlock',
     src: 'https://criptanpay.s3-eu-west-1.amazonaws.com/images/hero.svg',
     imageConfig: {
       boxConfig: {
@@ -90,7 +88,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'imageBlock',
     top: true,
     title: 'Get more customers',
     src: 'https://criptanpay.s3-eu-west-1.amazonaws.com/images/benefits_1.svg',
@@ -101,7 +98,6 @@ export default [{
     },
     description: 'Grow in revenues accepting new payment methods, while you receive euro'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'Grow your margin',
     src: 'https://criptanpay.s3-eu-west-1.amazonaws.com/images/benefits_2.svg',
@@ -112,7 +108,6 @@ export default [{
     },
     description: 'Service fees will be paid by final customers, so it will be always free for you'
   }, {
-    type: 'imageBlock',
     top: true,
     title: 'No technical effort',
     src: 'https://criptanpay.s3-eu-west-1.amazonaws.com/images/benefits_3.svg',
@@ -137,7 +132,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'imageBlock',
     title: 'Escanear el QR',
     src: 'https://picsum.photos/seed/picsum/200/112',
     imageConfig: {
@@ -147,7 +141,6 @@ export default [{
     },
     description: 'Crece más, vende más y cobra más aceptando nuevos medios de pago, mientras tú recibes €'
   }, {
-    type: 'imageBlock',
     title: 'Procesan el Pago',
     src: 'https://picsum.photos/seed/picsum/200/112',
     imageConfig: {
@@ -157,7 +150,6 @@ export default [{
     },
     description: 'La única solución en la que tú decides si repercutes el precio del servicio en tu cliente'
   }, {
-    type: 'imageBlock',
     title: 'Confirman el pedido',
     src: 'https://picsum.photos/seed/picsum/200/112',
     imageConfig: {
@@ -180,7 +172,6 @@ export default [{
     }
   },
   cells: [{
-    type: 'textBlock',
     title: 'Es gratis, para siempre',
     titleConfig: {
       level: '3',
@@ -198,7 +189,6 @@ export default [{
       margin: { vertical: 'medium', horizontal: 'none' }
     }
   }, {
-    type: 'imageBlock',
     src: 'https://picsum.photos/seed/picsum/200/300',
     imageConfig: {
       fill: true

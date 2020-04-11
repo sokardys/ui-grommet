@@ -23,7 +23,6 @@ const defaultValues = {
     }
   },
   cells: [{
-    type: 'textBlock',
     title: 'Es gratis, para siempre',
     titleConfig: {
       level: '3'
@@ -36,7 +35,6 @@ const defaultValues = {
       margin: { vertical: 'small', horizontal: 'none' }
     }
   }, {
-    type: 'imageBlock',
     src: 'https://picsum.photos/seed/picsum/200/300'
   }],
   background: 'light-1'

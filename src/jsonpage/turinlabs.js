@@ -56,7 +56,6 @@ export default [
       }
     },
     cells: [{
-      type: 'textBlock',
       title: 'Tokenized and crypto Products for a new world order',
       titleConfig: {
         level: '1',
@@ -70,7 +69,6 @@ export default [
         size: 'large'
       }
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/hero.svg',
       imageConfig: {
         boxConfig: {
@@ -101,7 +99,6 @@ export default [
       }
     },
     cells: [{
-      type: 'imageBlock',
       top: true,
       title: 'Payments',
       titleConfig: { size: 'small' },
@@ -113,7 +110,6 @@ export default [
       },
       description: 'Micro payments through Lighting Network'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'Gaming',
       titleConfig: { size: 'small' },
@@ -125,7 +121,6 @@ export default [
       },
       description: 'Video games with bitcoin-based incentives'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'Tokenization',
       titleConfig: { size: 'small' },
@@ -137,7 +132,6 @@ export default [
       },
       description: 'Assets design and deployment over sidechains'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'Digital ID',
       titleConfig: { size: 'small' },
@@ -149,7 +143,6 @@ export default [
       },
       description: 'Self-Sovereign Identity using distributed networks'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'Education',
       titleConfig: { size: 'small' },
@@ -161,7 +154,6 @@ export default [
       },
       description: 'New economy models with reward systems'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'Apostille',
       titleConfig: { size: 'small' },
@@ -173,7 +165,6 @@ export default [
       },
       description: 'Certification services powered by the strength of Bitcoin'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'Custody',
       titleConfig: { size: 'small' },
@@ -185,7 +176,6 @@ export default [
       },
       description: 'Distributed file applications based on IPFS protocol'
     }, {
-      type: 'imageBlock',
       top: true,
       title: 'DeFi',
       titleConfig: { size: 'small' },
@@ -218,7 +208,6 @@ export default [
       }
     },
     cells: [{
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bitcoin.svg',
       imageConfig: {
         boxConfig: {
@@ -228,7 +217,6 @@ export default [
       },
       description: 'Services demanding strength & security'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ln.svg',
       imageConfig: {
         boxConfig: {
@@ -238,7 +226,6 @@ export default [
       },
       description: 'Instant, zero-cost & private micropayments'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/liquid.svg',
       imageConfig: {
         boxConfig: {
@@ -248,7 +235,6 @@ export default [
       },
       description: 'Tokenization & sidechains transactions'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ipfs.svg',
       imageConfig: {
         boxConfig: {
@@ -258,7 +244,6 @@ export default [
       },
       description: 'Decentralized custody'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/eth.svg',
       imageConfig: {
         boxConfig: {
@@ -268,7 +253,6 @@ export default [
       },
       description: 'DeFi protocols to build financial assets'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/symbol.svg',
       imageConfig: {
         boxConfig: {
@@ -299,7 +283,6 @@ export default [
       }
     },
     cells: [{
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
         boxConfig: {
@@ -309,7 +292,6 @@ export default [
       },
       description: 'Bitcoin payment processor for merchants'
     }, {
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
         boxConfig: {
@@ -319,7 +301,6 @@ export default [
       },
       description: 'Fortnite improved with bitcoin rewards'
     }, {
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
         boxConfig: {
@@ -329,7 +310,6 @@ export default [
       },
       description: 'Apostille service with decentralized custody'
     }, {
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
         boxConfig: {
@@ -339,7 +319,6 @@ export default [
       },
       description: 'Data collection service for spirits industry'
     }, {
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
         boxConfig: {
@@ -349,7 +328,6 @@ export default [
       },
       description: 'API infrastructure for LN payments'
     }, {
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
         boxConfig: {
@@ -381,7 +359,6 @@ export default [
       }
     },
     cells: [{
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/miguel.png',
       imageConfig: {
         boxConfig: {
@@ -396,7 +373,6 @@ export default [
         level: '4'
       }
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/borlado.png',
       imageConfig: {
         boxConfig: {
@@ -411,7 +387,6 @@ export default [
         level: '4'
       }
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/sokar.png',
       imageConfig: {
         boxConfig: {
@@ -426,7 +401,6 @@ export default [
         level: '4'
       }
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ker.png',
       imageConfig: {
         boxConfig: {
@@ -460,28 +434,20 @@ export default [
       }
     },
     cells: [{
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/blockstream.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/coinbase.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/compound.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/dy_dx.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/aave-2.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/nuo.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/kyber.svg'
     }, {
-      type: 'imageBlock',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bancor.svg'
     }],
     waves: {

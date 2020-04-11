@@ -25,7 +25,6 @@ const defaultValues = {
       }
     },
     cells: [{
-      type: 'textBlock',
       title: 'Es gratis, para siempre',
       titleConfig: {
         level: '3'
@@ -38,7 +37,6 @@ const defaultValues = {
         margin: { vertical: 'small', horizontal: 'none' }
       }
     }, {
-      type: 'imageBlock',
       src: 'https://picsum.photos/seed/picsum/200/300'
     }],
     background: 'dark-1'
@@ -53,7 +51,6 @@ const defaultValues = {
       margin: 'large'
     },
     cells: [{
-      type: 'imageBlock',
       title: 'Escanear el QR',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
@@ -63,7 +60,6 @@ const defaultValues = {
       },
       description: 'Crece más, vende más y cobra más aceptando nuevos medios de pago, mientras tú recibes €'
     }, {
-      type: 'imageBlock',
       title: 'Procesan el Pago',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {
@@ -73,7 +69,6 @@ const defaultValues = {
       },
       description: 'La única solución en la que tú decides si repercutes el precio del servicio en tu cliente'
     }, {
-      type: 'imageBlock',
       title: 'Confirman el pedido',
       src: 'https://picsum.photos/seed/picsum/200/112',
       imageConfig: {

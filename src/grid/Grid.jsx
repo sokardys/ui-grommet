@@ -5,7 +5,6 @@ import {
 } from 'grommet'
 
 import { ImageBlock } from '../imageblock/ImageBlock'
-import { TextBlock } from '../textblock/TextBlock'
 
 export const Grid = ({
   columns,
@@ -27,14 +26,9 @@ export const Grid = ({
   }
 
   const composeCells = () =>
-    cells.map(({ type, ...cell }, index) => {
-      switch (type) {
-        case 'imageBlock':
-          return <ImageBlock key={`cell-${index}`} {...cell} />
-        case 'textBlock':
-          return <TextBlock key={`cell-${index}`} {...cell} />
-      }
-    })
+    cells.map(({ type, ...cell }, index) =>
+      <ImageBlock key={`cell-${index}`} {...cell} />
+    )
 
   return (
     <GrommetGrid
