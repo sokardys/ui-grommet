@@ -6,32 +6,6 @@ import { createGlobalStyle } from 'styled-components'
 
 import { Modal } from '..'
 
-const GlobalStyle = createGlobalStyle`
-  html {
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
-  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-  }
-
-  ol, ul {
-    list-style: none;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-`
-
 const defaultTheme = deepMerge(base, {
   global: {
     breakpoints: {
@@ -49,22 +23,47 @@ const defaultTheme = deepMerge(base, {
   },
   formField: {
     label: {
-      color: 'light-1',
       weight: 600,
       margin: { vertical: 'xsmall', horizontal: 'none' }
     },
-    border: false,
     margin: { bottom: 'small' }
-  },
-  textInput: {
-    extend: { background: '#F8F8F8 !important' }
-  },
-  textArea: {
-    extend: { background: '#F8F8F8 !important' }
   }
 })
 
-export const Page = ({ children, theme = {} }) => {
+export const Page = ({ children, theme = {}, css = '' }) => {
+  const GlobalStyle = createGlobalStyle`
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+    }
+
+    ol, ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    ${css}
+  `
+  console.log('Page', theme, deepMerge(defaultTheme, theme))
   return (
     <Grommet theme={deepMerge(defaultTheme, theme)}>
       <Modal>
