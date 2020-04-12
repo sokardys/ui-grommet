@@ -7,6 +7,7 @@ import { useModalContext } from './Modal'
 
 const MyLayer = styled(Layer)`
   background: transparent;
+  padding: 2em 0.5em;
 `
 
 const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
