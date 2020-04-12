@@ -16,7 +16,7 @@ export default [
     },
     logo: {
       width: '16em',
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/turin-logo.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/turin-logo-2.svg'
     },
     menuOptions: [
       {
@@ -85,7 +85,7 @@ export default [
   {
     section: 'hero',
     title: 'We like Bitcoin',
-    description: 'It’s simple. We build directly, through sidechains or multiple layers any kind of service over the Bitcoin network, leveraging its leading robustness and security',
+    description: 'It’s simple. We build directly, through side-chains or multiple layers any kind of service over the Bitcoin network, leveraging its leading robustness and security',
     descriptionConfig: {
       size: 'large',
       width: 'medium'
@@ -130,7 +130,7 @@ export default [
           height: 'xsmall'
         }
       },
-      description: 'Assets design and deployment over sidechains'
+      description: 'Assets design and deployment over side-chains'
     }, {
       top: true,
       title: 'Digital ID',
@@ -163,7 +163,7 @@ export default [
           height: 'xsmall'
         }
       },
-      description: 'Certification services powered by the strength of Bitcoin'
+      description: 'Certification services secured by the strength of Bitcoin'
     }, {
       top: true,
       title: 'Custody',
@@ -195,7 +195,7 @@ export default [
     titleConfig: {
       margin: 'medium'
     },
-    description: 'Everything around Bitcoin and sometimes other Blockchains for specific purposes.',
+    description: 'After intensive testing and developing over different Blockchains since 2015, today we use Bitcoin to build most of our products and the Ethereum network to stay focus on DeFi applications. We also use Liquid as the main Bitcoin side chain to tokenize, IPFS to storage, Lightning for payments and The Symbol chain (previously NEM) for complex transactions.',
     descriptionConfig: {
       size: 'large'
     },
@@ -208,7 +208,7 @@ export default [
       }
     },
     cells: [{
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bitcoin.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/technologies/bitcoin_w.svg',
       imageConfig: {
         boxConfig: {
           height: '4em',
@@ -216,9 +216,9 @@ export default [
           margin: { bottom: 'medium' }
         }
       },
-      description: 'Services demanding strength & security'
+      description: 'Services demanding robustness & security'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ln.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/technologies/ln_w.svg',
       imageConfig: {
         boxConfig: {
           height: '4em',
@@ -228,7 +228,7 @@ export default [
       },
       description: 'Instant, zero-cost & private micropayments'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/liquid.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/technologies/liquid_w.svg',
       imageConfig: {
         boxConfig: {
           height: '4em',
@@ -236,9 +236,9 @@ export default [
           margin: { bottom: 'medium' }
         }
       },
-      description: 'Tokenization & sidechains transactions'
+      description: 'Tokenization & side-chains transactions'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ipfs.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/technologies/ipfs_w.svg',
       imageConfig: {
         boxConfig: {
           height: '4em',
@@ -248,7 +248,7 @@ export default [
       },
       description: 'Decentralized custody'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/eth.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/technologies/eth_w.svg',
       imageConfig: {
         boxConfig: {
           height: '4em',
@@ -258,7 +258,7 @@ export default [
       },
       description: 'DeFi protocols to build financial assets'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/symbol.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/technologies/symbol_w.svg',
       imageConfig: {
         boxConfig: {
           height: '4em',
@@ -276,7 +276,7 @@ export default [
   {
     section: 'hero',
     title: 'Products',
-    description: 'We launch our own products and empower third ones',
+    description: 'We develop our proprietary products, as well as helping others in their development run, by adding value from a technical, business, comercial, financial and strategic crypto perspective. If you have your own resources but need help let us handle with the solution!',
     descriptionConfig: {
       size: 'large'
     },
@@ -289,16 +289,7 @@ export default [
       }
     },
     cells: [{
-      src: 'https://picsum.photos/seed/picsum/200/112',
-      imageConfig: {
-        boxConfig: {
-          height: 'xsmall',
-          margin: { bottom: 'xsmall' }
-        }
-      },
-      description: 'Bitcoin payment processor for merchants'
-    }, {
-      src: 'https://picsum.photos/seed/picsum/200/112',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/products/lightnite.svg',
       imageConfig: {
         boxConfig: {
           height: 'xsmall',
@@ -307,7 +298,7 @@ export default [
       },
       description: 'Fortnite improved with bitcoin rewards'
     }, {
-      src: 'https://picsum.photos/seed/picsum/200/112',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/products/blockfier.svg',
       imageConfig: {
         boxConfig: {
           height: 'xsmall',
@@ -316,7 +307,7 @@ export default [
       },
       description: 'Apostille service with decentralized custody'
     }, {
-      src: 'https://picsum.photos/seed/picsum/200/112',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/products/drinkchain.svg',
       imageConfig: {
         boxConfig: {
           height: 'xsmall',
@@ -325,7 +316,7 @@ export default [
       },
       description: 'Data collection service for spirits industry'
     }, {
-      src: 'https://picsum.photos/seed/picsum/200/112',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/products/apitoshi.svg',
       imageConfig: {
         boxConfig: {
           height: 'xsmall',
@@ -334,7 +325,7 @@ export default [
       },
       description: 'API infrastructure for LN payments'
     }, {
-      src: 'https://picsum.photos/seed/picsum/200/112',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/products/turinpay.svg',
       imageConfig: {
         boxConfig: {
           height: 'xsmall',
@@ -352,7 +343,7 @@ export default [
   {
     section: 'hero',
     title: 'Team',
-    description: 'Engineers Innovation professionals with 100+ years combined experience in technology development :-)',
+    description: 'We are entrepreneurs with active & profitable companies and sufficient concern to keep creating new realities; Engineers and Innovation professionals with 100+ years combined experience in technology development. :-)',
     descriptionConfig: {
       size: 'large'
     },
@@ -365,7 +356,7 @@ export default [
       }
     },
     cells: [{
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/miguel.png',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/team/miguel.png',
       imageConfig: {
         boxConfig: {
           width: '8em',
@@ -380,17 +371,26 @@ export default [
         level: '4'
       },
       icons: [{
-        icon: 'InternetExplorer',
-        href: 'https://www.miguelcaballero.eu'
+        icon: 'Language',
+        href: 'https://www.miguelcaballero.eu',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Twitter',
-        href: 'https://www.twitter.com/mcaballero'
+        href: 'https://www.twitter.com/mcaballero',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Linkedin',
-        href: 'https://www.linkedin.com/in/micaballero/'
+        href: 'https://www.linkedin.com/in/micaballero/',
+        iconConfig: {
+          color: 'light-1'
+        }
       }]
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/borlado.png',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/team/borlado.png',
       imageConfig: {
         boxConfig: {
           width: '8em',
@@ -406,10 +406,13 @@ export default [
       },
       icons: [{
         icon: 'Linkedin',
-        href: 'https://www.linkedin.com/in/carlos-borlado-5b833011/'
+        href: 'https://www.linkedin.com/in/carlos-borlado-5b833011/',
+        iconConfig: {
+          color: 'light-1'
+        }
       }]
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/sokar.png',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/team/sokar.png',
       imageConfig: {
         boxConfig: {
           width: '8em',
@@ -425,16 +428,25 @@ export default [
       },
       icons: [{
         icon: 'Github',
-        href: 'https://www.github.com/sokardys'
+        href: 'https://www.github.com/sokardys',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Twitter',
-        href: 'https://www.twitter.com/sokardys'
+        href: 'https://www.twitter.com/sokardys',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Linkedin',
-        href: 'https://www.linkedin.com/in/sokardys/'
+        href: 'https://www.linkedin.com/in/sokardys/',
+        iconConfig: {
+          color: 'light-1'
+        }
       }]
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/ker.png',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/team/ker.png',
       imageConfig: {
         boxConfig: {
           width: '8em',
@@ -450,13 +462,22 @@ export default [
       },
       icons: [{
         icon: 'Github',
-        href: 'https://www.github.com/whiteyhat'
+        href: 'https://www.github.com/whiteyhat',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Twitter',
-        href: 'https://www.twitter.com/whiteyhat'
+        href: 'https://www.twitter.com/whiteyhat',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Linkedin',
-        href: 'https://www.linkedin.com/in/whiteyhat/'
+        href: 'https://www.linkedin.com/in/whiteyhat/',
+        iconConfig: {
+          color: 'light-1'
+        }
       }]
     }],
     pad: { vertical: 'xlarge', horizontal: 'large' },
@@ -478,69 +499,95 @@ export default [
       }
     },
     cells: [{
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/blockstream.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/blockstream.svg',
       imageConfig: {
         boxConfig: {
           height: '3em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/coinbase.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/coinbase.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/compound.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/compound.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/dy_dx.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/dy_dx.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/aave-2.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/uniswap.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/nuo.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/aave.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/kyber.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/nuo.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
     }, {
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/bancor.svg',
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/kyber.svg',
       imageConfig: {
         boxConfig: {
           height: '2.5em',
           fill: 'horizontal'
         }
-      }
+      },
+      justify: 'center'
+    }, {
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/bancor.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '2.5em',
+          fill: 'horizontal'
+        }
+      },
+      justify: 'center'
+    }, {
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/partners/maker.svg',
+      imageConfig: {
+        boxConfig: {
+          height: '1.9em',
+          fill: 'horizontal'
+        }
+      },
+      justify: 'center'
     }],
     waves: {
       top: '<svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg"><path fill="#2b4696" fill-opacity="1" d="M0,64L1440,160L1440,0L0,0Z"/></svg>'
@@ -566,16 +613,28 @@ export default [
     }, {
       icons: [{
         icon: 'Twitter',
-        href: 'https://www.twitter.com/turinlabs'
+        href: 'https://www.twitter.com/turinlabs',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Facebook',
-        href: 'https://www.google.com'
+        href: 'https://www.google.com',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Youtube',
-        href: 'https://www.google.com'
+        href: 'https://www.google.com',
+        iconConfig: {
+          color: 'light-1'
+        }
       }, {
         icon: 'Medium',
-        href: 'https://www.google.com'
+        href: 'https://www.google.com',
+        iconConfig: {
+          color: 'light-1'
+        }
       }],
       iconsConfig: {
         pad: 'none',
@@ -584,7 +643,7 @@ export default [
       justify: 'end'
     }],
     pad: 'large',
-    background: 'dark-2'
+    background: 'dark-1'
   },
   {
     section: 'footer',
@@ -594,11 +653,12 @@ export default [
   {
     section: 'form',
     id: 'tl-contactform',
-    title: 'Gracias por contactar',
-    description: 'Completa los campos y contactaremos si nos parece interesante',
+    title: 'Tell us your needs',
+    description: 'Complete the form and we’ll try to contact you',
     descriptionConfig: {
-      margin: 'none'
+      margin: { bottom: 'medium' }
     },
+    button: { label: 'Send' },
     fields: {
       captcha: {
         key: 'landing_page',
@@ -606,27 +666,27 @@ export default [
       },
       name: {
         label: 'Name',
-        plaholder: 'Ej. Miguel',
+        placeholder: 'Ej. Miguel',
         type: 'text',
         validation: {
-          required: 'Introduzca el nombre'
+          required: 'Insert your name'
         }
       },
       email: {
         label: 'E-mail',
-        plaholder: 'Ej. miguel@gmail.com',
-        type: 'email',
+        placeholder: 'Ej. miguel@gmail.com',
+        type: 'text',
         validation: {
-          required: 'Introduzca el email',
-          email: 'Introduce un email válido'
+          required: 'Insert your email',
+          email: 'Insert a valid email'
         }
       },
       more: {
-        label: 'More',
-        plaholder: 'Cuéntame',
+        label: 'Description',
+        placeholder: 'Tell us your needs',
         type: 'textarea',
         validation: {
-          required: 'Cuentame algo'
+          required: 'Tell us your needs'
         }
       }
     }
@@ -636,7 +696,7 @@ export default [
     gap: 80,
     logo: {
       width: '16em',
-      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/turin-logo.svg'
+      src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/turin-logo-2.svg'
     },
     background: 'brand',
     text: 'We ❤️ Bitcoin',
