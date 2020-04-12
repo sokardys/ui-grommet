@@ -80,7 +80,7 @@ export const HeaderSection = ({
 
   return (
     <>
-      <Section pad='none' {...props}>
+      <Section pad='small' {...props}>
         <Box
           pad='none'
           gap='small'

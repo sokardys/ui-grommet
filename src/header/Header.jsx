@@ -50,7 +50,7 @@ export const Header = ({
   const onlyLogo = !text && !button
 
   return (
-    <Section pad='none' {...props}>
+    <Section pad='small' {...props}>
       <Box
         pad='none'
         gap='medium'

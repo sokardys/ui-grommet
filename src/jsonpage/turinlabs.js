@@ -6,7 +6,7 @@ export default [
     burgerSizes: ['small', 'medium'],
     menuConfig: {
       color: 'light-1',
-      margin: 'small',
+      margin: { vertical: 'xsmall', horizontal: 'small' },
       align: 'center'
     },
     mobileConfig: {
@@ -15,7 +15,7 @@ export default [
       align: 'center'
     },
     logo: {
-      width: '16em',
+      height: '50px',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/turin-logo-2.svg'
     },
     menuOptions: [
@@ -695,7 +695,7 @@ export default [
     section: 'floating',
     gap: 80,
     logo: {
-      width: '16em',
+      height: '50px',
       src: 'https://turin-labs.s3-eu-west-1.amazonaws.com/images/turin-logo-2.svg'
     },
     background: 'brand',
