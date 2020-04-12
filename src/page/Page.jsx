@@ -63,7 +63,6 @@ export const Page = ({ children, theme = {}, css = '' }) => {
 
     ${css}
   `
-  console.log('Page', theme, deepMerge(defaultTheme, theme))
   return (
     <Grommet theme={deepMerge(defaultTheme, theme)}>
       <Modal>
