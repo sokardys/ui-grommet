@@ -4,7 +4,8 @@ import { Close } from 'grommet-icons'
 import {
   Anchor,
   Box,
-  Stack
+  Stack,
+  Text
 } from 'grommet'
 
 import {
@@ -22,6 +23,7 @@ export const FormSection = ({
   button = { label: 'Enviar' },
   success,
   error,
+  footer,
   ...props
 }) =>
   <Modal.Content id={id} margin='small'>
@@ -43,6 +45,12 @@ export const FormSection = ({
             }}
             onSend={toggle}
           />
+          {footer &&
+            <Text
+              size='small'
+              margin={{ top: 'small' }}
+              dangerouslySetInnerHTML={{ __html: footer }}
+            /> }
         </Section>
         <Box margin='small'>
           <MyAnchor
