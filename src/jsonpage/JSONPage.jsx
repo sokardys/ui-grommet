@@ -5,10 +5,11 @@ import {
   HeaderSection,
   HeroSection,
   FormSection,
-  FooterSection
+  FooterSection,
+  SeoSection
 } from '../sections'
 
-export const JSONPage = ({ sections = [] }) =>
+export const JSONPage = ({ uri, sections = [] }) =>
   <>
     {sections.map(({ section, ...config }, index) => {
       switch (section) {
@@ -22,6 +23,8 @@ export const JSONPage = ({ sections = [] }) =>
           return <HeroSection key={`jsonpage-section-${index}`} {...config} />
         case 'form':
           return <FormSection key={`jsonpage-section-${index}`} {...config} />
+        case 'seo':
+          return <SeoSection key={`jsonpage-section-${index}`} {...config} uri={uri}/>
         default:
           return <></>
       }
