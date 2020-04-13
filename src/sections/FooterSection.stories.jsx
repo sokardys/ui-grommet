@@ -19,3 +19,16 @@ export const Default = () =>
       </FooterSection>
     </Page>
   </Body>
+
+const links = {
+  '/terms': 'Terms and Conditions',
+  '/private-policy': 'Private Policy'
+}
+export const WithLinks = () =>
+  <Body>
+    <Page>
+      <FooterSection links={links}>
+        2020 &copy; Turin Labs SL made with ❤️ from Madrid
+      </FooterSection>
+    </Page>
+  </Body>
