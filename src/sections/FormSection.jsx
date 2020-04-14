@@ -24,6 +24,7 @@ export const FormSection = ({
   success,
   error,
   footer,
+  emailSettings = {},
   ...props
 }) =>
   <Modal.Content id={id} margin='small'>
@@ -41,7 +42,8 @@ export const FormSection = ({
               fields,
               button,
               success,
-              error
+              error,
+              ...emailSettings
             }}
             onSend={toggle}
           />

@@ -14,8 +14,32 @@ import {
   TextArea
 } from 'grommet'
 
-const sendingForm = async (values) => {
-  console.log('sendingForm??', values)
+const sendingForm = async ({ values, template, from, to }) => {
+  const response = await fetch('https://t9vq7jwbe0.execute-api.us-east-1.amazonaws.com/prod/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: `mutation sendEmail($input: SendEmailInput!) {
+        sendEmail(input: $input) {
+          messageId
+          originalMessage
+        }
+      }`,
+      variables: {
+        input: {
+          template,
+          from,
+          to,
+          locals: values
+        }
+      }
+    })
+  })
+  const resBody = await response.json()
+  if (resBody.errors) {
+    throw new Error(resBody.errors[0])
+  }
+  return resBody
 }
 
 const checkCaptcha = async (key, token) => {
@@ -32,10 +56,8 @@ const checkCaptcha = async (key, token) => {
       }
     })
   })
-  if (!response.ok) {
-    throw new Error(response)
-  }
-  return response.json()
+  const { data: { verifyRecaptcha } } = await response.json()
+  return verifyRecaptcha
 }
 
 const StatusBox = ({ background, children }) =>
@@ -59,7 +81,6 @@ const composeValidation = fields => {
     const field = fields[name]
     if (field.validation) {
       const fieldConfig = Object.keys(field.validation).reduce((acu, key) => {
-        console.log('key', key, field)
         switch (key) {
           case 'required':
             return acu.required(field.validation[key])
@@ -72,7 +93,6 @@ const composeValidation = fields => {
     }
     return acu
   }, {})
-  console.log('composeValidation', config)
   return yup.object().shape(config)
 }
 
@@ -82,7 +102,10 @@ export const Form = ({
   button = { label: 'Enviar' },
   success = 'Enviado!',
   error = 'Upps! Ocurrió un problema',
-  onSend
+  onSend,
+  template,
+  from,
+  to
 }) => {
   const [status, setStatus] = useState({})
   const [valuesToSend, setValuesToSend] = useState()
@@ -96,17 +119,29 @@ export const Form = ({
   useEffect(() => {
     const sendForm = async () => {
       if (toSend) {
-        if (valuesToSend) {
-          await sendingForm(valuesToSend)
-          setStatus({ send: true })
-          reset()
+        try {
+          if (valuesToSend) {
+            await sendingForm({
+              values: valuesToSend,
+              template,
+              from,
+              to
+            })
+            setStatus({ send: true })
+            reset()
+            setTimeout(() => {
+              setStatus({})
+              onSend && onSend()
+            }, 3000)
+          }
+          setValuesToSend(undefined)
+          setToSend(false)
+        } catch (ex) {
+          setStatus({ error: true })
           setTimeout(() => {
             setStatus({})
-            onSend && onSend()
           }, 3000)
         }
-        setValuesToSend(undefined)
-        setToSend(false)
       }
     }
     sendForm()
