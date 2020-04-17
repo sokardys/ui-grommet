@@ -27,7 +27,7 @@ export const JSONPage = ({ uri, sections = [] }) =>
         case 'form':
           return <FormSection key={`jsonpage-section-${index}`} {...config} />
         case 'seo':
-          return <SeoSection key={`jsonpage-section-${index}`} {...config} uri={uri}/>
+          return <SeoSection key={`jsonpage-section-${index}`} {...config} uri={uri} />
         default:
           return <></>
       }

@@ -27,14 +27,14 @@ const mdUl = styled.ul`
   margin-left: 1em;
 `
 
-export const MarkdownSection = ({ children, ...props })  => {
+export const MarkdownSection = ({ children, ...props }) => {
   const components = {
-    "h1": mdH1,
-    "h2": mdH2,
-    "h3": mdH3,
-    "p": mdP,
-    "ol": mdOl,
-    "ul": mdUl
+    h1: mdH1,
+    h2: mdH2,
+    h3: mdH3,
+    p: mdP,
+    ol: mdOl,
+    ul: mdUl
   }
 
   return (

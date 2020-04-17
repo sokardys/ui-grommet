@@ -29,7 +29,7 @@ export const FormSection = ({
 }) =>
   <Modal.Content id={id} margin='small'>
     {({ toggle }) =>
-      <Stack anchor="top-right">
+      <Stack anchor='top-right'>
         <Section
           width='medium'
           pad='large'
@@ -52,7 +52,7 @@ export const FormSection = ({
               size='small'
               margin={{ top: 'small' }}
               dangerouslySetInnerHTML={{ __html: footer }}
-            /> }
+            />}
         </Section>
         <Box margin='small'>
           <MyAnchor

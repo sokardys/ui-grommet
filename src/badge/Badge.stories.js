@@ -2,14 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  Box,
-  Text
+  Box
 } from 'grommet'
 
 import { Badge } from './Badge'
 
 import {
-  Description,
   Page
 } from '..'
 
