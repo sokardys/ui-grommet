@@ -14,7 +14,7 @@ import {
   TextArea
 } from 'grommet'
 
-const sendingForm = async ({ values, template, from, to }) => {
+const sendEmail = async ({ values, template, from, to }) => {
   const response = await fetch('https://t9vq7jwbe0.execute-api.us-east-1.amazonaws.com/prod/graphql', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -105,7 +105,8 @@ export const Form = ({
   onSend,
   template,
   from,
-  to
+  to,
+  sendFormFn
 }) => {
   const [status, setStatus] = useState({})
   const [valuesToSend, setValuesToSend] = useState()
@@ -117,30 +118,38 @@ export const Form = ({
   const captchaRef = useRef()
 
   useEffect(() => {
+    const resetForm = (sended = false) => {
+      setTimeout(() => {
+        setStatus({})
+        sended && onSend && onSend()
+      }, 3000)
+      setValuesToSend(undefined)
+      setToSend(false)
+    }
     const sendForm = async () => {
       if (toSend) {
         try {
           if (valuesToSend) {
-            await sendingForm({
-              values: valuesToSend,
-              template,
-              from,
-              to
-            })
+            if (sendFormFn) {
+              await sendFormFn({
+                values: valuesToSend
+              })
+            } else {
+              await sendEmail({
+                values: valuesToSend,
+                template,
+                from,
+                to
+              })
+            }
             setStatus({ send: true })
             reset()
-            setTimeout(() => {
-              setStatus({})
-              onSend && onSend()
-            }, 3000)
+            resetForm(true)
           }
-          setValuesToSend(undefined)
-          setToSend(false)
         } catch (ex) {
+          console.error('sendForm - ERROR', ex)
           setStatus({ error: true })
-          setTimeout(() => {
-            setStatus({})
-          }, 3000)
+          resetForm()
         }
       }
     }

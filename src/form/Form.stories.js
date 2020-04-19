@@ -39,12 +39,22 @@ const form = {
     }
   },
   success: 'Formulario enviado!',
-  error: 'Ups! Error, intentalo más tarde!'
+  error: 'Ups! Error, intentalo más tarde!',
+  template: 'tl_contact',
+  from: 'DEMO <ws@tutellus.com>',
+  to: ['javieroc@gmail.com']
 }
 
 export const Default = () =>
   <Page>
     <Section>
       <Form {...form} />
+    </Section>
+  </Page>
+
+export const WithPersonalizedFn = () =>
+  <Page>
+    <Section>
+      <Form {...form} sendFormFn={async (values) => console.log('Personalized SEND')} />
     </Section>
   </Page>
