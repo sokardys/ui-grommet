@@ -40,6 +40,7 @@ export const Card = styled(({
           className='stack'
           round={{ corner: 'top-right', size: 'xsmall' }}
           overflow='hidden'
+          style={{ zIndex: 10 }}
         >
           {stack}
         </Box>}
