@@ -106,7 +106,8 @@ export const Form = ({
   template,
   from,
   to,
-  sendFormFn
+  sendFormFn,
+  timeout = 3000
 }) => {
   const [status, setStatus] = useState({})
   const [valuesToSend, setValuesToSend] = useState()
@@ -118,11 +119,14 @@ export const Form = ({
   const captchaRef = useRef()
 
   useEffect(() => {
+    let timeoutId
     const resetForm = (sended = false) => {
-      setTimeout(() => {
+      console.log('> resetForm', sended, timeout * (sended ? 1 : 2))
+      timeoutId = setTimeout(() => {
+        console.log('< resetForm', sended)
         setStatus({})
         sended && onSend && onSend()
-      }, 3000)
+      }, timeout * (sended ? 1 : 2))
       setValuesToSend(undefined)
       setToSend(false)
     }
@@ -147,14 +151,21 @@ export const Form = ({
             resetForm(true)
           }
         } catch (ex) {
-          console.error('sendForm - ERROR', ex)
+          console.error('sendForm - ERROR', JSON.stringify(ex))
           setStatus({ error: true })
           resetForm()
         }
       }
     }
     sendForm()
-  }, [valuesToSend, toSend])
+
+    return () => {
+      if (timeoutId) {
+        console.log('- Clear Timeout', valuesToSend, toSend, status)
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [valuesToSend, toSend, status])
 
   if (!fields.captcha) {
     console.log('SiteKey del reCaptcha no está configurado')
