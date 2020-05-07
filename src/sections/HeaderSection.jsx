@@ -45,11 +45,11 @@ const renderMenuOptions = ({
 }) => {
   const { color, ...props } = config
   return options.map(({ type, label, labelConfig = {}, ...option }, index) => {
-    const labelTag = <Text as='div' textAlign='center' {...labelConfig}>{label}</Text>
+    const labelTag = <Text as='div' truncate textAlign='center' {...labelConfig}>{label}</Text>
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
         {type === 'button'
-          ? <Modal.Button Component={Button} focusIndicator={false} {...option} label={labelTag} />
+          ? <Modal.Button Component={Button} focusIndicator={false} alignSelf='center' {...option} label={labelTag} />
           : <Anchor focusIndicator={false} color={color} {...option} label={labelTag} />}
       </Box>
     )
