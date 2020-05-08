@@ -11,6 +11,8 @@ import {
   SeoSection
 } from '../sections'
 
+import { ScrollUpButton } from '../scrollupbutton/ScrollUpButton'
+
 export const JSONPage = ({ uri, sections = [] }) =>
   <>
     {sections.map(({ section, ...config }, index) => {
@@ -35,6 +37,7 @@ export const JSONPage = ({ uri, sections = [] }) =>
           return <></>
       }
     })}
+    <ScrollUpButton />
   </>
 
 JSONPage.propTypes = {
