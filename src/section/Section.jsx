@@ -68,6 +68,7 @@ export const Section = styled(({
               level='2'
               margin={{ ...marginNone, bottom: 'medium' }}
               title={title}
+              textAlign='center'
               {...titleConfig}
             />}
           {description &&

@@ -33,6 +33,7 @@ export const Cell = ({
       level='3'
       margin='small'
       title={title}
+      textAlign='center'
       {...titleConfig}
     />
 
