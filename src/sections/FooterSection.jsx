@@ -27,8 +27,7 @@ export const FooterSection = ({
       {links && size === 'small' &&
         <Box justify='center' direction='row' gap='medium' margin={{ bottom: 'small' }}>
           {composeLinks()}
-        </Box>
-      }
+        </Box>}
       <Box gap='medium' alignSelf='center' align='center' direction='row'>
         <Box align='center' dangerouslySetInnerHTML={{ __html: children }} />
         {links && size !== 'small' && composeLinks()}
