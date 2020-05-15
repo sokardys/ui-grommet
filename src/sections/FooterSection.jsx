@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import {
   Anchor,
   Box,
+  Text,
   ResponsiveContext
 } from 'grommet'
 
@@ -29,7 +30,7 @@ export const FooterSection = ({
           {composeLinks()}
         </Box>}
       <Box gap='medium' alignSelf='center' align='center' direction='row'>
-        <Box align='center' dangerouslySetInnerHTML={{ __html: children }} />
+        <Text textAlign='center' dangerouslySetInnerHTML={{ __html: children }} />
         {links && size !== 'small' && composeLinks()}
       </Box>
     </Section>
