@@ -20,7 +20,7 @@ export const FooterSection = ({
 
   const composeLinks = () =>
     Object.keys(links).map(key =>
-      <Box key={`footer-anchor-${key}`}><Anchor href={key} label={links[key]} size='small' /></Box>
+      <Box key={`footer-anchor-${key}`}><Anchor href={key} label={links[key]} size='xsmall' /></Box>
     )
 
   return (
@@ -30,7 +30,7 @@ export const FooterSection = ({
           {composeLinks()}
         </Box>}
       <Box gap='medium' alignSelf='center' align='center' direction='row'>
-        <Text textAlign='center' dangerouslySetInnerHTML={{ __html: children }} />
+        <Text textAlign='center' size='small' dangerouslySetInnerHTML={{ __html: children }} />
         {links && size !== 'small' && composeLinks()}
       </Box>
     </Section>
