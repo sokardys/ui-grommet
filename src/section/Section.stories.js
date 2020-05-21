@@ -71,7 +71,7 @@ export const WithDescription = () =>
     </Section>
   </Page>
 
-export const WithParallax = () =>
+export const WithParallaxImage = () =>
   <Page>
     <Section
       align='center'
@@ -94,6 +94,34 @@ export const WithParallax = () =>
       </Box>
     </Section>
   </Page>
+
+export const WithParallaxVideo = () =>
+<Page>
+  <Section
+    align='center'
+    title='Titulo de la Sección'
+    parallax='video'
+    parallaxConfig={{
+      videoSrc: 'https://www.youtube.com/watch?v=FMF1vMcCWzQ',
+      speed: 0.2
+    }}
+  >
+    <Box pad='medium' align='center'>
+      <Text align='center' size='large' color='accent-2' weight='bold'>
+        the more content the section has,<br />the stronger<br />the effect
+      </Text>
+    </Box>
+  </Section>
+  <Section
+    align='center'
+    title='Must another Section'
+    background='dark-1'
+  >
+    <Box pad='medium'>
+      <Text>Other Section</Text>
+    </Box>
+  </Section>
+</Page>
 
 export const WithWaves = () =>
   <Page>
