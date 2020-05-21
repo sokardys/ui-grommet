@@ -10,7 +10,15 @@ const MyLayer = styled(Layer)`
   padding: 2em 0.5em;
 `
 
-const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
+const ModalContent = ({
+  id,
+  children,
+  onEsc,
+  onClickOutside,
+  disableEsc,
+  disableClickOutside,
+  ...props
+}) => {
   const { state: { on, key }, actions, dispatch } = useModalContext()
   const isOn = key === id && on
   const myToggle = () => {
@@ -18,16 +26,15 @@ const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
     return true
   }
 
-  const myToggleWrapper = fn => () => {
-    console.log('myToggleWrapper', isOn, key)
-    myToggle() && fn && fn()
+  const myToggleWrapper = (fn, disable = false) => () => {
+    !disable && myToggle() && fn && fn()
   }
 
   if (isOn) {
     return (
       <MyLayer
-        onEsc={myToggleWrapper(onEsc)}
-        onClickOutside={myToggleWrapper(onClickOutside)}
+        onEsc={myToggleWrapper(onEsc, disableEsc)}
+        onClickOutside={myToggleWrapper(onClickOutside, disableClickOutside)}
         {...props}
       >
         {
