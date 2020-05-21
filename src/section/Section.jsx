@@ -9,7 +9,7 @@ import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 
 const WaveBox = styled(Box)`
-  z-index: 1000;
+  z-index: 5;
   width: 100%;
   & svg {
     width: 100%;
