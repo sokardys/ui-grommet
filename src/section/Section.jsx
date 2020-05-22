@@ -9,10 +9,17 @@ import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 
 const WaveBox = styled(Box)`
-  z-index: 5;
+  position: absolute;
+  z-index: 0;
   width: 100%;
   & svg {
     width: 100%;
+  }
+  &.top {
+    top: 0;
+  }
+  &.bottom {
+    bottom: 0;
   }
 `
 
@@ -27,7 +34,6 @@ const JarallaxBox = styled(Box)`
 
 const RelativeBox = styled(Box)`
   position: relative;
-  overflow: hidden;
   & .content {
     z-index: 1;
   }
@@ -43,6 +49,7 @@ export const Section = ({
   parallax,
   parallaxConfig = {},
   waves = {},
+  wavesBoxConfig = {},
   cta,
   ...props
 }) => {
@@ -106,11 +113,11 @@ export const Section = ({
     </RelativeBox>
   if (hasWaves) {
     return (
-      <RelativeBox pad='none' background={background}>
-        {waves.top && <WaveBox dangerouslySetInnerHTML={{ __html: waves.top }} />}
+      <RelativeBox pad='none' background={background} {...wavesBoxConfig}>
         {composeSection()}
-        {waves.bottom && <WaveBox dangerouslySetInnerHTML={{ __html: waves.bottom }} />}
         {parallax && composeParallax()}
+        {waves.top && <WaveBox className='top' dangerouslySetInnerHTML={{ __html: waves.top }} />}
+        {waves.bottom && <WaveBox className='bottom' dangerouslySetInnerHTML={{ __html: waves.bottom }} />}
       </RelativeBox>
     )
   }
