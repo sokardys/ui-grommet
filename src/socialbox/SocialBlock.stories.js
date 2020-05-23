@@ -5,10 +5,10 @@ import {
   Box
 } from 'grommet'
 
-import { Icons } from './Icons'
+import { SocialBox } from './SocialBox'
 import { Page } from '../page/Page'
 
-export default { title: 'Icons' }
+export default { title: 'SocialBox' }
 
 const Body = styled.div`
   font-family: 'Nunito Sans';
@@ -43,7 +43,7 @@ export const Default = () =>
   <Body>
     <Page>
       <Box background='dark-3'>
-        <Icons
+        <SocialBox
           {...defaultValues}
         />
       </Box>

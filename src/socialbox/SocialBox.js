@@ -24,7 +24,7 @@ const IconAnchor = styled(Anchor)`
   padding: 0;
 `
 
-export const Icons = ({ icons = [], ...props }) => {
+export const SocialBox = ({ icons = [], ...props }) => {
   const composeIcons = () =>
     icons.map(({ iconConfig = {}, ...item }, index) => {
       const Icon = MyIcons[item.icon] || GrommetIcons[item.icon]

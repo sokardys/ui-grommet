@@ -10,7 +10,7 @@ import { ContactInfo } from '../contactinfo/ContactInfo'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 import { Image } from '../image/Image'
-import { Icons } from '../icons/Icons'
+import { SocialBox } from '../socialbox/SocialBox'
 
 export const Cell = ({
   top = false,
@@ -47,8 +47,8 @@ export const Cell = ({
       dangerouslySetInnerHTML={{ __html: description }}
     />
 
-  const composeIcons = () =>
-    <Icons
+  const composeSocialBox = () =>
+    <SocialBox
       icons={icons}
       {...iconsConfig}
     />
@@ -60,7 +60,7 @@ export const Cell = ({
       {!top && title && composeHeading()}
       {description && composeDescription()}
       {cta && <Cta {...cta} />}
-      {icons && composeIcons()}
+      {icons && composeSocialBox()}
       {contact && <ContactInfo {...contact} />}
     </Box>
 
