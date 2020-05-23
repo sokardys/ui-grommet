@@ -35,6 +35,12 @@ const defaultValues = {
     iconConfig: {
       size: 'large'
     }
+  }, {
+    icon: 'Telegram',
+    href: 'https://www.telegram.com/',
+    iconConfig: {
+      size: 'large'
+    }
   }],
   gap: 'xlarge'
 }
