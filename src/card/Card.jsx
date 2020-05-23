@@ -19,11 +19,37 @@ export const Card = styled(({
   title,
   titleConfig = {},
   footer,
+  footerConfig = {},
   cta,
   stack,
   ...props
 }) => {
   const marginNone = { top: 'none', bottom: 'none', right: 'none', left: 'none' }
+
+  const composeTitle = () =>
+    <Title
+      level='3'
+      title={title}
+      margin={{ bottom: 'small' }}
+      responsive={false}
+      {...titleConfig}
+    />
+
+  const composeImage = () =>
+    <Image
+      boxConfig={{
+        margin: { bottom: 'small' },
+        round: 'xsmall',
+        ...imageConfig
+      }}
+      src={image}
+      fit='cover'
+    />
+
+  const composeCta = () =>
+    <Cta margin={{ ...marginNone, top: 'large' }} {...cta} />
+
+  const mustComposeBox = title || image || cta
 
   return (
     <Box
@@ -44,27 +70,14 @@ export const Card = styled(({
         >
           {stack}
         </Box>}
-      <Box pad='small' gap='small'>
-        {image &&
-          <Image
-            boxConfig={{
-              round: 'xsmall',
-              ...imageConfig
-            }}
-            src={image}
-            fit='cover'
-          />}
-        {title &&
-          <Title
-            level='3'
-            title={title}
-            margin='none'
-            responsive={false}
-            {...titleConfig}
-          />}
-        {children}
-        {cta && <Cta margin={{ ...marginNone, top: 'large' }} {...cta} />}
-      </Box>
+      {mustComposeBox &&
+        <Box pad='small' gap='small'>
+          {image && composeImage()}
+          {title && composeTitle()}
+          {children}
+          {cta && composeCta()}
+        </Box>}
+      {!mustComposeBox && children}
       {footer &&
         <Box
           border='top'
@@ -72,6 +85,7 @@ export const Card = styled(({
           align='center'
           direction='row'
           pad={{ vertical: 'xsmall', horizontal: 'small' }}
+          {...footerConfig}
         >
           {footer}
         </Box>}
