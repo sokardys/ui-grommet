@@ -20,7 +20,7 @@ const Quote = styled(({ className, children }) =>
     }}
   >
     <Text
-      size='xlarge'
+      size='large'
       weight='bold'
     >
       {children}&rdquo;
