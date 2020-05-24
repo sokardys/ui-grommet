@@ -32,7 +32,7 @@ const drawIcon = ({ name, Icon }) =>
     width='125px'
     height='125px'
   >
-    <Icon size='large' color='brand'/>
+    <Icon size='large' color='brand' />
     <Text textAlign='center'>{name}</Text>
   </Box>
 
