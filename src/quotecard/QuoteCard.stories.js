@@ -1,10 +1,7 @@
-/* global alert */
 import React from 'react'
 import styled from 'styled-components'
 
-import {
-  Box
-} from 'grommet'
+import { Box } from 'grommet'
 
 import { QuoteCard } from './QuoteCard'
 
@@ -21,7 +18,7 @@ const Body = styled.div`
   height: 100vh;
 `
 
-const quotes =  [
+const quotes = [
   {
     avatar: 'https://elixir.app/assets/img/testimonials/laura.JPG',
     quot: 'The minimalism makes Elixir powerful & robust',
@@ -60,19 +57,23 @@ const quotes =  [
 
 export const Default = () =>
   <Page>
-    <Box width='medium' pad='small' background='dark-1'>
-      <QuoteCard {...quotes[0]} />
-    </Box>
+    <Body>
+      <Box width='medium' pad='small' background='dark-1'>
+        <QuoteCard {...quotes[0]} />
+      </Box>
+    </Body>
   </Page>
 
-export const OnGrid  = () =>
+export const OnGrid = () =>
   <Page>
-    <Grid
-      gap='medium'
-      columns={['0.33fr', '0.33fr', '0.33fr']}
-    >
-      {quotes.map(quote =>
-        <QuoteCard {...quote} />
-      )}
-    </Grid>
+    <Body>
+      <Grid
+        gap='medium'
+        columns={['0.33fr', '0.33fr', '0.33fr']}
+      >
+        {quotes.map(quote =>
+          <QuoteCard key={quote.name} {...quote} />
+        )}
+      </Grid>
+    </Body>
   </Page>

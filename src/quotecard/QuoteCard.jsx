@@ -58,7 +58,7 @@ export const QuoteCard = ({
     const Icon = getIcon(socialIcon)
     return (
       <Anchor target='_blank' href={socialUrl}>
-        <Icon size='medium' color='brand'/>
+        <Icon size='medium' color='brand' />
       </Anchor>
     )
   }

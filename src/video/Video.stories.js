@@ -47,7 +47,7 @@ const ModalExample = ({ config }) =>
     <Modal>
       <Body>
         <Box alignContent='center' justify='center' height='100%'>
-          <Modal.Button forId='video1' Component={PlayButton}/>
+          <Modal.Button forId='video1' Component={PlayButton} />
         </Box>
       </Body>
       <Modal.Content
@@ -94,7 +94,8 @@ export const withYoutube = () =>
     sources: [
       {
         src: 'FMF1vMcCWzQ',
-        provider: 'youtube',
-      },
-    ],
-  }} />
+        provider: 'youtube'
+      }
+    ]
+  }}
+  />

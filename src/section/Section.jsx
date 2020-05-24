@@ -57,7 +57,7 @@ export const Section = ({
   useEffect(() => {
     const { jarallax, jarallaxVideo } = require('jarallax')
     if (parallaxRef.current) {
-      if (parallax.toLowerCase() === 'video'){
+      if (parallax.toLowerCase() === 'video') {
         jarallaxVideo()
       }
       jarallax(parallaxRef.current, parallaxConfig)
