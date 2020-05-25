@@ -20,6 +20,7 @@ export const Cell = ({
   titleConfig = {},
   src,
   imageConfig = {},
+  badge,
   description,
   descriptionConfig = {},
   cta,
@@ -57,6 +58,7 @@ export const Cell = ({
     <Box align='center' {...props}>
       {top && title && composeHeading()}
       {src && <Image fit='contain' {...imageConfig} src={src} />}
+      {badge && badge}
       {!top && title && composeHeading()}
       {description && composeDescription()}
       {cta && <Cta {...cta} />}
