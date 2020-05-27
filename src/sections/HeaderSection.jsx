@@ -14,7 +14,7 @@ import {
   Section
 } from '..'
 
-const MobileMenu = ({ menuOptions, config, ...props }) =>
+const MobileMenu = ({ menuOptions, config, closeFn, ...props}) =>
   <Box
     animation='fadeIn'
     direction='column'
@@ -23,11 +23,12 @@ const MobileMenu = ({ menuOptions, config, ...props }) =>
   >
     {renderMenuOptions({
       options: menuOptions,
-      config
+      config,
+      closeFn
     })}
   </Box>
 
-const SubMenu = ({ menuOptions, config, ...props }) =>
+const SubMenu = ({ menuOptions, config, closeFn, ...props }) =>
   <Box
     align='center'
     direction='row'
@@ -35,13 +36,15 @@ const SubMenu = ({ menuOptions, config, ...props }) =>
   >
     {renderMenuOptions({
       options: menuOptions,
-      config
+      config,
+      closeFn
     })}
   </Box>
 
 const renderMenuOptions = ({
   options,
-  config = {}
+  config = {},
+  closeFn = () => {}
 }) => {
   const { color, ...props } = config
   return options.map(({ type, label, labelConfig = {}, ...option }, index) => {
@@ -49,14 +52,30 @@ const renderMenuOptions = ({
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
         {type === 'button'
-          ? <Modal.Button Component={Button} focusIndicator={false} alignSelf='center' {...option} label={labelTag} />
-          : <Anchor focusIndicator={false} color={color} {...option} label={labelTag} />}
+          ?
+            <Modal.Button
+              Component={Button}
+              focusIndicator={false}
+              alignSelf='center'
+              {...option}
+              onClick={closeFn}
+              label={labelTag}
+            />
+          :
+            <Anchor
+              focusIndicator={false}
+              color={color}
+              {...option}
+              onClick={closeFn}
+              label={labelTag}
+            />}
       </Box>
     )
   })
 }
 
 export const HeaderSection = ({
+  className,
   logo = {},
   burgerSizes = ['small'],
   burgerColor = 'brand',
@@ -72,6 +91,12 @@ export const HeaderSection = ({
     setOpen(openOld => !openOld)
   }
 
+  const closeFn = () => {
+    if (open) {
+      setOpen(!open)
+    }
+  }
+
   const isMobile = burgerSizes.includes(size)
 
   useEffect(() => {
@@ -79,8 +104,8 @@ export const HeaderSection = ({
   }, [isMobile])
 
   return (
-    <>
-      <Section pad='small' {...props}>
+    <div className={className}>
+      <Section className='desktop-menu' pad='small' {...props}>
         <Box
           pad='none'
           gap='small'
@@ -93,11 +118,26 @@ export const HeaderSection = ({
           <Link href='/'>
             <a><Logo {...logo} /></a>
           </Link>
-          {!isMobile && <SubMenu menuOptions={menuOptions} config={menuConfig} />}
-          {isMobile && <Box pad={{ vertical: 'small', horizontal: 'medium' }}><Burger cross={open} color={burgerColor} onClick={toggleOpen} /></Box>}
+          {!isMobile &&
+            <SubMenu
+              menuOptions={menuOptions}
+              config={menuConfig}
+              closeFn={closeFn}
+            />}
+          {isMobile &&
+            <Box pad={{ vertical: 'small', horizontal: 'medium' }}>
+              <Burger cross={open} color={burgerColor} onClick={toggleOpen} />
+            </Box>}
         </Box>
       </Section>
-      {open && <MobileMenu menuOptions={menuOptions} config={mobileConfig} {...props} />}
-    </>
+      {open &&
+        <MobileMenu
+          className='mobile-menu'
+          menuOptions={menuOptions}
+          config={mobileConfig}
+          closeFn={closeFn}
+          {...props}
+        />}
+    </div>
   )
 }
