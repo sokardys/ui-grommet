@@ -9,6 +9,7 @@ import {
 import { icons } from './Icons'
 
 import { Page } from '../page/Page'
+import { Grid } from '../grid/Grid'
 
 export default { title: 'Icons' }
 
@@ -26,7 +27,7 @@ const drawIcon = ({ name, Icon }) =>
     align='center'
     justify='center'
     pad='medium'
-    border='small'
+    border='all'
     round='small'
     background='light-1'
     width='125px'
@@ -39,13 +40,20 @@ const drawIcon = ({ name, Icon }) =>
 export const Default = () =>
   <Body>
     <Page>
-      <Box direction='row' margin='small' gap='small'>
+      <Grid
+        fill
+        columns={{ default: { 'count': 'fit', 'size': '125px' } }}
+        pad={{ default: 'medium' }}
+        gap='medium'
+        align='center'
+        justify='center'
+      >
         {Object.keys(icons).map(key =>
           drawIcon({
             name: key,
             Icon: icons[key]
           })
         )}
-      </Box>
+      </Grid>
     </Page>
   </Body>
