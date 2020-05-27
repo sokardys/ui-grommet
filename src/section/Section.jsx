@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'jarallax/dist/jarallax.css'
@@ -7,6 +7,7 @@ import { Box } from 'grommet'
 import { Cta } from '../cta/Cta'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
+import { useParallax } from '../hooks'
 
 const WaveBox = styled(Box)`
   position: absolute;
@@ -23,24 +24,16 @@ const WaveBox = styled(Box)`
   }
 `
 
-const JarallaxBox = styled(Box)`
-  position: absolute;
-  top:0 ;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  z-index: 0;
-`
-
 const RelativeBox = styled(Box)`
   position: relative;
   & .content {
     z-index: 1;
   }
 `
+
 export const Section = ({
   children,
-  background = 'light-1',
+  background,
   width = 'xlarge',
   title,
   titleConfig = {},
@@ -53,33 +46,13 @@ export const Section = ({
   cta,
   ...props
 }) => {
-  const parallaxRef = useRef()
-  useEffect(() => {
-    const { jarallax, jarallaxVideo } = require('jarallax')
-    if (parallaxRef.current) {
-      if (parallax.toLowerCase() === 'video') {
-        jarallaxVideo()
-      }
-      jarallax(parallaxRef.current, parallaxConfig)
-    }
-    return () => {
-      if (parallaxRef.current) {
-        jarallax(parallaxRef.current, 'destroy')
-      }
-    }
-  }, [parallaxRef])
+  const [isActive, composeParallax] = useParallax({
+    type: parallax,
+    config: parallaxConfig
+  })
 
   const marginNone = { top: 'none', bottom: 'none', right: 'none', left: 'none' }
   const hasWaves = waves.top || waves.bottom
-
-  const composeParallax = () =>
-    <JarallaxBox
-      className='jarallax'
-      ref={parallaxRef}
-    >
-      {parallax.toLowerCase() !== 'video' &&
-        <img className='jarallax-img' src={parallax} />}
-    </JarallaxBox>
 
   const composeSection = () =>
     <RelativeBox
@@ -88,7 +61,7 @@ export const Section = ({
       background={background}
       {...props}
     >
-      {parallax && !hasWaves && composeParallax()}
+      {isActive && !hasWaves && composeParallax()}
       <Box className='content' width={width} flex='grow'>
         <>
           {title &&
@@ -115,7 +88,7 @@ export const Section = ({
     return (
       <RelativeBox pad='none' background={background} {...wavesBoxConfig}>
         {composeSection()}
-        {parallax && composeParallax()}
+        {isActive && composeParallax()}
         {waves.top && <WaveBox className='top' dangerouslySetInnerHTML={{ __html: waves.top }} />}
         {waves.bottom && <WaveBox className='bottom' dangerouslySetInnerHTML={{ __html: waves.bottom }} />}
       </RelativeBox>
