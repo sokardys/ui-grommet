@@ -36,6 +36,7 @@ export const Grid = ({
       columns={getValue(columns, '1fr')}
       margin={getValue(margin, 'none')}
       gap={getValue(gap, 'none')}
+      pad={getValue(pad, 'none')}
       {...props}
     >
       {hasCells ? composeCells() : children}
