@@ -35,7 +35,7 @@ export const Slider = styled(({ className, options = { autoPlay: true, wrapAroun
   }
 
   & .carousel-cell {
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
     transform: scale(0.9);
     opacity: 0.25;
     &.is-selected {
