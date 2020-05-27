@@ -4,6 +4,7 @@ export const sections = AllSections
 
 export * from './analytics/Analytics'
 export * from './badge/Badge'
+export * from './boxx/Boxx'
 export * from './burger/Burger'
 export * from './card/Card'
 export * from './carousel/Carousel'
