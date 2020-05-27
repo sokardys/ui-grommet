@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import styled from 'styled-components'
 import RCTooltip from 'rc-tooltip'
 import 'rc-tooltip/assets/bootstrap_white.css'
 
 import {
   Box,
-  Text
+  Text,
+  ThemeContext
 } from 'grommet'
 
-export const Tooltip = ({ children, title, content, boxConfig = {}, ...props }) => {
+const CSSBox = styled(Box)`
+  ${({ css }) => css}
+`
+
+export const Tooltip = ({ className, children, title, content, boxConfig = {}, textConfig = {}, ...props }) => {
+  const theme = useContext(ThemeContext)
+
   const options = {
     placement: 'left',
     trigger: 'click',
@@ -17,16 +25,18 @@ export const Tooltip = ({ children, title, content, boxConfig = {}, ...props }) 
   }
 
   const composeContent = () =>
-    <Box
+    <CSSBox
+      className={className}
       direction='column'
       pad='none'
       gap='xsmall'
       width='small'
       {...boxConfig}
+      css={`font-family: ${theme.global.font.family};`}
     >
-      {title && <Box><Text weight='bold'>{title}</Text></Box>}
-      <Box><Text>{content}</Text></Box>
-    </Box>
+      {title && <Box><Text {...textConfig} weight='bold'>{title}</Text></Box>}
+      <Box><Text {...textConfig} weight='normal'>{content}</Text></Box>
+    </CSSBox>
 
   return (
     <RCTooltip

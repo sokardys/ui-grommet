@@ -19,6 +19,9 @@ const defaultTheme = deepMerge(base, {
     },
     input: {
       weight: 400
+    },
+    font: {
+      family: 'Verdana, sans-serif'
     }
   },
   formField: {
