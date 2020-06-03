@@ -11,6 +11,8 @@ export const Grid = ({
   margin,
   gap,
   pad,
+  areas,
+  rows,
   cells,
   children,
   ...props
@@ -32,11 +34,12 @@ export const Grid = ({
 
   return (
     <GrommetGrid
-      rows={['auto']}
+      rows={getValue(rows, 'auto')}
       columns={getValue(columns, '1fr')}
       margin={getValue(margin, 'none')}
       gap={getValue(gap, 'none')}
       pad={getValue(pad, 'none')}
+      areas={getValue(areas, '')}
       {...props}
     >
       {hasCells ? composeCells() : children}
