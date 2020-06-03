@@ -7,7 +7,7 @@ export const Slider = styled(({ className, options = { autoPlay: true, wrapAroun
   const sliderEl = useRef()
 
   useEffect(() => {
-    const Flickity = require('flickity')
+    const Flickity = require('flickity-sync')
     const slider = new Flickity(sliderEl.current, options)
 
     return () => {
@@ -59,4 +59,6 @@ export const Slider = styled(({ className, options = { autoPlay: true, wrapAroun
   & .flickity-page-dots .dot.is-selected {
     background: white;
   }
+
+  ${({ cssCarousel }) => cssCarousel}
 `
