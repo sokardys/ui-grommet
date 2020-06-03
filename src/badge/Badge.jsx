@@ -21,8 +21,8 @@ export const Badge = styled(({ className, children, count, ...props }) =>
   <Box
     className={className}
     round='xsmall'
-    {...props}
     pad='xsmall'
+    {...props}
     direction='row'
     responsive={false}
   >
