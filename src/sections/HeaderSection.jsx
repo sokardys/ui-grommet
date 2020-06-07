@@ -14,27 +14,39 @@ import {
   Section
 } from '..'
 
-const MobileMenu = ({ menuOptions, config, closeFn, ...props}) =>
+const MobileMenu = ({
+  menuOptions,
+  config,
+  closeFn,
+  renderMenu = renderMenuOptions,
+  ...props
+}) =>
   <Box
     animation='fadeIn'
     direction='column'
     pad='medium'
     {...props}
   >
-    {renderMenuOptions({
+    {renderMenu({
       options: menuOptions,
       config,
       closeFn
     })}
   </Box>
 
-const SubMenu = ({ menuOptions, config, closeFn, ...props }) =>
+const SubMenu = ({
+  menuOptions,
+  config,
+  closeFn,
+  renderMenu = renderMenuOptions,
+  ...props
+}) =>
   <Box
     align='center'
     direction='row'
     {...props}
   >
-    {renderMenuOptions({
+    {renderMenu({
       options: menuOptions,
       config,
       closeFn
@@ -52,23 +64,21 @@ const renderMenuOptions = ({
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
         {type === 'button'
-          ?
-            <Modal.Button
-              Component={Button}
-              focusIndicator={false}
-              alignSelf='center'
-              {...option}
-              onClick={closeFn}
-              label={labelTag}
-            />
-          :
-            <Anchor
-              focusIndicator={false}
-              color={color}
-              {...option}
-              onClick={closeFn}
-              label={labelTag}
-            />}
+          ? <Modal.Button
+            Component={Button}
+            focusIndicator={false}
+            alignSelf='center'
+            {...option}
+            onClick={closeFn}
+            label={labelTag}
+          />
+          : <Anchor
+            focusIndicator={false}
+            color={color}
+            {...option}
+            onClick={closeFn}
+            label={labelTag}
+          />}
       </Box>
     )
   })
@@ -82,6 +92,7 @@ export const HeaderSection = ({
   menuOptions = [],
   menuConfig = {},
   mobileConfig = {},
+  renderMenu,
   ...props
 }) => {
   const [open, setOpen] = useState(false)
@@ -122,6 +133,7 @@ export const HeaderSection = ({
             <SubMenu
               menuOptions={menuOptions}
               config={menuConfig}
+              renderMenu={renderMenu}
               closeFn={closeFn}
             />}
           {isMobile &&
@@ -135,6 +147,7 @@ export const HeaderSection = ({
           className='mobile-menu'
           menuOptions={menuOptions}
           config={mobileConfig}
+          renderMenu={renderMenu}
           closeFn={closeFn}
           {...props}
         />}
