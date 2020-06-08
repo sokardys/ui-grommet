@@ -20,6 +20,8 @@ export const Card = styled(({
   titleConfig = {},
   footer,
   footerConfig = {},
+  header,
+  headerConfig = {},
   cta,
   stack,
   ...props
@@ -69,6 +71,17 @@ export const Card = styled(({
           style={{ zIndex: 10 }}
         >
           {stack}
+        </Box>}
+      {header &&
+        <Box
+          border='bottom'
+          justify='between'
+          align='center'
+          direction='row'
+          pad={{ vertical: 'xsmall', horizontal: 'small' }}
+          {...headerConfig}
+        >
+          {header}
         </Box>}
       {mustComposeBox &&
         <Box pad='small' gap='small'>
