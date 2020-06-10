@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Plyr from 'plyr'
 import 'plyr/dist/plyr.css'
@@ -6,7 +7,7 @@ import 'plyr/dist/plyr.css'
 import { useInView } from 'react-intersection-observer'
 import { Box } from 'grommet'
 
-export const Video = ({ source = {}, ...props }) => {
+export const Video = styled(({ className, source = {}, boxConfig={}, ...props }) => {
   const [inViewRef, inView] = useInView()
   const [player, setPlayer] = useState()
   const videoEl = useRef()
@@ -44,11 +45,17 @@ export const Video = ({ source = {}, ...props }) => {
   }, [inView])
 
   return (
-    <Box ref={inViewRef}>
+    <Box className={className} ref={inViewRef} {...boxConfig}>
       <video ref={videoEl} />
     </Box>
   )
-}
+})`
+  --plyr-color-main: ${({ theme }) => theme.global.colors.brand};
+
+  & .plyr__control--overlaid {
+    opacity: 0;
+  }
+`
 
 Video.displayName = 'Video'
 Video.propTypes = {
