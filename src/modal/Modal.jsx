@@ -32,10 +32,17 @@ const mainReducer = (state, action) => {
 }
 
 const toggle = (state, { key }) => {
+  if (state.key === key){
+    return {
+      ...state,
+      on: false,
+      key: undefined
+    }
+  }
   return {
     ...state,
-    on: !state.on,
-    key: state.on ? undefined : key
+    on: true,
+    key: key
   }
 }
 

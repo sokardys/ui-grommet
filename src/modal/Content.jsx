@@ -5,9 +5,30 @@ import styled from 'styled-components'
 import { Layer } from 'grommet'
 import { useModalContext } from './Modal'
 
+import {
+  getIcon,
+  circleIcon
+} from '../icons/Icons'
+
 const MyLayer = styled(Layer)`
   background: transparent;
-  padding: 2em 0.5em;
+`
+
+const CloseIcon = styled(({className, closeFn}) =>
+  circleIcon({
+    className,
+    Icon: getIcon('Close'),
+    height: '3rem',
+    width: '3rem',
+    onClick: closeFn,
+    hoverIndicator: true,
+    margin: 'small'
+  })
+)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 20;
 `
 
 const ModalContent = ({
@@ -17,6 +38,7 @@ const ModalContent = ({
   onClickOutside,
   disableEsc,
   disableClickOutside,
+  showCloseIcon = true,
   ...props
 }) => {
   const { state: { on, key }, actions, dispatch } = useModalContext()
@@ -30,19 +52,25 @@ const ModalContent = ({
     !disable && myToggle() && fn && fn()
   }
 
+  const isRenderProps = typeof (children) === 'function'
+
   if (isOn) {
     return (
-      <MyLayer
-        onEsc={myToggleWrapper(onEsc, disableEsc)}
-        onClickOutside={myToggleWrapper(onClickOutside, disableClickOutside)}
-        {...props}
-      >
-        {
-          typeof (children) === 'function'
-            ? children({ on, toggle: myToggle })
-            : children
-        }
-      </MyLayer>
+      <>
+        {showCloseIcon && <CloseIcon closeFn={myToggle} />}
+        <MyLayer
+          onEsc={myToggleWrapper(onEsc, disableEsc)}
+          onClickOutside={myToggleWrapper(onClickOutside, disableClickOutside)}
+          {...props}
+        >
+
+          {
+            isRenderProps
+              ? children({ on, toggle: myToggle })
+              : children
+          }
+        </MyLayer>
+      </>
     )
   }
   return null

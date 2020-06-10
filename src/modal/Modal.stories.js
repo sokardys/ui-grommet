@@ -70,3 +70,47 @@ export const RenderProps = () =>
       </Modal.Content>
     </Modal>
   </Grommet>
+
+export const ModalToModal = () =>
+  <Grommet theme={grommet}>
+    <Modal>
+      <Box direction='row' gap='medium'>
+        <Modal.Button forId='modal-1' primary label='Modal-1' />
+        <Modal.Button forId='modal-2' secondary label='Modal-2' />
+      </Box>
+      <Modal.Content
+        id='modal-1'
+        position='bottom'
+        disableClickOutside
+      >
+        {({ on, toggle }) => {
+          return (
+            <Box background='light-1' pad='small'>
+              <Stack anchor='top-right'>
+                <Box pad='large'>Modal 1 Content</Box>
+                <Box pad='xsmall'><Close onClick={toggle} /></Box>
+              </Stack>
+              <Modal.Button forId='modal-2' label='Modal-2'></Modal.Button>
+            </Box>
+          )
+        }}
+      </Modal.Content>
+      <Modal.Content
+        id='modal-2'
+        position='top'
+        disableClickOutside
+      >
+        {({ on, toggle }) => {
+          return (
+            <Box background='light-1' pad='small'>
+              <Stack anchor='top-right'>
+                <Box pad='large'>Modal 2 Content</Box>
+                <Box pad='xsmall'><Close onClick={toggle} /></Box>
+              </Stack>
+              <Modal.Button forId='modal-1' label='Modal-1'></Modal.Button>
+            </Box>
+          )
+        }}
+      </Modal.Content>
+    </Modal>
+  </Grommet>
