@@ -12,6 +12,7 @@ import {
 
 const MyLayer = styled(Layer)`
   background: transparent;
+  padding: 0.5rem;
 `
 
 const CloseIcon = styled(({ className, closeFn }) =>
@@ -25,7 +26,7 @@ const CloseIcon = styled(({ className, closeFn }) =>
     margin: 'small'
   })
 )`
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 20;
