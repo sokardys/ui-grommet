@@ -14,7 +14,7 @@ const Body = styled.div`
 export const Default = () =>
   <Body>
     <Page>
-      <MarkdownSection>
+      <MarkdownSection background='light-1'>
         ## Grommet **heart**s markdown
         Favorite thing, [link](https://twitter.com/grommet_io)
       </MarkdownSection>
