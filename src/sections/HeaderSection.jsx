@@ -94,6 +94,7 @@ export const HeaderSection = ({
   burgerSizes = ['small'],
   burgerColor = 'brand',
   menuOptions = [],
+  menuMobileOptions = [],
   menuConfig = {},
   mobileConfig = {},
   renderMenu,
@@ -133,17 +134,26 @@ export const HeaderSection = ({
           <Link href='/'>
             <a><Logo {...logo} /></a>
           </Link>
-          {!isMobile &&
-            <SubMenu
-              menuOptions={menuOptions}
-              config={menuConfig}
-              renderMenu={renderMenu}
-              closeFn={closeFn}
-            />}
-          {isMobile &&
-            <Box pad={{ vertical: 'small', horizontal: 'medium' }}>
-              <Burger cross={open} color={burgerColor} onClick={toggleOpen} />
-            </Box>}
+          <Box align='end' direction='row'>
+            {!isMobile &&
+              <SubMenu
+                menuOptions={menuOptions}
+                config={menuConfig}
+                renderMenu={renderMenu}
+                closeFn={closeFn}
+              />}
+            {isMobile && menuMobileOptions.length > 0 &&
+              <SubMenu
+                menuOptions={menuMobileOptions}
+                config={menuConfig}
+                renderMenu={renderMenu}
+                closeFn={closeFn}
+              />}
+            {isMobile &&
+              <Box pad={{ vertical: 'small', horizontal: 'medium' }}>
+                <Burger cross={open} color={burgerColor} onClick={toggleOpen} />
+              </Box>}
+          </Box>
         </Box>
       </Section>
       {open &&
