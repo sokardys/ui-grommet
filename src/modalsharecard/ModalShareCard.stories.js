@@ -34,4 +34,3 @@ export const Default = () =>
       </Body>
     </Page>
   </Modal>
-

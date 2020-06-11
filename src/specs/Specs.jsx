@@ -41,7 +41,7 @@ export const Specs = ({ specs, ...props }) => {
 
   return (
     <Grid
-      columns={{ small: '1fr', default: ['.25fr', '.75fr']}}
+      columns={{ small: '1fr', default: ['.25fr', '.75fr'] }}
       gap='medium'
       {...props}
     >
@@ -51,7 +51,7 @@ export const Specs = ({ specs, ...props }) => {
           const isActive = slide === index
           return (
             <Option
-              className={ isActive ? 'active' : ''}
+              className={isActive ? 'active' : ''}
               key={`option-${spec.icon}-${index}`}
               direction='row'
               gap='small'
@@ -59,7 +59,7 @@ export const Specs = ({ specs, ...props }) => {
               fill='horizontal'
               onClick={() => !isActive && updateActiveSpec(index)}
             >
-              <Icon color='brand'/>
+              <Icon color='brand' />
               <Text weight='bold'>{spec.title}</Text>
             </Option>
           )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import {
@@ -32,8 +32,8 @@ export const TimedButton = ({
   icon,
   label,
   labelDisabled,
-  labelConfig={},
-  iconConfig={},
+  labelConfig = {},
+  iconConfig = {},
   ...props
 }) => {
   const [timeoutDisabled, setTimeoutDisabled] = useState(false)
@@ -55,12 +55,11 @@ export const TimedButton = ({
       {...props}
       disabled={isDisabled}
       onClick={clickFn}
-      icon={timeoutDisabled ? <RotateUpdate {...iconConfig}/> : Icon ? <Icon {...iconConfig}/> : Icon }
+      icon={timeoutDisabled ? <RotateUpdate {...iconConfig} /> : Icon ? <Icon {...iconConfig} /> : Icon}
       label={<Text {...labelConfig}>{timeoutDisabled ? labelDisabled || label : label}</Text>}
     />
   )
 }
-
 
 TimedButton.displayName = 'TimedButton'
 TimedButton.propTypes = {

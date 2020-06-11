@@ -19,7 +19,7 @@ export const ModalShareCard = ({
     <Modal.Content
       id={id}
       showCloseIcon={false}
-      position={isSmall ? 'bottom': 'center'}
+      position={isSmall ? 'bottom' : 'center'}
       responsive={false}
     >
       {({ toggle }) => {

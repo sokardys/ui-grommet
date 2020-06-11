@@ -21,7 +21,6 @@ const defaultProps = {
   onClick: () => console.log('Enviando!')
 }
 
-
 export const Default = () =>
   <Page>
     <Body>

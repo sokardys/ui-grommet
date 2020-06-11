@@ -13,8 +13,7 @@ import {
   Secure
 } from 'grommet-icons'
 
-
-const CodeInput = ({name, onComplete, ...props}) => {
+const CodeInput = ({ name, onComplete, ...props }) => {
   const [code, setCode] = useState()
 
   useEffect(() => {
@@ -26,9 +25,9 @@ const CodeInput = ({name, onComplete, ...props}) => {
   const number = {
     length: 1,
     regexp: /^[0-9]{1}$/,
-    placeholder: '0',
+    placeholder: '0'
   }
-  const mask = Array.from('000000', () => number );
+  const mask = Array.from('000000', () => number)
 
   return (
     <MaskedInput
@@ -41,7 +40,7 @@ const CodeInput = ({name, onComplete, ...props}) => {
   )
 }
 
-const Label = ({children}) =>
+const Label = ({ children }) =>
   <Text dangerouslySetInnerHTML={{ __html: children }} />
 
 export const Fields = ({
@@ -57,7 +56,7 @@ export const Fields = ({
   const getInput = () => {
     switch (type) {
       case 'checkbox':
-        return(
+        return (
           <CheckBox
             label={<Label>{label}</Label>}
             name={name}
@@ -96,7 +95,7 @@ export const Fields = ({
   }
 
   const formFieldProps = {}
-  if ((label || '').length > 0 && type !== 'checkbox'){
+  if ((label || '').length > 0 && type !== 'checkbox') {
     formFieldProps.label = label
   }
 

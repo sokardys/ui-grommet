@@ -35,48 +35,47 @@ const getButton = ({ channel, url, title, hashtags, closeFn, iconSettings }) => 
     case 'facebook':
       return (
         <FacebookShareButton key={`fb-${url}`} url={url} quote={title} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('FacebookOption'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('FacebookOption'), ...iconSettings })}
         </FacebookShareButton>
       )
     case 'twitter':
       return (
         <TwitterShareButton key={`tw-${url}`} url={url} title={title} hashtags={hashtags} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('Twitter'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('Twitter'), ...iconSettings })}
         </TwitterShareButton>
       )
     case 'linkedin':
       return (
         <LinkedinShareButton key={`lk-${url}`} className='hide-mobile' url={url} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('LinkedinOption'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('LinkedinOption'), ...iconSettings })}
         </LinkedinShareButton>
       )
     case 'telegram':
       return (
         <TelegramShareButton key={`tg-${url}`} className='hide-mobile' url={url} title={title} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('Telegram'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('Telegram'), ...iconSettings })}
         </TelegramShareButton>
       )
     case 'whatsapp':
       return (
         <WhatsappShareButton key={`wh-${url}`} url={url} title={title} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('WhatsApp'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('WhatsApp'), ...iconSettings })}
         </WhatsappShareButton>
       )
     case 'email':
       return (
         <EmailShareButton key={`em-${url}`} url={url} subject={title} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('MailOption'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('MailOption'), ...iconSettings })}
         </EmailShareButton>
       )
     case 'pocket':
       return (
         <PocketShareButton key={`pk-${url}`} className='hide-mobile' url={url} beforeOnClick={closeFn}>
-          {circleIcon({Icon: getIcon('Pocket'), ...iconSettings})}
+          {circleIcon({ Icon: getIcon('Pocket'), ...iconSettings })}
         </PocketShareButton>
       )
   }
 }
-
 
 export const ShareCard = styled(({
   className,
@@ -124,7 +123,7 @@ export const ShareCard = styled(({
             {header}
           </Text>
           {closeFn &&
-            <Anchor onClick={closeFn} margin={{top: 'xsmall'}}>
+            <Anchor onClick={closeFn} margin={{ top: 'xsmall' }}>
               <CloseIcon />
             </Anchor>}
         </>
@@ -151,7 +150,7 @@ export const ShareCard = styled(({
   }
   & .copy {
     &.copied {
-      border-color: ${({theme}) => theme.global.colors['accent-1'] };
+      border-color: ${({ theme }) => theme.global.colors['accent-1']};
     }
   }
 `

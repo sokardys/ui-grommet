@@ -14,7 +14,7 @@ const MyLayer = styled(Layer)`
   background: transparent;
 `
 
-const CloseIcon = styled(({className, closeFn}) =>
+const CloseIcon = styled(({ className, closeFn }) =>
   circleIcon({
     className,
     Icon: getIcon('Close'),

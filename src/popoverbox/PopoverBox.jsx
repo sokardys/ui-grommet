@@ -12,24 +12,24 @@ const RelativeBox = styled(Box)`
 const Pulse = styled(getIcon('Pulse'))`
   position: absolute;
   top: ${({ top = '' }) => top};
-  left: ${({ left = ''}) => left};
+  left: ${({ left = '' }) => left};
   cursor: pointer;
 `
 
-const composePulse = ({ index, top, left, size = 'large', color = 'brand', ...props}) =>
+const composePulse = ({ index, top, left, size = 'large', color = 'brand', ...props }) =>
   <Tooltip
     key={`pulse-${index}`}
     boxConfig={{ width: 'medium' }}
     {...props}
   >
-    <Pulse top={top} left={left} size={size} color={color}/>
+    <Pulse top={top} left={left} size={size} color={color} />
   </Tooltip>
 
 export const PopoverBox = ({ tips = [], children, ...props }) => {
   return (
     <RelativeBox fill {...props}>
       {children}
-      {tips.map((tip, index) => composePulse({...tip, index}))}
+      {tips.map((tip, index) => composePulse({ ...tip, index }))}
     </RelativeBox>
   )
 }

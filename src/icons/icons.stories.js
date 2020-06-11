@@ -42,7 +42,7 @@ export const Default = () =>
     <Page>
       <Grid
         fill
-        columns={{ default: { 'count': 'fit', 'size': '125px' } }}
+        columns={{ default: { count: 'fit', size: '125px' } }}
         pad={{ default: 'medium' }}
         gap='medium'
         align='center'

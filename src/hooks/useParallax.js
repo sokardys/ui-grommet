@@ -13,7 +13,7 @@ const ParallaxBox = styled(Box)`
   z-index: 0;
 `
 
-export const useParallax = ({ type = '' , config = {}}) => {
+export const useParallax = ({ type = '', config = {} }) => {
   const parallaxRef = useRef()
 
   const isActive = type !== ''

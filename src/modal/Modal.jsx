@@ -32,7 +32,7 @@ const mainReducer = (state, action) => {
 }
 
 const toggle = (state, { key }) => {
-  if (state.key === key){
+  if (state.key === key) {
     return {
       ...state,
       on: false,

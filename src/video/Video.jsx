@@ -7,7 +7,7 @@ import 'plyr/dist/plyr.css'
 import { useInView } from 'react-intersection-observer'
 import { Box } from 'grommet'
 
-export const Video = styled(({ className, source = {}, boxConfig={}, ...props }) => {
+export const Video = styled(({ className, source = {}, boxConfig = {}, ...props }) => {
   const [inViewRef, inView] = useInView()
   const [player, setPlayer] = useState()
   const videoEl = useRef()

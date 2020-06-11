@@ -26,4 +26,3 @@ export const Default = () =>
       </Section>
     </Body>
   </Page>
-
