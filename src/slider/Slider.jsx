@@ -3,17 +3,19 @@ import styled from 'styled-components'
 import 'flickity/css/flickity.css'
 import { Box } from 'grommet'
 
-export const Slider = styled(({ className, options = { autoPlay: true, wrapAround: true }, children, ...props }) => {
+export const Slider = styled(({ className, options = { autoPlay: true, wrapAround: true }, children = [], ...props }) => {
   const sliderEl = useRef()
 
   useEffect(() => {
-    const Flickity = require('flickity-sync')
-    const slider = new Flickity(sliderEl.current, options)
-
-    return () => {
-      slider.destroy()
+    let slider
+    if (sliderEl.current && children.length > 0) {
+      const Flickity = require('flickity-sync')
+      slider = new Flickity(sliderEl.current, options)
     }
-  }, [])
+    return () => {
+      slider && slider.destroy()
+    }
+  }, [sliderEl, children])
 
   return (
     <Box className={`carousel ${className}`} ref={sliderEl} pad={{ bottom: 'large' }} {...props}>
