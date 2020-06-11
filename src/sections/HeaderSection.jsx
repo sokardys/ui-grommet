@@ -59,8 +59,12 @@ const renderMenuOptions = ({
   closeFn = () => {}
 }) => {
   const { color, ...props } = config
-  return options.map(({ type, label, labelConfig = {}, ...option }, index) => {
+  return options.map(({ type, label, labelConfig = {}, onClick, ...option }, index) => {
     const labelTag = <Text as='div' truncate textAlign='center' {...labelConfig}>{label}</Text>
+    const optionClick = () => {
+      onClick && onClick()
+      closeFn()
+    }
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
         {type === 'button'
@@ -69,14 +73,14 @@ const renderMenuOptions = ({
             focusIndicator={false}
             alignSelf='center'
             {...option}
-            onClick={closeFn}
+            onClick={optionClick}
             label={labelTag}
           />
           : <Anchor
             focusIndicator={false}
             color={color}
             {...option}
-            onClick={closeFn}
+            onClick={optionClick}
             label={labelTag}
           />}
       </Box>
