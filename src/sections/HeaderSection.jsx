@@ -3,7 +3,6 @@ import Link from 'next/link'
 import {
   Anchor,
   Box,
-  Button,
   ResponsiveContext,
   Text
 } from 'grommet'
@@ -59,30 +58,36 @@ const renderMenuOptions = ({
   closeFn = () => {}
 }) => {
   const { color, ...props } = config
-  return options.map(({ type, label, labelConfig = {}, onClick, ...option }, index) => {
+  return options.map(({ type, label, labelConfig = {}, as, href, onClick, ...option }, index) => {
     const labelTag = <Text as='div' truncate textAlign='center' {...labelConfig}>{label}</Text>
     const optionClick = () => {
       onClick && onClick()
       closeFn()
     }
+
+    const renderButton = () =>
+      <Modal.Button
+        color={color}
+        focusIndicator={false}
+        {...option}
+        onClick={optionClick}
+        label={labelTag}
+      />
+
+    const renderLink = () =>
+      <Link href={href} as={as}>
+        <Anchor
+          focusIndicator={false}
+          color={color}
+          {...option}
+          onClick={optionClick}
+          label={labelTag}
+        />
+      </Link>
+
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
-        {type === 'button'
-          ? <Modal.Button
-            Component={Button}
-            focusIndicator={false}
-            alignSelf='center'
-            {...option}
-            onClick={optionClick}
-            label={labelTag}
-          />
-          : <Anchor
-            focusIndicator={false}
-            color={color}
-            {...option}
-            onClick={optionClick}
-            label={labelTag}
-          />}
+        {type === 'button' ? renderButton() : renderLink()}
       </Box>
     )
   })
