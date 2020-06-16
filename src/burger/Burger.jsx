@@ -16,7 +16,7 @@ export const Burger = styled(({ className, cross = false, size = '2rem', ...prop
   --color: ${({ theme, color = 'brand' }) => theme.global.colors[color]};
   --size: ${({ size = '2rem' }) => (size)};
   --line-height: ${({ lineHeight = '3px' }) => (lineHeight)};
-  --space: calc( (var( --size )-var( --line-height ) * 3)/2 - var( --line-height ));
+  --space: calc( var( --line-height ) * 4 );
 
   cursor: pointer;
   display: flex;
@@ -44,11 +44,11 @@ export const Burger = styled(({ className, cross = false, size = '2rem', ...prop
     }
 
     &:after{
-      bottom: var( --space );
+      bottom: calc( -1 * var( --space ));
     }
 
     &:before{
-      top: var( --space );
+      top: calc( -1 * var( --space ));
     }
     &.cross{
       background-color: transparent;
