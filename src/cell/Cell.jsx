@@ -11,6 +11,7 @@ import { Title } from '../title/Title'
 import { Description } from '../description/Description'
 import { Image } from '../image/Image'
 import { SocialBox } from '../socialbox/SocialBox'
+import { getIcon } from '../icons/Icons'
 
 export const Cell = ({
   top = false,
@@ -24,6 +25,8 @@ export const Cell = ({
   description,
   descriptionConfig = {},
   cta,
+  icon,
+  iconConfig = {},
   icons,
   iconsConfig = {},
   contact,
@@ -54,17 +57,22 @@ export const Cell = ({
       {...iconsConfig}
     />
 
-  const composeBox = () =>
-    <Box align='center' {...props}>
-      {top && title && composeHeading()}
-      {src && <Image fit='contain' {...imageConfig} src={src} />}
-      {badge && badge}
-      {!top && title && composeHeading()}
-      {description && composeDescription()}
-      {cta && <Cta {...cta} />}
-      {icons && composeSocialBox()}
-      {contact && <ContactInfo {...contact} />}
-    </Box>
+  const composeBox = () => {
+    const Icon = getIcon(icon)
+    return (
+      <Box align='center' {...props}>
+        {top && title && composeHeading()}
+        {icon && <Icon {...iconConfig} />}
+        {src && <Image fit='contain' {...imageConfig} src={src} />}
+        {badge && badge}
+        {!top && title && composeHeading()}
+        {description && composeDescription()}
+        {cta && <Cta {...cta} />}
+        {icons && composeSocialBox()}
+        {contact && <ContactInfo {...contact} />}
+      </Box>
+    )
+  }
 
   if (href) {
     return (
