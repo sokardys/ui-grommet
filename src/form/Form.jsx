@@ -1,5 +1,5 @@
 /* global fetch */
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
 import Reaptcha from 'reaptcha'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -9,6 +9,7 @@ import {
   Button,
   Form as GrommetForm,
   FormField,
+  Select,
   Text,
   TextInput,
   TextArea
@@ -43,7 +44,8 @@ const sendEmail = async ({ values, template, from, to }) => {
 }
 
 const checkCaptcha = async (key, token) => {
-  const response = await fetch('https://utils.tutellus.com/graphql', {
+  const url = 'https://utils.tutellus.com/graphql'
+  const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -113,17 +115,24 @@ export const Form = ({
   const [valuesToSend, setValuesToSend] = useState()
   const [toSend, setToSend] = useState(false)
   const [load, setLoad] = useState(false)
-  const { register, handleSubmit, errors, reset } = useForm({
-    validationSchema: composeValidation(fields)
+  const [sending, setSending] = useState(false)
+  const schema = useMemo(() => composeValidation(fields), [fields])
+  const { register, handleSubmit, errors, reset, setValue } = useForm({
+    validationSchema: schema
   })
   const captchaRef = useRef()
 
   useEffect(() => {
+    Object.keys(fields).filter(key => fields[key].type === 'select')
+      .map(key => {
+        register({ name: key })
+      })
+  }, [fields])
+
+  useEffect(() => {
     let timeoutId
     const resetForm = (sended = false) => {
-      console.log('> resetForm', sended, timeout * (sended ? 1 : 2))
       timeoutId = setTimeout(() => {
-        console.log('< resetForm', sended)
         setStatus({})
         sended && onSend && onSend()
       }, timeout * (sended ? 1 : 2))
@@ -132,6 +141,7 @@ export const Form = ({
     }
     const sendForm = async () => {
       if (toSend) {
+        setSending(true)
         try {
           if (valuesToSend) {
             if (sendFormFn) {
@@ -154,14 +164,17 @@ export const Form = ({
           console.error('sendForm - ERROR', JSON.stringify(ex))
           setStatus({ error: true })
           resetForm()
+        } finally {
+          setSending(false)
         }
       }
     }
-    sendForm()
+    if (!sending) {
+      sendForm()
+    }
 
     return () => {
       if (timeoutId) {
-        console.log('- Clear Timeout', valuesToSend, toSend, status)
         clearTimeout(timeoutId)
       }
     }
@@ -200,8 +213,19 @@ export const Form = ({
     }
   }
 
-  const getInput = ({ id, name, type, placeholder }) => {
+  const getInput = ({ id, name, type, placeholder, options }) => {
     switch (type) {
+      case 'select':
+        return (
+          <Select
+            id={id}
+            name={name}
+            options={options}
+            placeholder={placeholder}
+            onFocus={onFocus}
+            onChange={({ option }) => setValue(name, option, true)}
+          />
+        )
       case 'textarea':
         return (
           <TextArea
