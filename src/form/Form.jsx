@@ -270,7 +270,7 @@ export const Form = ({
         label={label}
         key={key}
         htmlFor={`${name}_id`}
-        error={errors[name] && <Text color='status-critical'>{errors[name].message}</Text>}
+        error={errors[name] && <Text color='status-critical' size='small'>{errors[name].message}</Text>}
       >
         {getInput({
           id: `${name}_id`,
