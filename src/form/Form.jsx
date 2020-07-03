@@ -1,5 +1,6 @@
 /* global fetch */
 import React, { useRef, useState, useEffect, useMemo } from 'react'
+import styled from 'styled-components'
 import Reaptcha from 'reaptcha'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -14,6 +15,18 @@ import {
   TextInput,
   TextArea
 } from 'grommet'
+
+const CaptchaBox = styled(Box)`
+  & .g-recaptcha {
+    width: 256px;
+    height: 60px;
+    & .grecaptcha-badge {
+      position: inherit !important;
+      right: auto !important;
+      bottom: auto !important;
+    }
+  }
+`
 
 const sendEmail = async ({ values, template, from, to }) => {
   const response = await fetch('https://t9vq7jwbe0.execute-api.us-east-1.amazonaws.com/prod/graphql', {
@@ -114,13 +127,21 @@ export const Form = ({
   const [status, setStatus] = useState({})
   const [valuesToSend, setValuesToSend] = useState()
   const [toSend, setToSend] = useState(false)
-  const [load, setLoad] = useState(false)
+  const [captchaReady, setCaptchaReady] = useState(false)
+  const [rendered, setRendered] = useState(false)
   const [sending, setSending] = useState(false)
   const schema = useMemo(() => composeValidation(fields), [fields])
   const { register, handleSubmit, errors, reset, setValue } = useForm({
     validationSchema: schema
   })
   const captchaRef = useRef()
+
+  useEffect(() => {
+    if (captchaReady && !rendered) {
+      captchaRef.current.renderExplicitly()
+      setRendered(true)
+    }
+  }, [captchaReady])
 
   useEffect(() => {
     Object.keys(fields).filter(key => fields[key].type === 'select')
@@ -206,13 +227,6 @@ export const Form = ({
     }
   }
 
-  const onFocus = () => {
-    if (!load) {
-      captchaRef.current.renderExplicitly()
-      setLoad(true)
-    }
-  }
-
   const getInput = ({ id, name, type, placeholder, options }) => {
     switch (type) {
       case 'select':
@@ -222,7 +236,6 @@ export const Form = ({
             name={name}
             options={options}
             placeholder={placeholder}
-            onFocus={onFocus}
             onChange={({ option }) => setValue(name, option, true)}
           />
         )
@@ -235,7 +248,6 @@ export const Form = ({
             resize='vertical'
             rows='3'
             placeholder={placeholder}
-            onFocus={onFocus}
           />
         )
       default:
@@ -246,7 +258,6 @@ export const Form = ({
             type={type}
             ref={register}
             placeholder={placeholder}
-            onFocus={onFocus}
           />
         )
     }
@@ -275,18 +286,7 @@ export const Form = ({
       <GrommetForm onSubmit={handleSubmit(onSubmit)}>
         {Object.keys(fields).map((name, index) => {
           const field = fields[name]
-          if (name === 'captcha') {
-            return (
-              <Reaptcha
-                key={`${id}_captcha_${index}`}
-                ref={captchaRef}
-                sitekey={field.clientSecret || 'Invalid Site Key'}
-                onVerify={onVerify(field.key)}
-                size='invisible'
-                explicit
-              />
-            )
-          } else {
+          if (name !== 'captcha') {
             return composeField({
               key: `${id}_field_${index}`,
               name,
@@ -299,10 +299,28 @@ export const Form = ({
         <Button
           primary
           type='submit'
-          disabled={!!valuesToSend || !load}
+          disabled={!!valuesToSend}
           margin={{ top: 'medium' }}
           {...button}
         />
+        {Object.keys(fields).map((name, index) => {
+          const field = fields[name]
+          if (name === 'captcha') {
+            return (
+              <CaptchaBox pad={{ top: 'medium' }} align='center'>
+                <Reaptcha
+                  key={`${id}_captcha_${index}`}
+                  ref={captchaRef}
+                  sitekey={field.clientSecret || 'Invalid Site Key'}
+                  onLoad={() => setCaptchaReady(true)}
+                  onVerify={onVerify(field.key)}
+                  size='invisible'
+                  explicit
+                />
+              </CaptchaBox>
+            )
+          }
+        })}
       </GrommetForm>
     </Box>
   )
