@@ -31,7 +31,8 @@ const RelativeBox = styled(Box)`
   }
 `
 
-export const Section = ({
+export const Section = styled(({
+  id,
   children,
   background,
   width = 'xlarge',
@@ -61,6 +62,7 @@ export const Section = ({
       background={background}
       {...props}
     >
+      {id && <span class='xtarget' id={id}>&nbsp;</span>}
       {isActive && !hasWaves && composeParallax()}
       <Box className='content' width={width} flex='grow'>
         <>
@@ -95,7 +97,13 @@ export const Section = ({
     )
   }
   return composeSection()
-}
+})`
+  & .xtarget {
+    margin-top: ${({ headerHeight = 60 }) => (headerHeight * -1)}px;
+    padding-bottom: ${({ headerHeight = 60 }) => headerHeight}px;
+    display: block;
+  }
+`
 
 Section.propTypes = {
   children: PropTypes.node.isRequired,
