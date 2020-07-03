@@ -25,9 +25,11 @@ export const FormSection = ({
   error,
   footer,
   emailSettings = {},
+  modalSettings = {},
+  hideCloseBtn = false,
   ...props
 }) =>
-  <Modal.Content id={id} margin='small'>
+  <Modal.Content id={id} margin='small' {...modalSettings}>
     {({ toggle }) =>
       <Stack anchor='top-right'>
         <Section
@@ -42,9 +44,9 @@ export const FormSection = ({
               fields,
               button,
               success,
-              error,
-              ...emailSettings
+              error
             }}
+            {...emailSettings}
             onSend={toggle}
           />
           {footer &&
@@ -54,11 +56,12 @@ export const FormSection = ({
               dangerouslySetInnerHTML={{ __html: footer }}
             />}
         </Section>
-        <Box margin='small'>
-          <MyAnchor
-            onClick={toggle}
-            icon={<Close />}
-          />
-        </Box>
+        {!hideCloseBtn &&
+          <Box margin='small'>
+            <MyAnchor
+              onClick={toggle}
+              icon={<Close />}
+            />
+          </Box>}
       </Stack>}
   </Modal.Content>
