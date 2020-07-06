@@ -12,6 +12,7 @@ import {
 
 const MyLayer = styled(Layer)`
   background: transparent;
+  position: 'relative'
 `
 
 const CloseIcon = styled(({ className, closeFn }) =>

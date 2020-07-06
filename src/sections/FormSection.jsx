@@ -4,7 +4,6 @@ import { Close } from 'grommet-icons'
 import {
   Anchor,
   Box,
-  Stack,
   Text
 } from 'grommet'
 
@@ -17,6 +16,13 @@ import {
 const MyAnchor = styled(Anchor)`
   padding: 0;
 `
+
+const CloseBox = styled(Box)`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
 export const FormSection = ({
   id,
   fields = {},
@@ -31,11 +37,12 @@ export const FormSection = ({
 }) =>
   <Modal.Content id={id} margin='small' {...modalSettings}>
     {({ toggle }) =>
-      <Stack anchor='top-right'>
+      <>
         <Section
           width='medium'
           pad='large'
           round='small'
+          overflow='scroll'
           {...props}
         >
           <Form
@@ -57,11 +64,11 @@ export const FormSection = ({
             />}
         </Section>
         {!hideCloseBtn &&
-          <Box margin='small'>
+          <CloseBox margin='small'>
             <MyAnchor
               onClick={toggle}
               icon={<Close />}
             />
-          </Box>}
-      </Stack>}
+          </CloseBox>}
+      </>}
   </Modal.Content>
