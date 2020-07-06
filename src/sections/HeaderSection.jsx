@@ -58,7 +58,7 @@ const renderMenuOptions = ({
   closeFn = () => {}
 }) => {
   const { color, ...props } = config
-  return options.map(({ type, label, labelConfig = {}, as, href, onClick, ...option }, index) => {
+  return options.map(({ type = 'link', label, labelConfig = {}, as, href, onClick, ...option }, index) => {
     const labelTag = <Text as='div' truncate textAlign='center' {...labelConfig}>{label}</Text>
     const optionClick = () => {
       onClick && onClick()
@@ -85,9 +85,19 @@ const renderMenuOptions = ({
         />
       </Link>
 
+    const renderExternalLink = () =>
+      <Anchor
+        href={href}
+        focusIndicator={false}
+        color={color}
+        {...option}
+        onClick={optionClick}
+        label={labelTag}
+      />
+
     return (
       <Box key={index} focusIndicator={false} flex='shrink' {...props}>
-        {type === 'button' ? renderButton() : renderLink()}
+        {type === 'button' ? renderButton() : type === 'external' ? renderExternalLink() : renderLink()}
       </Box>
     )
   })
