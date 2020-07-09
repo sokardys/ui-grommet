@@ -24,6 +24,10 @@ export const Burger = styled(({ className, cross = false, size = '2rem', ...prop
   justify-content: center;
   z-index: 1000;
 
+  &:focus {
+    outline: none;
+  }
+
   & .burger {
     width: var( --size );
     height: var( --line-height );
