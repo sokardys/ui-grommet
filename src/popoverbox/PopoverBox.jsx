@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import { Box } from 'grommet'
+import {
+  Box,
+  ResponsiveContext
+} from 'grommet'
 
 import { getIcon } from '../icons/Icons'
 import { Tooltip } from '../tooltip/Tooltip'
@@ -26,10 +29,17 @@ const composePulse = ({ index, top, left, size = 'large', color = 'brand', ...pr
   </Tooltip>
 
 export const PopoverBox = ({ tips = [], children, ...props }) => {
+  const size = useContext(ResponsiveContext)
   return (
     <RelativeBox fill {...props}>
       {children}
-      {tips.map((tip, index) => composePulse({ ...tip, index }))}
+      {tips.map((tip, index) =>
+        composePulse({
+          ...tip,
+          index,
+          placement: size === 'small' ? 'top' : undefined
+        })
+      )}
     </RelativeBox>
   )
 }

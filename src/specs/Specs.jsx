@@ -34,7 +34,6 @@ export const Specs = ({ specs, ...props }) => {
   }, [slide])
 
   const updateActiveSpec = index => {
-    console.log('updateActiveSpec')
     setSlide(index)
   }
 
