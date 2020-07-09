@@ -1,4 +1,3 @@
-export * from './useAOS'
 export * from './useClipboard'
 export * from './useClipboardText'
 export * from './useEffectAfterMount'
