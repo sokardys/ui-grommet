@@ -1,9 +1,7 @@
 import React from 'react'
 
-import {
-  Floating,
-  Header
-} from '..'
+import { Floating } from '../floating/Floating'
+import { Header } from '../header/Header'
 
 export const FloatingHeaderSection = ({
   gap,

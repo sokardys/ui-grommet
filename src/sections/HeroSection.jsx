@@ -1,8 +1,7 @@
 import React from 'react'
-import {
-  Grid,
-  Section
-} from '..'
+
+import { Grid } from '../grid/Grid'
+import { Section } from '../section/Section'
 
 export const HeroSection = ({
   cells,

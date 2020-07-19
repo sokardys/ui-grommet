@@ -6,12 +6,11 @@ import {
   ResponsiveContext,
   Text
 } from 'grommet'
-import {
-  Burger,
-  Logo,
-  Modal,
-  Section
-} from '..'
+
+import { Burger } from '../burger/Burger'
+import { Logo } from '../logo/Logo'
+import { Modal } from '../modal/Modal'
+import { Section } from '../section/Section'
 
 const MobileMenu = ({
   menuOptions,

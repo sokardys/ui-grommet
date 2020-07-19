@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Layer } from 'grommet'
-import { useModalContext } from './Modal'
+import { useModalContext } from './useModalContext'
 
 import {
   getIcon,

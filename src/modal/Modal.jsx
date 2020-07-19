@@ -1,11 +1,12 @@
-import React, { useReducer, useContext } from 'react'
+import React, { useReducer } from 'react'
 import PropTypes from 'prop-types'
 import { useDebounce } from 'use-debounce'
 import { useEffectAfterMount } from '../hooks'
+
+import { ModalContext } from './useModalContext'
+
 import Button from './Button'
 import Content from './Content'
-
-const ModalContext = React.createContext()
 
 const defaultState = {
   on: false,
@@ -75,11 +76,3 @@ Modal.propTypes = {
 
 Modal.Button = Button
 Modal.Content = Content
-
-export const useModalContext = () => {
-  const context = useContext(ModalContext)
-  if (context === undefined) {
-    throw new Error('useModalContext must be used within a <ModalProvider />')
-  }
-  return context
-}

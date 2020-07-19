@@ -6,12 +6,12 @@ import {
   Button,
   Text
 } from 'grommet'
+
+import { Update } from 'grommet-icons'
+
 import {
   getIcon
-} from '..'
-import {
-  Update
-} from 'grommet-icons'
+} from '../icons/Icons'
 
 const spin = keyframes`
   100% {

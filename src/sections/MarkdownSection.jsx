@@ -1,8 +1,6 @@
 import React from 'react'
-import {
-  Markdown,
-  Section
-} from '..'
+import { Markdown } from '../markdown/Markdown'
+import { Section } from '../section/Section'
 
 export const MarkdownSection = ({ children, ...props }) => {
   return (

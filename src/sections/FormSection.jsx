@@ -7,11 +7,9 @@ import {
   Text
 } from 'grommet'
 
-import {
-  Form,
-  Modal,
-  Section
-} from '..'
+import { Form } from '../form/Form'
+import { Modal } from '../modal/Modal'
+import { Section } from '../section/Section'
 
 const MyAnchor = styled(Anchor)`
   padding: 0;

@@ -7,9 +7,7 @@ import {
   ResponsiveContext
 } from 'grommet'
 
-import {
-  Section
-} from '..'
+import { Section } from '../section/Section'
 
 export const FooterSection = ({
   children,

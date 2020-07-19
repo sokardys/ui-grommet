@@ -1,15 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {
-  Box
-} from 'grommet'
+import { Box } from 'grommet'
 
-import {
-  Cta,
-  Image,
-  Title
-} from '..'
+import { Cta } from '../cta/Cta'
+import { Image } from '../image/Image'
+import { Title } from '../title/Title'
 
 export const Card = styled(({
   className,

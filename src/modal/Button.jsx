@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'grommet'
-import { useModalContext } from './Modal'
+import { useModalContext } from './useModalContext'
 
 const ModalAction = ({ onClick, Component = Button, forId, ...props }) => {
   const { actions, dispatch } = useModalContext()
