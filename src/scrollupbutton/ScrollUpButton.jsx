@@ -1,7 +1,10 @@
 import React from 'react'
-import { Floating } from 'ui-grommet'
-import { Box, Anchor } from 'grommet'
+import {
+  Box,
+  Anchor
+} from 'grommet'
 import { Up } from 'grommet-icons'
+import { Floating } from '../floating/Floating'
 
 export const ScrollUpButton = () => {
   const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })

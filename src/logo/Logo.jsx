@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-  Image
-} from 'ui-grommet'
-
-import {
-  Box
-} from 'grommet'
+import { Box } from 'grommet'
+import { Image } from '../image/Image'
 
 export const Logo = ({ src, ...props }) =>
   <Box

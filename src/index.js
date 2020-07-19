@@ -1,7 +1,5 @@
 import * as AllSections from './sections'
 
-export const sections = AllSections
-
 export * from './analytics/Analytics'
 export * from './badge/Badge'
 export * from './boxx/Boxx'
@@ -40,3 +38,5 @@ export * from './title/Title'
 export * from './tooltip/Tooltip'
 export * from './video/Video'
 export * from './viewer/Viewer'
+
+export const sections = AllSections
