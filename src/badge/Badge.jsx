@@ -12,12 +12,10 @@ const CountText = styled(Text)`
 `
 
 const ContentText = styled(Text)`
-  font-size: 14px;
   line-height: 14px;
-  font-weight: 700;
 `
 
-export const Badge = styled(({ className, children, count, ...props }) =>
+export const Badge = styled(({ className, children, count, textConfig = {}, ...props }) =>
   <Box
     className={className}
     round='xsmall'
@@ -26,7 +24,7 @@ export const Badge = styled(({ className, children, count, ...props }) =>
     direction='row'
     responsive={false}
   >
-    <ContentText>{children}</ContentText>
+    <ContentText weight={700} {...textConfig}>{children}</ContentText>
     {count &&
       <Box margin={{ left: 'xsmall' }} pad={{ horizontal: 'xsmall' }} justify='center' round='small' background='light-1'>
         <CountText>{count}</CountText>
