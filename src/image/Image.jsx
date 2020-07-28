@@ -93,7 +93,7 @@ export const Image = ({
       }
     }
     return () => {
-      if (observer && observer.unobserve) {
+      if (observer && observer.unobserve && imageRef.current) {
         observer.unobserve(imageRef.current)
         setLoading(false)
       }
