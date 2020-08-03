@@ -4,6 +4,7 @@ import {
   FormField,
   Text,
   MaskedInput,
+  Select,
   TextInput,
   TextArea,
   CheckBox
@@ -48,13 +49,37 @@ export const Fields = ({
   name,
   type = 'text',
   register,
+  unregister,
+  setValue,
+  options = [],
   onComplete,
   placeholder,
   errors = {},
   ...props
 }) => {
+  useEffect(() => {
+    if (type === 'select') {
+      register({ name })
+    }
+    return () => {
+      if (unregister && type === 'code') {
+        unregister(name)
+      }
+    }
+  }, [])
+
   const getInput = () => {
     switch (type) {
+      case 'select':
+        return (
+          <Select
+            id={`${name}_id`}
+            name={name}
+            options={options}
+            placeholder={placeholder}
+            onChange={({ option }) => setValue(name, option, true)}
+          />
+        )
       case 'checkbox':
         return (
           <CheckBox

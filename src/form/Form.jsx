@@ -9,22 +9,19 @@ import {
   Box,
   Button,
   Form as GrommetForm,
-  FormField,
-  Select,
-  Text,
-  TextInput,
-  TextArea
+  Text
 } from 'grommet'
 
+import { Fields } from '../fields/Fields'
+
 const CaptchaBox = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
   & .g-recaptcha {
     width: 256px;
     height: 60px;
-    & .grecaptcha-badge {
-      position: inherit !important;
-      right: auto !important;
-      bottom: auto !important;
-    }
+    margin-bottom:0.5rem;
   }
 `
 
@@ -94,6 +91,14 @@ const StatusBox = ({ background, children }) =>
 const composeValidation = fields => {
   const config = Object.keys(fields).reduce((acu, name) => {
     const field = fields[name]
+
+    const getYupBase = () => {
+      if (field.type === 'checkbox') {
+        return yup.boolean()
+      }
+      return yup.string()
+    }
+
     if (field.validation) {
       const fieldConfig = Object.keys(field.validation).reduce((acu, key) => {
         switch (key) {
@@ -101,9 +106,16 @@ const composeValidation = fields => {
             return acu.required(field.validation[key])
           case 'email':
             return acu.email(field.validation[key])
+          case 'equalfield':
+            return acu.oneOf(
+              [yup.ref(field.validation[key].field)],
+              field.validation[key].text
+            )
+          case 'checked':
+            return acu.oneOf([true], field.validation[key])
         }
         return acu
-      }, yup.string())
+      }, getYupBase())
       acu[name] = fieldConfig
     }
     return acu
@@ -227,71 +239,38 @@ export const Form = ({
     }
   }
 
-  const getInput = ({ id, name, type, placeholder, options }) => {
-    switch (type) {
-      case 'select':
-        return (
-          <Select
-            id={id}
-            name={name}
-            options={options}
-            placeholder={placeholder}
-            onChange={({ option }) => setValue(name, option, true)}
-          />
-        )
-      case 'textarea':
-        return (
-          <TextArea
-            id={id}
-            name={name}
-            ref={register}
-            resize='vertical'
-            rows='3'
-            placeholder={placeholder}
-          />
-        )
-      default:
-        return (
-          <TextInput
-            id={id}
-            name={name}
-            type={type}
-            ref={register}
-            placeholder={placeholder}
-          />
-        )
-    }
-  }
-
-  const composeField = ({ key, label, name, ...props }) => {
-    if (errors[name]) console.log('composeField - errores', errors[name])
-    return (
-      <FormField
-        label={label}
-        key={key}
-        htmlFor={`${name}_id`}
-        error={errors[name] && <Text color='status-critical' size='small'>{errors[name].message}</Text>}
-      >
-        {getInput({
-          id: `${name}_id`,
-          name,
-          ...props
-        })}
-      </FormField>
-    )
-  }
-
   return (
     <Box align='center'>
       <GrommetForm onSubmit={handleSubmit(onSubmit)}>
         {Object.keys(fields).map((name, index) => {
           const field = fields[name]
           if (name !== 'captcha') {
-            return composeField({
-              key: `${id}_field_${index}`,
-              name,
-              ...field
-            })
+            return (
+              <Fields
+                key={`${id}_field_${index}`}
+                name={name}
+                register={register}
+                setValue={setValue}
+                errors={errors}
+                { ...field }
+              />
+            )
+          } else {
+            const composeReaptcha = () =>
+              <Reaptcha
+                key={`${id}_captcha_${index}`}
+                ref={captchaRef}
+                sitekey={field.clientSecret || 'Invalid Site Key'}
+                onLoad={() => setCaptchaReady(true)}
+                onVerify={onVerify(field.key)}
+                size={field.size || 'invisible'}
+                explicit
+              />
+            return (
+              <CaptchaBox pad={{ top: 'medium' }} align='center'>
+                {composeReaptcha()}
+              </CaptchaBox>
+            )
           }
         })}
         {status.send && <StatusBox background='status-ok'>{success}</StatusBox>}
@@ -303,24 +282,6 @@ export const Form = ({
           margin={{ top: 'medium' }}
           {...button}
         />
-        {Object.keys(fields).map((name, index) => {
-          const field = fields[name]
-          if (name === 'captcha') {
-            return (
-              <CaptchaBox pad={{ top: 'medium' }} align='center'>
-                <Reaptcha
-                  key={`${id}_captcha_${index}`}
-                  ref={captchaRef}
-                  sitekey={field.clientSecret || 'Invalid Site Key'}
-                  onLoad={() => setCaptchaReady(true)}
-                  onVerify={onVerify(field.key)}
-                  size='invisible'
-                  explicit
-                />
-              </CaptchaBox>
-            )
-          }
-        })}
       </GrommetForm>
     </Box>
   )

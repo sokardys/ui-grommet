@@ -36,7 +36,23 @@ const form = {
       validation: {
         required: 'Cuentame algo'
       }
-    }
+    },
+    country: {
+      label: 'Pais',
+      placeholder: 'Selecciona....',
+      options: ['ESPAÑA', 'FRANCIA'],
+      type: 'select',
+      validation: {
+        required: 'Selecciona tu país'
+      }
+    },
+    terms: {
+      label: 'Estoy de acuerdo con los <b>Terminos y Condiciones</b>',
+      type: 'checkbox',
+      validation: {
+        checked: 'Debes aceptar los terminos y condiciones...'
+      }
+    },
   },
   success: 'Formulario enviado!',
   error: 'Ups! Error, intentalo más tarde!',
