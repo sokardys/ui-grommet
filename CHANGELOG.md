@@ -1,3 +1,9 @@
+### 0.2.0 (2020-08-06)
+- feat(bit) allow deploy to bit.dev (571c188)
+- refactor(Viewer) upodated name tu ModelViewer (f2f6024)
+- feat(ScrollUpButton) added params for gap and Icon (a900f72)
+- feat(packages.json) update version of libraries, using peerDependencies (1d43c4a)
+
 ### 0.1.1 (2020-08-06)
 - feat(fields) refactor Form externalicing Fields (4ff1684)
 - fix(Image) unobserve only when ref exists (114530b)
