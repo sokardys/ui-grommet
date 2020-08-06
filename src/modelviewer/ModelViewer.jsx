@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Box } from 'grommet'
 
-export const Viewer = styled(({ className, viewerConfig = {}, ...rest }) => {
+export const ModelViewer = styled(({ className, viewerConfig = {}, ...rest }) => {
   useEffect(() => {
     require('@google/model-viewer')
   }, [])
