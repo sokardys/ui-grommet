@@ -82,5 +82,12 @@
       "expect",
       "import"
     ]
+  },
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.20"
+    },
+    "componentsDefaultDirectory": "src/{name}",
+    "packageManager": "yarn"
   }
 }
