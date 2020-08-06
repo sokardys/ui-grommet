@@ -112,3 +112,30 @@ export const WithHover = () =>
       </Box>
     </Body>
   </Page>
+
+export const WithHeader = () =>
+  <Page>
+    <Body>
+      <Box
+        pad='small'
+        width='medium'
+        background='light-1'
+      >
+        <Card
+          {...minimal}
+          hover
+          hoverColor='dark-3'
+          header={
+            <>
+              <Text weight='bold' size='large'>
+                Titulo del Card
+              </Text>
+              <Anchor onClick={() => alert('Hey')}>
+                <Next size='medium' />
+              </Anchor>
+            </>
+          }
+        />
+      </Box>
+    </Body>
+  </Page>

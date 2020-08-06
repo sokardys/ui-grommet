@@ -1,5 +1,6 @@
 export * from './useClipboard'
 export * from './useClipboardText'
 export * from './useEffectAfterMount'
+export * from './useParallax'
 export * from './useScrollPosition'
 export * from './useTimeoutState'

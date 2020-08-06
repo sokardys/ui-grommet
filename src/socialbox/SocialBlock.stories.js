@@ -5,10 +5,10 @@ import {
   Box
 } from 'grommet'
 
-import { Icons } from './Icons'
+import { SocialBox } from './SocialBox'
 import { Page } from '../page/Page'
 
-export default { title: 'Icons' }
+export default { title: 'SocialBox' }
 
 const Body = styled.div`
   font-family: 'Nunito Sans';
@@ -35,6 +35,12 @@ const defaultValues = {
     iconConfig: {
       size: 'large'
     }
+  }, {
+    icon: 'Telegram',
+    href: 'https://www.telegram.com/',
+    iconConfig: {
+      size: 'large'
+    }
   }],
   gap: 'xlarge'
 }
@@ -43,7 +49,7 @@ export const Default = () =>
   <Body>
     <Page>
       <Box background='dark-3'>
-        <Icons
+        <SocialBox
           {...defaultValues}
         />
       </Box>

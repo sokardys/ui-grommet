@@ -1,5 +1,6 @@
 /* global fetch */
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
+import styled from 'styled-components'
 import Reaptcha from 'reaptcha'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -8,11 +9,21 @@ import {
   Box,
   Button,
   Form as GrommetForm,
-  FormField,
-  Text,
-  TextInput,
-  TextArea
+  Text
 } from 'grommet'
+
+import { Fields } from '../fields/Fields'
+
+const CaptchaBox = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  & .g-recaptcha {
+    width: 256px;
+    height: 60px;
+    margin-bottom:0.5rem;
+  }
+`
 
 const sendEmail = async ({ values, template, from, to }) => {
   const response = await fetch('https://t9vq7jwbe0.execute-api.us-east-1.amazonaws.com/prod/graphql', {
@@ -43,7 +54,8 @@ const sendEmail = async ({ values, template, from, to }) => {
 }
 
 const checkCaptcha = async (key, token) => {
-  const response = await fetch('https://utils.tutellus.com/graphql', {
+  const url = 'https://utils.tutellus.com/graphql'
+  const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -79,6 +91,14 @@ const StatusBox = ({ background, children }) =>
 const composeValidation = fields => {
   const config = Object.keys(fields).reduce((acu, name) => {
     const field = fields[name]
+
+    const getYupBase = () => {
+      if (field.type === 'checkbox') {
+        return yup.boolean()
+      }
+      return yup.string()
+    }
+
     if (field.validation) {
       const fieldConfig = Object.keys(field.validation).reduce((acu, key) => {
         switch (key) {
@@ -86,9 +106,16 @@ const composeValidation = fields => {
             return acu.required(field.validation[key])
           case 'email':
             return acu.email(field.validation[key])
+          case 'equalfield':
+            return acu.oneOf(
+              [yup.ref(field.validation[key].field)],
+              field.validation[key].text
+            )
+          case 'checked':
+            return acu.oneOf([true], field.validation[key])
         }
         return acu
-      }, yup.string())
+      }, getYupBase())
       acu[name] = fieldConfig
     }
     return acu
@@ -112,18 +139,33 @@ export const Form = ({
   const [status, setStatus] = useState({})
   const [valuesToSend, setValuesToSend] = useState()
   const [toSend, setToSend] = useState(false)
-  const [load, setLoad] = useState(false)
-  const { register, handleSubmit, errors, reset } = useForm({
-    validationSchema: composeValidation(fields)
+  const [captchaReady, setCaptchaReady] = useState(false)
+  const [rendered, setRendered] = useState(false)
+  const [sending, setSending] = useState(false)
+  const schema = useMemo(() => composeValidation(fields), [fields])
+  const { register, handleSubmit, errors, reset, setValue } = useForm({
+    validationSchema: schema
   })
   const captchaRef = useRef()
 
   useEffect(() => {
+    if (captchaReady && !rendered) {
+      captchaRef.current.renderExplicitly()
+      setRendered(true)
+    }
+  }, [captchaReady])
+
+  useEffect(() => {
+    Object.keys(fields).filter(key => fields[key].type === 'select')
+      .map(key => {
+        register({ name: key })
+      })
+  }, [fields])
+
+  useEffect(() => {
     let timeoutId
     const resetForm = (sended = false) => {
-      console.log('> resetForm', sended, timeout * (sended ? 1 : 2))
       timeoutId = setTimeout(() => {
-        console.log('< resetForm', sended)
         setStatus({})
         sended && onSend && onSend()
       }, timeout * (sended ? 1 : 2))
@@ -132,6 +174,7 @@ export const Form = ({
     }
     const sendForm = async () => {
       if (toSend) {
+        setSending(true)
         try {
           if (valuesToSend) {
             if (sendFormFn) {
@@ -154,14 +197,17 @@ export const Form = ({
           console.error('sendForm - ERROR', JSON.stringify(ex))
           setStatus({ error: true })
           resetForm()
+        } finally {
+          setSending(false)
         }
       }
     }
-    sendForm()
+    if (!sending) {
+      sendForm()
+    }
 
     return () => {
       if (timeoutId) {
-        console.log('- Clear Timeout', valuesToSend, toSend, status)
         clearTimeout(timeoutId)
       }
     }
@@ -193,81 +239,38 @@ export const Form = ({
     }
   }
 
-  const onFocus = () => {
-    if (!load) {
-      captchaRef.current.renderExplicitly()
-      setLoad(true)
-    }
-  }
-
-  const getInput = ({ id, name, type, placeholder }) => {
-    switch (type) {
-      case 'textarea':
-        return (
-          <TextArea
-            id={id}
-            name={name}
-            ref={register}
-            resize='vertical'
-            rows='3'
-            placeholder={placeholder}
-            onFocus={onFocus}
-          />
-        )
-      default:
-        return (
-          <TextInput
-            id={id}
-            name={name}
-            type={type}
-            ref={register}
-            placeholder={placeholder}
-            onFocus={onFocus}
-          />
-        )
-    }
-  }
-
-  const composeField = ({ key, label, name, ...props }) => {
-    if (errors[name]) console.log('composeField - errores', errors[name])
-    return (
-      <FormField
-        label={label}
-        key={key}
-        htmlFor={`${name}_id`}
-        error={errors[name] && <Text color='status-critical'>{errors[name].message}</Text>}
-      >
-        {getInput({
-          id: `${name}_id`,
-          name,
-          ...props
-        })}
-      </FormField>
-    )
-  }
-
   return (
     <Box align='center'>
       <GrommetForm onSubmit={handleSubmit(onSubmit)}>
         {Object.keys(fields).map((name, index) => {
           const field = fields[name]
-          if (name === 'captcha') {
+          if (name !== 'captcha') {
             return (
+              <Fields
+                key={`${id}_field_${index}`}
+                name={name}
+                register={register}
+                setValue={setValue}
+                errors={errors}
+                { ...field }
+              />
+            )
+          } else {
+            const composeReaptcha = () =>
               <Reaptcha
                 key={`${id}_captcha_${index}`}
                 ref={captchaRef}
                 sitekey={field.clientSecret || 'Invalid Site Key'}
+                onLoad={() => setCaptchaReady(true)}
                 onVerify={onVerify(field.key)}
-                size='invisible'
+                size={field.size || 'invisible'}
                 explicit
               />
+            return (
+              <CaptchaBox pad={{ top: 'medium' }} align='center'>
+                {composeReaptcha()}
+              </CaptchaBox>
             )
-          } else {
-            return composeField({
-              key: `${id}_field_${index}`,
-              name,
-              ...field
-            })
           }
         })}
         {status.send && <StatusBox background='status-ok'>{success}</StatusBox>}
@@ -275,7 +278,7 @@ export const Form = ({
         <Button
           primary
           type='submit'
-          disabled={!!valuesToSend || !load}
+          disabled={!!valuesToSend}
           margin={{ top: 'medium' }}
           {...button}
         />

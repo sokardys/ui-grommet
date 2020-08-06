@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import 'jarallax/dist/jarallax.css'
@@ -7,18 +7,34 @@ import { Box } from 'grommet'
 import { Cta } from '../cta/Cta'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
+import { useParallax } from '../hooks'
 
 const WaveBox = styled(Box)`
+  position: absolute;
+  z-index: 0;
   width: 100%;
   & svg {
     width: 100%;
   }
+  &.top {
+    top: 0;
+  }
+  &.bottom {
+    bottom: 0;
+  }
+`
+
+const RelativeBox = styled(Box)`
+  position: relative;
+  & .content {
+    z-index: 1;
+  }
 `
 
 export const Section = styled(({
-  className,
+  id,
   children,
-  background = 'light-1',
+  background,
   width = 'xlarge',
   title,
   titleConfig = {},
@@ -27,40 +43,27 @@ export const Section = styled(({
   parallax,
   parallaxConfig = {},
   waves = {},
+  wavesBoxConfig = {},
   cta,
   ...props
 }) => {
-  const parallaxRef = useRef()
-  useEffect(() => {
-    const { jarallax } = require('jarallax')
-    if (parallaxRef.current) {
-      jarallax(parallaxRef.current, parallaxConfig)
-    }
-    return () => {
-      if (parallaxRef.current) {
-        jarallax(parallaxRef.current, 'destroy')
-      }
-    }
-  }, [parallaxRef])
+  const [isActive, composeParallax] = useParallax({
+    type: parallax,
+    config: parallaxConfig
+  })
 
   const marginNone = { top: 'none', bottom: 'none', right: 'none', left: 'none' }
   const hasWaves = waves.top || waves.bottom
 
   const composeSection = () =>
-    <Box
-      className={className}
+    <RelativeBox
       align='center'
       pad={{ vertical: 'xlarge', horizontal: 'large' }}
       background={background}
       {...props}
     >
-      {parallax &&
-        <Box
-          className='jarallax'
-          ref={parallaxRef}
-        >
-          <img className='jarallax-img' src={parallax} />
-        </Box>}
+      {id && <span class='xtarget' id={id}>&nbsp;</span>}
+      {isActive && !hasWaves && composeParallax()}
       <Box className='content' width={width} flex='grow'>
         <>
           {title &&
@@ -68,6 +71,7 @@ export const Section = styled(({
               level='2'
               margin={{ ...marginNone, bottom: 'medium' }}
               title={title}
+              textAlign='center'
               {...titleConfig}
             />}
           {description &&
@@ -81,31 +85,23 @@ export const Section = styled(({
           {cta && <Cta margin={{ ...marginNone, top: 'large' }} {...cta} />}
         </>
       </Box>
-    </Box>
+    </RelativeBox>
   if (hasWaves) {
     return (
-      <Box pad='none' background={background}>
-        {waves.top && <WaveBox dangerouslySetInnerHTML={{ __html: waves.top }} />}
+      <RelativeBox pad='none' background={background} {...wavesBoxConfig}>
         {composeSection()}
-        {waves.bottom && <WaveBox dangerouslySetInnerHTML={{ __html: waves.bottom }} />}
-      </Box>
+        {isActive && composeParallax()}
+        {waves.top && <WaveBox className='top' dangerouslySetInnerHTML={{ __html: waves.top }} />}
+        {waves.bottom && <WaveBox className='bottom' dangerouslySetInnerHTML={{ __html: waves.bottom }} />}
+      </RelativeBox>
     )
   }
   return composeSection()
 })`
-  position: relative;
-  overflow: hidden;
-  transform: translateX(0);
-  & .jarallax {
-    position: absolute;
-    top:0 ;
-    left: 0;
-    width: 100%;
-    min-height: 50vh;
-    z-index: 0;
-  }
-  & .content {
-    z-index: 1;
+  & .xtarget {
+    margin-top: ${({ headerHeight = 60 }) => (headerHeight * -1)}px;
+    padding-bottom: ${({ headerHeight = 60 }) => headerHeight}px;
+    display: block;
   }
 `
 

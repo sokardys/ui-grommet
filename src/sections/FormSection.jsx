@@ -4,19 +4,23 @@ import { Close } from 'grommet-icons'
 import {
   Anchor,
   Box,
-  Stack,
   Text
 } from 'grommet'
 
-import {
-  Form,
-  Modal,
-  Section
-} from '..'
+import { Form } from '../form/Form'
+import { Modal } from '../modal/Modal'
+import { Section } from '../section/Section'
 
 const MyAnchor = styled(Anchor)`
   padding: 0;
 `
+
+const CloseBox = styled(Box)`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
 export const FormSection = ({
   id,
   fields = {},
@@ -25,15 +29,18 @@ export const FormSection = ({
   error,
   footer,
   emailSettings = {},
+  modalSettings = {},
+  hideCloseBtn = false,
   ...props
 }) =>
-  <Modal.Content id={id} margin='small'>
+  <Modal.Content id={id} margin='small' {...modalSettings}>
     {({ toggle }) =>
-      <Stack anchor='top-right'>
+      <>
         <Section
           width='medium'
           pad='large'
           round='small'
+          overflow='scroll'
           {...props}
         >
           <Form
@@ -42,9 +49,9 @@ export const FormSection = ({
               fields,
               button,
               success,
-              error,
-              ...emailSettings
+              error
             }}
+            {...emailSettings}
             onSend={toggle}
           />
           {footer &&
@@ -54,11 +61,12 @@ export const FormSection = ({
               dangerouslySetInnerHTML={{ __html: footer }}
             />}
         </Section>
-        <Box margin='small'>
-          <MyAnchor
-            onClick={toggle}
-            icon={<Close />}
-          />
-        </Box>
-      </Stack>}
+        {!hideCloseBtn &&
+          <CloseBox margin='small'>
+            <MyAnchor
+              onClick={toggle}
+              icon={<Close />}
+            />
+          </CloseBox>}
+      </>}
   </Modal.Content>

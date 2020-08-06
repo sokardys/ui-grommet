@@ -1,16 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-import {
-  Image
-} from 'ui-grommet'
+import { Box } from 'grommet'
+import { Image } from '../image/Image'
 
-import {
-  Box
-} from 'grommet'
-
-export const Logo = styled(({ src, ...props }) =>
+export const Logo = ({ src, ...props }) =>
   <Box
-
     {...props}
   >
     <Image
@@ -20,6 +13,3 @@ export const Logo = styled(({ src, ...props }) =>
       src={src}
     />
   </Box>
-)`
-  max-width: 75%;
-`

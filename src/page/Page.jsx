@@ -4,7 +4,7 @@ import { base } from 'grommet/themes'
 import { deepMerge } from 'grommet/utils'
 import { createGlobalStyle } from 'styled-components'
 
-import { Modal } from '..'
+import { Modal } from '../modal/Modal'
 
 const defaultTheme = deepMerge(base, {
   global: {
@@ -19,6 +19,9 @@ const defaultTheme = deepMerge(base, {
     },
     input: {
       weight: 400
+    },
+    font: {
+      family: 'Verdana, sans-serif'
     }
   },
   formField: {

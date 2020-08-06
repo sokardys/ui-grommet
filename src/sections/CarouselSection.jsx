@@ -1,8 +1,7 @@
 import React from 'react'
-import {
-  Carousel,
-  Section
-} from '..'
+
+import { Carousel } from '../carousel/Carousel'
+import { Section } from '../section/Section'
 
 export const CarouselSection = ({
   slides,

@@ -3,14 +3,45 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Layer } from 'grommet'
-import { useModalContext } from './Modal'
+import { useModalContext } from './useModalContext'
+
+import {
+  getIcon,
+  circleIcon
+} from '../icons/Icons'
 
 const MyLayer = styled(Layer)`
   background: transparent;
-  padding: 2em 0.5em;
+  position: 'relative'
 `
 
-const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
+const CloseIcon = styled(({ className, closeFn }) =>
+  circleIcon({
+    className,
+    Icon: getIcon('Close'),
+    height: '3rem',
+    width: '3rem',
+    onClick: closeFn,
+    hoverIndicator: true,
+    margin: 'small'
+  })
+)`
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 20;
+`
+
+const ModalContent = ({
+  id,
+  children,
+  onEsc,
+  onClickOutside,
+  disableEsc,
+  disableClickOutside,
+  showCloseIcon = true,
+  ...props
+}) => {
   const { state: { on, key }, actions, dispatch } = useModalContext()
   const isOn = key === id && on
   const myToggle = () => {
@@ -18,24 +49,29 @@ const ModalContent = ({ id, children, onEsc, onClickOutside, ...props }) => {
     return true
   }
 
-  const myToggleWrapper = fn => () => {
-    console.log('myToggleWrapper', isOn, key)
-    myToggle() && fn && fn()
+  const myToggleWrapper = (fn, disable = false) => () => {
+    !disable && myToggle() && fn && fn()
   }
+
+  const isRenderProps = typeof (children) === 'function'
 
   if (isOn) {
     return (
-      <MyLayer
-        onEsc={myToggleWrapper(onEsc)}
-        onClickOutside={myToggleWrapper(onClickOutside)}
-        {...props}
-      >
-        {
-          typeof (children) === 'function'
-            ? children({ on, toggle: myToggle })
-            : children
-        }
-      </MyLayer>
+      <>
+        {showCloseIcon && <CloseIcon closeFn={myToggle} />}
+        <MyLayer
+          onEsc={myToggleWrapper(onEsc, disableEsc)}
+          onClickOutside={myToggleWrapper(onClickOutside, disableClickOutside)}
+          {...props}
+        >
+
+          {
+            isRenderProps
+              ? children({ on, toggle: myToggle })
+              : children
+          }
+        </MyLayer>
+      </>
     )
   }
   return null

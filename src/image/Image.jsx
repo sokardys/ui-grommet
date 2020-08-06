@@ -33,6 +33,10 @@ const LazyImage = styled(GrommetImage)`
   ${({ width }) => (width ? `width: ${width}` : '')}
 `
 
+const CSSBox = styled(Box)`
+  ${({ css = '' }) => css}
+`
+
 export const Image = ({
   placeholder = DEFAULT_PLACEHOLDER,
   lazy = true,
@@ -89,7 +93,7 @@ export const Image = ({
       }
     }
     return () => {
-      if (observer && observer.unobserve) {
+      if (observer && observer.unobserve && imageRef.current) {
         observer.unobserve(imageRef.current)
         setLoading(false)
       }
@@ -109,9 +113,9 @@ export const Image = ({
 
   if (boxConfig) {
     return (
-      <Box overflow='hidden' {...boxConfig}>
+      <CSSBox overflow='hidden' {...boxConfig}>
         {composeImage()}
-      </Box>
+      </CSSBox>
     )
   }
 
