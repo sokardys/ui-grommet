@@ -6,10 +6,10 @@ import {
 import { Up } from 'grommet-icons'
 import { Floating } from '../floating/Floating'
 
-export const ScrollUpButton = () => {
+export const ScrollUpButton = ({ gap = 500, Icon = Up }) => {
   const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
   return (
-    <Floating position='bottom'>
+    <Floating position='bottom' gap={gap}>
       <Box
         background='accent-1'
         margin={{ left: 'medium' }}
@@ -17,7 +17,7 @@ export const ScrollUpButton = () => {
         hoverIndicator
         onClick={toTop}
       >
-        <Anchor color='brand' icon={<Up />} />
+        <Anchor color='brand' icon={<Icon />} />
       </Box>
     </Floating>
   )

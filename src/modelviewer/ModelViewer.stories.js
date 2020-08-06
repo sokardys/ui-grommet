@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Viewer } from './Viewer'
+import { ModelViewer } from './ModelViewer'
 import {
   Page
 } from '..'
 
-export default { title: 'Viewer' }
+export default { title: 'ModelViewer' }
 
 const Body = styled.div`
   font-family: 'Nunito Sans';
@@ -17,7 +17,7 @@ const Body = styled.div`
 export const Default = () =>
   <Page>
     <Body>
-      <Viewer
+      <ModelViewer
         viewerConfig={{
           'camera-controls': true,
           preload: true,

@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import Reaptcha from 'reaptcha'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup'
 
 import {
@@ -13,17 +14,6 @@ import {
 } from 'grommet'
 
 import { Fields } from '../fields/Fields'
-
-const CaptchaBox = styled(Box)`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  & .g-recaptcha {
-    width: 256px;
-    height: 60px;
-    margin-bottom:0.5rem;
-  }
-`
 
 const sendEmail = async ({ values, template, from, to }) => {
   const response = await fetch('https://t9vq7jwbe0.execute-api.us-east-1.amazonaws.com/prod/graphql', {
@@ -144,7 +134,7 @@ export const Form = ({
   const [sending, setSending] = useState(false)
   const schema = useMemo(() => composeValidation(fields), [fields])
   const { register, handleSubmit, errors, reset, setValue } = useForm({
-    validationSchema: schema
+    resolver: yupResolver(schema),
   })
   const captchaRef = useRef()
 
@@ -239,6 +229,17 @@ export const Form = ({
     }
   }
 
+  const composeReaptcha = ({ index, id, field }) =>
+    <Reaptcha
+      key={`${id}_captcha_${index}`}
+      ref={captchaRef}
+      sitekey={field.clientSecret || 'Invalid Site Key'}
+      onLoad={() => setCaptchaReady(true)}
+      onVerify={onVerify(field.key)}
+      size={field.size || 'invisible'}
+      explicit
+    />
+
   return (
     <Box align='center'>
       <GrommetForm onSubmit={handleSubmit(onSubmit)}>
@@ -256,21 +257,7 @@ export const Form = ({
               />
             )
           } else {
-            const composeReaptcha = () =>
-              <Reaptcha
-                key={`${id}_captcha_${index}`}
-                ref={captchaRef}
-                sitekey={field.clientSecret || 'Invalid Site Key'}
-                onLoad={() => setCaptchaReady(true)}
-                onVerify={onVerify(field.key)}
-                size={field.size || 'invisible'}
-                explicit
-              />
-            return (
-              <CaptchaBox pad={{ top: 'medium' }} align='center'>
-                {composeReaptcha()}
-              </CaptchaBox>
-            )
+            return composeReaptcha({id, index, field})
           }
         })}
         {status.send && <StatusBox background='status-ok'>{success}</StatusBox>}
