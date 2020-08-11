@@ -1,13 +1,12 @@
-import { useRef, useLayoutEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import Clipboard from 'clipboard'
 
-export const useClipboard = (onCopySuccess = () => {}) => {
+export const useClipboardText = (text, onCopySuccess = () => {}) => {
   const buttonRef = useRef(null)
-  const targetRef = useRef(null)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const cb = new Clipboard(buttonRef.current, {
-      text: () => targetRef.current.value
+      text: () => text
     })
     cb.on('success', (e) => {
       onCopySuccess()
@@ -17,5 +16,5 @@ export const useClipboard = (onCopySuccess = () => {}) => {
     }
   }, [])
 
-  return [buttonRef, targetRef]
+  return [buttonRef]
 }

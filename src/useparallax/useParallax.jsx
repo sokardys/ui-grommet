@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import 'jarallax/dist/jarallax.css'
+// import 'jarallax/dist/jarallax.css'
 
 import { Box } from 'grommet'
 
