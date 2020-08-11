@@ -10,11 +10,9 @@ import {
 } from 'grommet-icons'
 
 import { Video } from './Video'
-import {
-  Page,
-  Section,
-  Modal
-} from '..'
+import { Page } from '../page'
+import { Section } from '../section'
+import { Modal } from '../modal'
 
 export default { title: 'Video' }
 

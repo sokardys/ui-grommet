@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Box } from 'grommet'
-import { useParallax } from '../hooks'
+import { useParallax } from '../useparallax'
 
 export const Boxx = styled(({ className, children, parallax, parallaxConfig = {}, ...props }) => {
   const [isActive, composeContainer] = useParallax({

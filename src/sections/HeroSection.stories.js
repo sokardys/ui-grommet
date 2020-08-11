@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { HeroSection } from './HeroSection'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'Hero Section' }
 

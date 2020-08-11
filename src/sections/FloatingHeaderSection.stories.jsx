@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { FloatingHeaderSection } from './FloatingHeaderSection'
-import { Page } from '../page/Page'
-import { Section } from '../section/Section'
+import { Page } from '../page'
+import { Section } from '../section'
 
 export default { title: 'Floating Header Section' }
 

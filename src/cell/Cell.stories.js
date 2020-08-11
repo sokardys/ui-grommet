@@ -6,7 +6,7 @@ import {
 } from 'grommet'
 
 import { Cell } from './Cell'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'Cell' }
 

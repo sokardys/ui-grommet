@@ -14,11 +14,9 @@ import {
 
 import { Card } from './Card'
 
-import {
-  Badge,
-  Description,
-  Page
-} from '..'
+import { Badge } from '../badge'
+import { Description } from '../description'
+import { Page } from '../page'
 
 export default { title: 'Card' }
 

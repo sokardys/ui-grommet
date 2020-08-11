@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { ModelViewer } from './ModelViewer'
-import {
-  Page
-} from '..'
+import { Page } from '../page'
 
 export default { title: 'ModelViewer' }
 

@@ -8,8 +8,8 @@ import {
 
 import { icons } from './Icons'
 
-import { Page } from '../page/Page'
-import { Grid } from '../grid/Grid'
+import { Page } from '../page'
+import { Grid } from '../grid'
 
 export default { title: 'Icons' }
 

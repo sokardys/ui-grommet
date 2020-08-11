@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import PropTypes from 'prop-types'
 import { useDebounce } from 'use-debounce'
-import { useEffectAfterMount } from '../hooks'
+import { useEffectAfterMount } from '../useeffectaftermount'
 
 import { ModalContext } from './useModalContext'
 

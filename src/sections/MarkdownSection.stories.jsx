@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { MarkdownSection } from './MarkdownSection'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'Markdown Section' }
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Box } from 'grommet'
-import { useScrollPosition } from '../hooks'
+import { useScrollPosition } from '../usescrollposition'
 
 export const Floating = styled(({ className, children, gap = 200, debug = false, ...props }) => {
   const [show, setShow] = useState(false)

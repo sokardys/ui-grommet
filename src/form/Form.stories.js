@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Form } from './Form'
-import { Page } from '../page/Page'
-import { Section } from '../section/Section'
+import { Page } from '../page'
+import { Section } from '../section'
 
 export default { title: 'Form' }
 

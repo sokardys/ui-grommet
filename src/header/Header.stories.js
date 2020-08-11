@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Header } from './Header'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'Header' }
 

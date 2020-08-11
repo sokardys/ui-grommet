@@ -1,15 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {
-  Box
-} from 'grommet'
+import { Box } from 'grommet'
+import { Page } from '../page'
 
 import { Badge } from './Badge'
-
-import {
-  Page
-} from '..'
 
 export default { title: 'Badge' }
 

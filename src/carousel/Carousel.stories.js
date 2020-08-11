@@ -1,9 +1,8 @@
 import React from 'react'
 
 import { Carousel } from './Carousel'
-import { Image } from '../image/Image'
-
-import { Page } from '../page/Page'
+import { Image } from '../image'
+import { Page } from '../page'
 
 export default { title: 'Carousel' }
 

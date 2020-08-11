@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import RCTooltip from 'rc-tooltip'
-import 'rc-tooltip/assets/bootstrap_white.css'
 
 import {
   Box,

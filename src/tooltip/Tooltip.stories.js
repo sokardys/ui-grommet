@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import 'rc-tooltip/assets/bootstrap_white.css'
 
 import {
   Box,
   Text
 } from 'grommet'
 import { Tooltip } from './Tooltip'
-import {
-  Page,
-  Section
-} from '..'
+import { Page } from '../page'
+import { Section } from '../section'
 
 export default { title: 'Tooltip' }
 

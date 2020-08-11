@@ -7,7 +7,7 @@ import { Box } from 'grommet'
 import { Cta } from '../cta/Cta'
 import { Title } from '../title/Title'
 import { Description } from '../description/Description'
-import { useParallax } from '../hooks'
+import { useParallax } from '../useparallax'
 
 const WaveBox = styled(Box)`
   position: absolute;

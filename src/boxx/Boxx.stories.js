@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import 'jarallax/dist/jarallax.css'
 
 import { Boxx } from './Boxx'
 
-import {
-  Description,
-  Page
-} from '..'
+import { Description } from '../description'
+import { Page } from '../page'
 
 export default { title: 'Boxx' }
 

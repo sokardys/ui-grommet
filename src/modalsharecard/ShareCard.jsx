@@ -25,10 +25,8 @@ import {
   circleIcon
 } from '../icons/Icons'
 
-import {
-  useTimeoutState,
-  useClipboardText
-} from '../hooks'
+import { useTimeoutState } from '../usetimeoutstate'
+import { useClipboardText } from '../useclipboardtext'
 
 const getButton = ({ channel, url, title, hashtags, closeFn, iconSettings }) => {
   switch (channel) {

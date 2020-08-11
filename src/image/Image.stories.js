@@ -2,13 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Box } from 'grommet'
-import {
-  Image
-} from './Image'
-import {
-  Grid,
-  Page
-} from '..'
+import { Image } from './Image'
+import { Grid } from '../grid'
+import { Page } from '../page'
 
 export default { title: 'Image' }
 

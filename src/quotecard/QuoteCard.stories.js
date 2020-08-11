@@ -5,10 +5,8 @@ import { Box } from 'grommet'
 
 import { QuoteCard } from './QuoteCard'
 
-import {
-  Page,
-  Grid
-} from '..'
+import { Page } from '../page'
+import { Grid } from '../grid'
 
 export default { title: 'QuoteCard' }
 

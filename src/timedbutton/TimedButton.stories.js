@@ -3,9 +3,7 @@ import styled from 'styled-components'
 
 import { Box } from 'grommet'
 import { TimedButton } from './TimedButton'
-import {
-  Page
-} from '..'
+import { Page } from '../page'
 
 export default { title: 'TimedButton' }
 

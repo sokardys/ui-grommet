@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'styled-components'
 import { JSONPage } from './JSONPage'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'JSON Page' }
 

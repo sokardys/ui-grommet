@@ -2,10 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Title } from './Title'
-import {
-  Page,
-  Section
-} from '..'
+import { Page } from '../page'
+import { Section } from '../section'
 
 export default { title: 'Title' }
 

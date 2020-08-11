@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Box } from 'grommet'
 import { Markdown } from './Markdown'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'Markdown' }
 

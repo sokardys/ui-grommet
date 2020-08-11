@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import 'rc-tooltip/assets/bootstrap_white.css'
 
 import { Box } from 'grommet'
 import { Specs } from './Specs'
-import { Page } from '..'
+import { Page } from '../page'
 
 export default { title: 'Specs' }
 
@@ -24,7 +25,7 @@ const specs = [
       color: 'dark-1',
       title: 'Daily Featured Games',
       content: 'The best daily game chosen by the community based on score & reviews.',
-      placement: 'right'
+      placement: 'bottom'
     }, {
       top: '15%',
       left: '69%',

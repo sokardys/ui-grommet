@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {
-  Button
-} from 'grommet'
+import { Button } from 'grommet'
 
 import { FormSection } from './FormSection'
-import { Page } from '../page/Page'
-import { Modal } from '../modal/Modal'
+import { Page } from '../page'
+import { Modal } from '../modal'
 
 export default { title: 'Form Section' }
 

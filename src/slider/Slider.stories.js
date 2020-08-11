@@ -7,10 +7,8 @@ import {
 
 import { Slider } from './Slider'
 
-import {
-  Page,
-  QuoteCard
-} from '..'
+import { Page } from '../page'
+import { QuoteCard } from '../quotecard'
 
 export default { title: 'Slider' }
 

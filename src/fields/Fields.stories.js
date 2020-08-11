@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Form } from 'grommet'
 
 import { Fields } from './Fields'
-import { Page } from '../page/Page'
-import { Section } from '../section/Section'
+import { Page } from '../page'
+import { Section } from '../section'
 
 export default { title: 'Fields' }
 

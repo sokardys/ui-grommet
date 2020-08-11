@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {
-  Box
-} from 'grommet'
+import { Box } from 'grommet'
 
 import { SocialBox } from './SocialBox'
-import { Page } from '../page/Page'
+import { Page } from '../page'
 
 export default { title: 'SocialBox' }
 

@@ -6,10 +6,8 @@ import { ShareOption } from 'grommet-icons'
 
 import { ModalShareCard } from './ModalShareCard'
 
-import {
-  Page,
-  Modal
-} from '..'
+import { Page } from '../page'
+import { Modal } from '../modal'
 
 export default { title: 'ModalShareCard' }
 
