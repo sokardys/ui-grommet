@@ -1,3 +1,11 @@
+### 0.3.0 (2020-08-11)
+- feat(bit) update to 0.3.0 (5885bd1)
+- feat(bit) reset bit library (4cfadb8)
+- refactor: move components to components directory. Use stories dir for Storybook (a08d301)
+- refactor: use direct import instead of index.js (f980f3b)
+- fix(PopoverBox) pass placement property OK (b036790)
+- feat(hooks) externalize hooks as components (4b9be75)
+
 ### 0.2.0 (2020-08-06)
 - feat(bit) allow deploy to bit.dev (571c188)
 - refactor(Viewer) upodated name tu ModelViewer (f2f6024)
