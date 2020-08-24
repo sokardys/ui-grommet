@@ -1,9 +1,8 @@
 /* global fetch */
 import React, { useRef, useState, useEffect, useMemo } from 'react'
-import styled from 'styled-components'
 import Reaptcha from 'reaptcha'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers';
+import { yupResolver } from '@hookform/resolvers'
 import * as yup from 'yup'
 
 import {
@@ -134,7 +133,7 @@ export const Form = ({
   const [sending, setSending] = useState(false)
   const schema = useMemo(() => composeValidation(fields), [fields])
   const { register, handleSubmit, errors, reset, setValue } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   })
   const captchaRef = useRef()
 
@@ -253,11 +252,11 @@ export const Form = ({
                 register={register}
                 setValue={setValue}
                 errors={errors}
-                { ...field }
+                {...field}
               />
             )
           } else {
-            return composeReaptcha({id, index, field})
+            return composeReaptcha({ id, index, field })
           }
         })}
         {status.send && <StatusBox background='status-ok'>{success}</StatusBox>}

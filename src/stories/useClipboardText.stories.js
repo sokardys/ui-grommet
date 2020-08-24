@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   grommet,
   Box,
   Button,
-  Grommet,
-  TextInput
+  Grommet
 } from 'grommet'
 import { useClipboardText } from '../components/useClipboardText'
 import { useTimeoutState } from '../components/useTimeoutState'
