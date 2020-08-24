@@ -1,3 +1,7 @@
+### 0.3.1 (2020-08-24)
+- fix(eslint) install babel-eslint as devDependencies, linter issues solved (d009601)
+- fix(index) write directory path with case-sensitive mode (9a7f300)
+
 ### 0.3.0 (2020-08-11)
 - feat(bit) update to 0.3.0 (5885bd1)
 - feat(bit) reset bit library (4cfadb8)

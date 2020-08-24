@@ -1,6 +1,6 @@
 {
   "name": "ui-grommet",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -43,6 +43,7 @@
     "@storybook/addon-storysource": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@storybook/source-loader": "^5.3.19",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "flickity": "^2.2.1",
     "flickity-sync": "^2.0.0",

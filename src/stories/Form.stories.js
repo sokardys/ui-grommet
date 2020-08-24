@@ -52,7 +52,7 @@ const form = {
       validation: {
         checked: 'Debes aceptar los terminos y condiciones...'
       }
-    },
+    }
   },
   success: 'Formulario enviado!',
   error: 'Ups! Error, intentalo más tarde!',
