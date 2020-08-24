@@ -33,7 +33,7 @@ export const PopoverBox = ({ tips = [], children, ...props }) => {
   return (
     <RelativeBox fill {...props}>
       {children}
-      {tips.map(({placement, ...tip}, index) =>
+      {tips.map(({ placement, ...tip }, index) =>
         composePulse({
           ...tip,
           index,
