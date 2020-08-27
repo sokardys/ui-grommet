@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -73,13 +74,13 @@ export const QuoteCard = ({
         margin: { top: 'medium' }
       }}
       footer={
-        <>
+        <React.Fragment>
           <Box direction='column'>
             <Text weight='bold' {...nameConfig}>{name}</Text>
             <Text {...headlineConfig}>{headline}</Text>
           </Box>
           {socialIcon && composeSocialIcon()}
-        </>
+        </React.Fragment>
       }
     >
       <RelativeBox direction='column' fill='vertical'>

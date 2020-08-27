@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import 'rc-tooltip/assets/bootstrap_white.css'
 
 import { Box } from 'grommet'
 

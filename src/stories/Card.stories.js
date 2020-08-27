@@ -1,4 +1,5 @@
 /* global alert */
+/* eslint-disable react/jsx-fragments */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -80,14 +81,14 @@ export const WithStack = () =>
             </Badge>
           }
           footer={
-            <>
+            <React.Fragment>
               <Text weight='bold' size='large'>
                 29 €/mes
               </Text>
               <Anchor onClick={() => alert('Hey')}>
                 <Next size='medium' />
               </Anchor>
-            </>
+            </React.Fragment>
           }
         />
       </Box>
@@ -123,14 +124,14 @@ export const WithHeader = () =>
           hover
           hoverColor='dark-3'
           header={
-            <>
+            <React.Fragment>
               <Text weight='bold' size='large'>
                 Titulo del Card
               </Text>
               <Anchor onClick={() => alert('Hey')}>
                 <Next size='medium' />
               </Anchor>
-            </>
+            </React.Fragment>
           }
         />
       </Box>

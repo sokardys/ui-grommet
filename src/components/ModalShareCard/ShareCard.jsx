@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
@@ -116,7 +117,7 @@ export const ShareCard = styled(({
     <Card
       className={className}
       header={
-        <>
+        <React.Fragment>
           <Text weight='bold' size='medium'>
             {header}
           </Text>
@@ -124,7 +125,7 @@ export const ShareCard = styled(({
             <Anchor onClick={closeFn} margin={{ top: 'xsmall' }}>
               <CloseIcon />
             </Anchor>}
-        </>
+        </React.Fragment>
       }
       width={isSmall ? 'large' : 'auto'}
     >

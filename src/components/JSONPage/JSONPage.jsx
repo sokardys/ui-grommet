@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
@@ -14,7 +15,7 @@ import {
 import { ScrollUpButton } from '../ScrollUpButton'
 
 export const JSONPage = ({ uri, sections = [] }) =>
-  <>
+  <React.Fragment>
     {sections.map(({ section, ...config }, index) => {
       switch (section) {
         case 'carousel':
@@ -34,11 +35,11 @@ export const JSONPage = ({ uri, sections = [] }) =>
         case 'seo':
           return <SeoSection key={`jsonpage-section-${index}`} {...config} uri={uri} />
         default:
-          return <></>
+          return <React.Fragment></React.Fragment>
       }
     })}
     <ScrollUpButton />
-  </>
+  </React.Fragment>
 
 JSONPage.propTypes = {
   sections: PropTypes.array.isRequired

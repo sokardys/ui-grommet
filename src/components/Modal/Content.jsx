@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -57,7 +58,7 @@ const ModalContent = ({
 
   if (isOn) {
     return (
-      <>
+      <React.Fragment>
         {showCloseIcon && <CloseIcon closeFn={myToggle} />}
         <MyLayer
           onEsc={myToggleWrapper(onEsc, disableEsc)}
@@ -71,7 +72,7 @@ const ModalContent = ({
               : children
           }
         </MyLayer>
-      </>
+      </React.Fragment>
     )
   }
   return null
