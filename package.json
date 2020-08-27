@@ -23,7 +23,6 @@
     {"name": "Sokardys"},
     {"name": "Whiteyhat"}
   ],
-  "private": true,
   "scripts": {
     "build": "microbundle-crl --css-modules false --no-compress --format modern,cjs",
     "prepare": "run-s clean build",
