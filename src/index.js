@@ -1,4 +1,5 @@
 /* eslint-disable */
+import './style.sass'
 
 import * as AllSections from './components/sections'
 

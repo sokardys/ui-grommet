@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React from 'react'
 import styled from 'styled-components'
 import { Close } from 'grommet-icons'
@@ -35,7 +36,7 @@ export const FormSection = ({
 }) =>
   <Modal.Content id={id} margin='small' {...modalSettings}>
     {({ toggle }) =>
-      <>
+      <React.Fragment>
         <Section
           width='medium'
           pad='large'
@@ -68,5 +69,5 @@ export const FormSection = ({
               icon={<Close />}
             />
           </CloseBox>}
-      </>}
+      </React.Fragment>}
   </Modal.Content>

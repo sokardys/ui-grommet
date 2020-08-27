@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import 'flickity/css/flickity.css'
 import { Box } from 'grommet'
 
 export const Slider = styled(({ className, options = { autoPlay: true, wrapAround: true }, children = [], ...props }) => {

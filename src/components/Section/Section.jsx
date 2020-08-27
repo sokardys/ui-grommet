@@ -1,7 +1,7 @@
+/* eslint-disable react/jsx-fragments */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import 'jarallax/dist/jarallax.css'
 
 import { Box } from 'grommet'
 import { Cta } from '../Cta'
@@ -65,7 +65,7 @@ export const Section = styled(({
       {id && <span class='xtarget' id={id}>&nbsp;</span>}
       {isActive && !hasWaves && composeParallax()}
       <Box className='content' width={width} flex='grow'>
-        <>
+        <React.Fragment>
           {title &&
             <Title
               level='2'
@@ -83,7 +83,7 @@ export const Section = styled(({
             </Description>}
           {children}
           {cta && <Cta margin={{ ...marginNone, top: 'large' }} {...cta} />}
-        </>
+        </React.Fragment>
       </Box>
     </RelativeBox>
   if (hasWaves) {

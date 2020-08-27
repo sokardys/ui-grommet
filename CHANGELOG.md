@@ -1,3 +1,6 @@
+### 0.4.0 (2020-08-27)
+- feat(packagin) Some modifications for microbundle packaging (b6abf63)
+
 ### 0.3.1 (2020-08-24)
 - fix(eslint) install babel-eslint as devDependencies, linter issues solved (d009601)
 - fix(index) write directory path with case-sensitive mode (9a7f300)

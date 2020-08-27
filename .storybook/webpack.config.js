@@ -8,6 +8,12 @@ module.exports = function({ config }) {
     ],
     enforce: 'pre',
   });
+  config.module.rules.push({
+    test: /\.sass$/,
+    use: [{
+        loader: "sass-loader" // compiles Sass to CSS
+    }]
+  })
 
   return config;
 };
