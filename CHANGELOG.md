@@ -1,3 +1,6 @@
+### 0.4.1 (2020-08-27)
+- fix(package.json) remove private property (c5796e8)
+
 ### 0.4.0 (2020-08-27)
 - feat(packagin) Some modifications for microbundle packaging (b6abf63)
 
