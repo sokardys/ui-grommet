@@ -1,6 +1,6 @@
 {
   "name": "@sokardys/ui-grommet",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Small library of grommet-based components",
   "main": "dist/ui-grommet.js",
   "module": "dist/ui-grommet.modern.js",
@@ -20,8 +20,9 @@
   "bugs": "https://github.com/sokardys/ui-grommet/issues",
   "license": "UNLICENSED",
   "contributors": [
-    {"name": "Sokardys"},
-    {"name": "Whiteyhat"}
+    {"name": "sokardys" },
+    {"name": "whiteyhat" },
+    {"name": "emjimenez" }
   ],
   "scripts": {
     "build": "microbundle-crl --css-modules false --no-compress --format modern,cjs",
