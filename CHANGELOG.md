@@ -1,3 +1,8 @@
+### 0.4.3 (2020-09-08)
+- fix(Analytics) allow SSR (e39e7ec)
+- fix(Icons) delete style settings to allow Grommet Styles (b16a1f5)
+- feat(icons): Discord and Itchio icons (5234f64)
+
 ### 0.4.2 (2020-08-29)
 - feat(TabNav) TabNav component (1f72c27)
 
