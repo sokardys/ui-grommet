@@ -1,6 +1,6 @@
 {
   "name": "@sokardys/ui-grommet",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Small library of grommet-based components",
   "main": "dist/ui-grommet.js",
   "module": "dist/ui-grommet.modern.js",
