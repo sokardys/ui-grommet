@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 
 export const Analytics = ({ trackerId, ...rest }) => {
-  const { asPath } = useRouter()
+  const route = useRouter()
   const [initialized, setInitialized] = useState()
 
   useEffect(() => {
@@ -12,11 +12,14 @@ export const Analytics = ({ trackerId, ...rest }) => {
       ReactGA.initialize(trackerId, { ...rest })
       setInitialized(true)
     }
-    if (window && asPath) {
-      ReactGA.set({ page: asPath })
-      ReactGA.pageview(asPath)
+  }, [initialized])
+
+  useEffect(() => {
+    if (process.browser && route.asPath) {
+      ReactGA.set({ page: route.asPath })
+      ReactGA.pageview(route.asPath)
     }
-  }, [initialized, asPath])
+  }, [route])
 
   return null
 }
