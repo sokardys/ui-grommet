@@ -9,12 +9,22 @@ import { Title } from '../Title'
 import { Description } from '../Description'
 import { useParallax } from '../useParallax'
 
-const WaveBox = styled(Box)`
+const WaveBox = styled(Box)
+  .attrs(({ height = '96px', ...props }) =>
+    ({
+      height,
+      ...props
+    })
+  )`
   position: absolute;
   z-index: 0;
   width: 100%;
   & svg {
     width: 100%;
+    height: ${({ height }) => height};
+    & path {
+      width: 100%;
+    }
   }
   &.top {
     top: 0;
@@ -86,13 +96,32 @@ export const Section = styled(({
         </React.Fragment>
       </Box>
     </RelativeBox>
+
   if (hasWaves) {
+    const {
+      height: waveHeight = '96px',
+      ...wavesProps
+    } = wavesBoxConfig
+
+    const composeWave = ({ wave, ...props }) =>
+      <WaveBox
+        dangerouslySetInnerHTML={{ __html: wave }}
+        {...props}
+      />
+
     return (
-      <RelativeBox pad='none' background={background} {...wavesBoxConfig}>
+      <RelativeBox
+        background={background}
+        pad={{
+          top: waves.top ? waveHeight : undefined,
+          bottom: waves.bottom ? waveHeight : undefined
+        }}
+        {...wavesProps}
+      >
         {composeSection()}
         {isActive && composeParallax()}
-        {waves.top && <WaveBox className='top' dangerouslySetInnerHTML={{ __html: waves.top }} />}
-        {waves.bottom && <WaveBox className='bottom' dangerouslySetInnerHTML={{ __html: waves.bottom }} />}
+        {waves.top && composeWave({ className: 'top', height: waveHeight, wave: waves.top })}
+        {waves.bottom && composeWave({ className: 'bottom', height: waveHeight, wave: waves.bottom })}
       </RelativeBox>
     )
   }

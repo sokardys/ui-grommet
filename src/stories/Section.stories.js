@@ -129,6 +129,12 @@ export const WithWaves = () =>
       align='center'
       title='Section 1'
       background='light-1'
+      waves={{
+        top: '<svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#D80929" fill-opacity="1" d="M0,160L80,149.3C160,139,320,117,480,112C640,107,800,117,960,117.3C1120,117,1280,107,1360,101.3L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"/></svg>'
+      }}
+      wavesBoxConfig={{
+        height: '50px'
+      }}
     >
       <Box pad='medium'>
         <Text>Sample Content</Text>
@@ -139,8 +145,8 @@ export const WithWaves = () =>
       title='Waves Sample'
       background='dark-1'
       waves={{
-        top: '<svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg"><path fill="#F8F8F8" fill-opacity="1" d="M0,160L80,149.3C160,139,320,117,480,112C640,107,800,117,960,117.3C1120,117,1280,107,1360,101.3L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"/></svg>',
-        bottom: '<svg viewBox="0 179.263 1440 140.737" xmlns="http://www.w3.org/2000/svg"><path fill="#7D4CDB" fill-opacity="1" d="M0,256L80,266.7C160,277,320,299,480,282.7C640,267,800,213,960,192C1120,171,1280,181,1360,186.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/></svg>'
+        top: '<svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#F8F8F8" fill-opacity="1" d="M0,160L80,149.3C160,139,320,117,480,112C640,107,800,117,960,117.3C1120,117,1280,107,1360,101.3L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"/></svg>',
+        bottom: '<svg viewBox="0 179.263 1440 140.737" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#7D4CDB" fill-opacity="1" d="M0,256L80,266.7C160,277,320,299,480,282.7C640,267,800,213,960,192C1120,171,1280,181,1360,186.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/></svg>'
       }}
       margin='medium'
     >
@@ -148,7 +154,7 @@ export const WithWaves = () =>
         <Text>
           Use https://getwaves.io/ to generate the desired shape.
           <br /><br />
-          After downloading it, you will have to adjust the svg to avoid transparent space. The maximum height should correspond to the wave' height
+          After downloading it, you will have to adjust the svg to avoid transparent space. It's important the <code>preserveAspectRatio="none"</code> on svg, the height is fixed to 96px
         </Text>
       </Box>
     </Section>
