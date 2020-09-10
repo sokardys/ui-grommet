@@ -1,3 +1,7 @@
+### 0.4.4 (2020-09-10)
+- feat(useResponsiveValue) new hook using responsive grommet context (93c0585)
+- fix(Section) waves sized by wavesBoxConfig.height default '96px' (c7faad3)
+
 ### 0.4.3 (2020-09-08)
 - fix(Analytics) allow SSR (e39e7ec)
 - fix(Icons) delete style settings to allow Grommet Styles (b16a1f5)
