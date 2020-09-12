@@ -1,3 +1,8 @@
+### 0.4.5 (2020-09-12)
+- fix(useScrollPosition) change useLayoutEffect with useEffect to omit SSR warning (f7ff9f9)
+- fix(useResponsivevalue) export hook correctly (7d37d58)
+- fix(Section) change reserved prop class to className (f034f0c)
+
 ### 0.4.4 (2020-09-10)
 - feat(useResponsiveValue) new hook using responsive grommet context (93c0585)
 - fix(Section) waves sized by wavesBoxConfig.height default '96px' (c7faad3)
