@@ -72,7 +72,7 @@ export const Section = styled(({
       background={background}
       {...props}
     >
-      {id && <span class='xtarget' id={id}>&nbsp;</span>}
+      {id && <span className='xtarget' id={id}>&nbsp;</span>}
       {isActive && !hasWaves && composeParallax()}
       <Box className='content' width={width} flex='grow'>
         <React.Fragment>
