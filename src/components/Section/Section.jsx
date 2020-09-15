@@ -88,9 +88,8 @@ export const Section = styled(({
             <Description
               margin={{ ...marginNone, bottom: 'large' }}
               {...descriptionConfig}
-            >
-              {description}
-            </Description>}
+              dangerouslySetInnerHTML={{ __html: description }}
+            />}
           {children}
           {cta && <Cta margin={{ ...marginNone, top: 'large' }} {...cta} />}
         </React.Fragment>
