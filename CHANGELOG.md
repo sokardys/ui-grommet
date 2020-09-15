@@ -1,3 +1,6 @@
+### 0.4.6 (2020-09-15)
+- fix(Description) allow html on description (8364796)
+
 ### 0.4.5 (2020-09-12)
 - fix(useScrollPosition) change useLayoutEffect with useEffect to omit SSR warning (f7ff9f9)
 - fix(useResponsivevalue) export hook correctly (7d37d58)
