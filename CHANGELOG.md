@@ -1,3 +1,6 @@
+### 0.4.7 (2020-09-17)
+- fix(useResponsiveValue) caseSensitive problem (37c281a)
+
 ### 0.4.6 (2020-09-15)
 - fix(Description) allow html on description (8364796)
 
