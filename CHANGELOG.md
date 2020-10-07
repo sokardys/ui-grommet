@@ -1,3 +1,7 @@
+### 0.4.8 (2020-10-07)
+- chore added README (c96c431)
+- fix(libraries) update libraries, above all @hookform/resolvers (21b28af)
+
 ### 0.4.7 (2020-09-17)
 - fix(useResponsiveValue) caseSensitive problem (37c281a)
 
